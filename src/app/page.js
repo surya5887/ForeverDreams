@@ -399,7 +399,7 @@ export default function Home() {
               <p className={styles.ctaDesc}>Book a free consultation with our design experts.</p>
             </div>
             <div className={styles.ctaRight}>
-              <Link href="/contact" className={styles.ctaBtnWhite}>
+              <Link href="/about-us#contact-form" className={styles.ctaBtnWhite}>
                 BOOK FREE CONSULTATION <FiArrowRight />
               </Link>
             </div>
@@ -439,7 +439,7 @@ export default function Home() {
               <li><Link href="/services">Services</Link></li>
               <li><Link href="/design-gallery">Portfolio</Link></li>
               <li><Link href="/blog">Blog</Link></li>
-              <li><Link href="/contact">Contact Us</Link></li>
+              <li><Link href="/about-us#contact-form">Contact Us</Link></li>
             </ul>
           </div>
 

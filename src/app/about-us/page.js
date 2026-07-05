@@ -202,7 +202,7 @@ export default function AboutUsPage() {
       </section>
 
       {/* ── Contact Form ── */}
-      <section className={styles.formSection}>
+      <section id="contact-form" className={styles.formSection}>
         <div className={styles.container}>
           <div className={styles.formGrid}>
             <div className={styles.formInfo}>

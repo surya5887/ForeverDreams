@@ -101,7 +101,7 @@ export default function Navbar() {
 
           {/* CTA & Mobile Toggle */}
           <div className={styles.rightActions}>
-            <Link href="/contact" className={styles.ctaBtn}>
+            <Link href="/about-us#contact-form" className={styles.ctaBtn}>
               GET A FREE QUOTE <FiArrowRight />
             </Link>
             
