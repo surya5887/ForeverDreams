@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { db } from '../lib/firebase';
+import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore';
 import { FiArrowRight, FiPlay, FiPhone, FiMail, FiArrowLeft } from 'react-icons/fi';
 import { 
   FaWhatsapp, FaHome, FaCity, FaUtensils, FaCouch, FaKey, FaCubes,
@@ -12,6 +14,34 @@ import {
 import styles from './page.module.css';
 
 export default function Home() {
+  const [recentProjects, setRecentProjects] = useState([]);
+
+  useEffect(() => {
+    const fetchRecentProjects = async () => {
+      try {
+        const q = query(collection(db, 'recentProjects'), limit(8));
+        const snap = await getDocs(q);
+        const projects = [];
+        snap.forEach(doc => projects.push({ id: doc.id, ...doc.data() }));
+        
+        // If empty, use fallbacks temporarily until seeded
+        if (projects.length === 0) {
+          setRecentProjects([
+            { id: 1, title: 'Modern Living Room', loc: 'Meerut', imageUrl: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258290/forever_dreams/home/rfsm5hkug7ary3rdls7m.jpg' },
+            { id: 2, title: 'Luxury Bedroom', loc: 'Noida', imageUrl: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258291/forever_dreams/home/xi7mmmxwd4gf5njvi6bq.jpg' },
+            { id: 3, title: 'Elegant Kitchen', loc: 'Delhi', imageUrl: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258292/forever_dreams/home/ekqyrpv1zjvze8wiff2p.jpg' },
+            { id: 4, title: 'Contemporary Office', loc: 'Gurugram', imageUrl: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258293/forever_dreams/home/rajqvbq7p8pihihduqev.jpg' }
+          ]);
+        } else {
+          setRecentProjects(projects);
+        }
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      }
+    };
+    fetchRecentProjects();
+  }, []);
+
   return (
     <div className={styles.page}>
       
@@ -174,17 +204,12 @@ export default function Home() {
           <div className={styles.recentCarouselWrap}>
             <button className={styles.navBtnLeft}><FiArrowLeft /></button>
             <div className={styles.recentCarousel}>
-              {[
-                { title: 'Modern Living Room', loc: 'Meerut', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258290/forever_dreams/home/rfsm5hkug7ary3rdls7m.jpg' },
-                { title: 'Luxury Bedroom', loc: 'Noida', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258291/forever_dreams/home/xi7mmmxwd4gf5njvi6bq.jpg' },
-                { title: 'Elegant Kitchen', loc: 'Delhi', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258292/forever_dreams/home/ekqyrpv1zjvze8wiff2p.jpg' },
-                { title: 'Contemporary Office', loc: 'Gurugram', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258293/forever_dreams/home/rajqvbq7p8pihihduqev.jpg' }
-              ].map((proj, idx) => (
-                <div key={idx} className={styles.recentCard}>
-                  <img src={proj.img} alt={proj.title} className={styles.recentCardImg} />
+              {recentProjects.map((proj, idx) => (
+                <div key={proj.id || idx} className={styles.recentCard}>
+                  <img src={proj.imageUrl || proj.img} alt={proj.title} className={styles.recentCardImg} />
                   <div className={styles.recentCardOverlay}>
                     <h4 className={styles.recentCardTitle}>{proj.title}</h4>
-                    <p className={styles.recentCardLoc}>{proj.loc}</p>
+                    <p className={styles.recentCardLoc}>{proj.location || proj.loc}</p>
                   </div>
                 </div>
               ))}

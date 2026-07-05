@@ -2,10 +2,10 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { db } from '../../../lib/firebase';
-import { collection, getDocs, addDoc, deleteDoc, doc, query, where } from 'firebase/firestore';
+import { collection, getDocs, addDoc, deleteDoc, doc, updateDoc } from 'firebase/firestore';
 import { uploadToCloudinary } from '../../../lib/cloudinary';
 import styles from '../admin.module.css';
-import { FiTrash2 } from 'react-icons/fi';
+import { FiTrash2, FiEdit2 } from 'react-icons/fi';
 
 export default function GalleryPage() {
   const [categories, setCategories] = useState([]);
@@ -20,6 +20,7 @@ export default function GalleryPage() {
   const [year, setYear] = useState('');
   const [description, setDescription] = useState('');
   const [files, setFiles] = useState([]);
+  const [editingId, setEditingId] = useState(null);
   const [isSaving, setIsSaving] = useState(false);
   const fileInputRef = useRef(null);
 
@@ -56,36 +57,52 @@ export default function GalleryPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!title || !categoryId || files.length === 0) {
-      alert("Title, Category, and at least one image are required.");
+    if (!title || !categoryId) {
+      alert("Title and Category are required.");
       return;
     }
+    
+    if (!editingId && files.length === 0) {
+      alert("At least one image is required for new items.");
+      return;
+    }
+
     setIsSaving(true);
 
     try {
       const uploadedImageUrls = [];
 
       // Upload each file to Cloudinary
-      for (const file of files) {
-        const formData = new FormData();
-        formData.append("file", file);
-        const result = await uploadToCloudinary(formData);
-        uploadedImageUrls.push(result.secure_url);
+      if (files.length > 0) {
+        for (const file of files) {
+          const formData = new FormData();
+          formData.append("file", file);
+          const result = await uploadToCloudinary(formData);
+          uploadedImageUrls.push(result.secure_url);
+        }
       }
 
-      // Save to Firestore
-      const newItem = {
-        title,
-        categoryId,
-        clientName,
-        location,
-        year,
-        description,
-        images: uploadedImageUrls,
-        createdAt: new Date()
-      };
-
-      await addDoc(collection(db, 'galleryItems'), newItem);
+      if (editingId) {
+        const updateData = { title, categoryId, clientName, location, year, description };
+        if (uploadedImageUrls.length > 0) {
+          updateData.images = uploadedImageUrls; // Note: This replaces old images, for simplicity
+        }
+        await updateDoc(doc(db, 'galleryItems', editingId), updateData);
+        alert("Gallery item updated successfully!");
+      } else {
+        const newItem = {
+          title,
+          categoryId,
+          clientName,
+          location,
+          year,
+          description,
+          images: uploadedImageUrls,
+          createdAt: new Date()
+        };
+        await addDoc(collection(db, 'galleryItems'), newItem);
+        alert("Gallery item added successfully!");
+      }
       
       // Reset
       setTitle('');
@@ -95,9 +112,9 @@ export default function GalleryPage() {
       setYear('');
       setDescription('');
       setFiles([]);
+      setEditingId(null);
       if (fileInputRef.current) fileInputRef.current.value = "";
       
-      alert("Gallery item added successfully!");
       fetchData();
     } catch (error) {
       console.error("Error saving gallery item:", error);
@@ -105,6 +122,18 @@ export default function GalleryPage() {
     } finally {
       setIsSaving(false);
     }
+  };
+
+  const handleEdit = (item) => {
+    setTitle(item.title);
+    setCategoryId(item.categoryId);
+    setClientName(item.clientName || '');
+    setLocation(item.location || '');
+    setYear(item.year || '');
+    setDescription(item.description || '');
+    setEditingId(item.id);
+    setFiles([]); // Require re-uploading if they want to change images
+    if (fileInputRef.current) fileInputRef.current.value = "";
   };
 
   const handleDelete = async (id) => {
@@ -127,20 +156,20 @@ export default function GalleryPage() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
         {/* Form */}
         <div className={styles.card}>
-          <h3>Add New Design Card</h3>
+          <h3 style={{ color: '#333' }}>{editingId ? 'Edit Design Card' : 'Add New Design Card'}</h3>
           <form onSubmit={handleSubmit} style={{ marginTop: '1.5rem' }}>
             <div className={styles.formGroup}>
-              <label>Project Title *</label>
-              <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
+              <label style={{ color: '#555' }}>Project Title *</label>
+              <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required style={{ color: '#333' }} />
             </div>
             
             <div className={styles.formGroup}>
-              <label>Category *</label>
+              <label style={{ color: '#555' }}>Category *</label>
               <select 
                 value={categoryId} 
                 onChange={(e) => setCategoryId(e.target.value)} 
                 required
-                style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid #ddd' }}
+                style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid #ddd', color: '#333' }}
               >
                 <option value="">Select a Category</option>
                 {categories.map(cat => (
@@ -151,53 +180,65 @@ export default function GalleryPage() {
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
               <div className={styles.formGroup}>
-                <label>Client Name</label>
-                <input type="text" value={clientName} onChange={(e) => setClientName(e.target.value)} />
+                <label style={{ color: '#555' }}>Client Name</label>
+                <input type="text" value={clientName} onChange={(e) => setClientName(e.target.value)} style={{ color: '#333' }} />
               </div>
               <div className={styles.formGroup}>
-                <label>Location</label>
-                <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} />
+                <label style={{ color: '#555' }}>Location</label>
+                <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} style={{ color: '#333' }} />
               </div>
             </div>
 
             <div className={styles.formGroup}>
-              <label>Year</label>
-              <input type="text" value={year} onChange={(e) => setYear(e.target.value)} placeholder="e.g. 2026" />
+              <label style={{ color: '#555' }}>Year</label>
+              <input type="text" value={year} onChange={(e) => setYear(e.target.value)} placeholder="e.g. 2026" style={{ color: '#333' }} />
             </div>
 
             <div className={styles.formGroup}>
-              <label>Project Description (Sidebar details)</label>
+              <label style={{ color: '#555' }}>Project Description (Sidebar details)</label>
               <textarea 
                 value={description} 
                 onChange={(e) => setDescription(e.target.value)} 
                 rows="4"
+                style={{ color: '#333' }}
               ></textarea>
             </div>
 
             <div className={styles.formGroup}>
-              <label>Upload Images (First image will be cover) *</label>
+              <label style={{ color: '#555' }}>Upload Images (First image will be cover) {!editingId && '*'}</label>
               <input 
                 type="file" 
                 multiple 
                 accept="image/*" 
                 onChange={handleFileChange} 
                 ref={fileInputRef}
-                required 
+                required={!editingId}
+                style={{ color: '#333' }}
               />
               {files.length > 0 && <small style={{ display: 'block', marginTop: '0.5rem', color: 'green' }}>{files.length} files selected</small>}
+              {editingId && <small style={{ color: '#666', marginTop: '0.5rem', display: 'block' }}>Leave blank to keep existing images. Uploading will replace them.</small>}
             </div>
 
-            <button type="submit" className={styles.btnPrimary} disabled={isSaving || categories.length === 0}>
-              {isSaving ? 'Uploading & Saving...' : 'Add Gallery Card'}
-            </button>
+            <div style={{ display: 'flex', gap: '1rem' }}>
+              <button type="submit" className={styles.btnPrimary} disabled={isSaving || categories.length === 0}>
+                {isSaving ? 'Saving...' : editingId ? 'Update Card' : 'Add Gallery Card'}
+              </button>
+              {editingId && (
+                <button type="button" className={styles.btnSecondary} onClick={() => { 
+                  setEditingId(null); setTitle(''); setCategoryId(''); setClientName(''); setLocation(''); setYear(''); setDescription(''); setFiles([]); if(fileInputRef.current) fileInputRef.current.value=''; 
+                }}>
+                  Cancel
+                </button>
+              )}
+            </div>
           </form>
         </div>
 
         {/* List */}
         <div className={styles.card}>
-          <h3>Existing Gallery Cards</h3>
+          <h3 style={{ color: '#333' }}>Existing Gallery Cards</h3>
           {isLoading ? (
-            <p style={{ marginTop: '1rem' }}>Loading...</p>
+            <p style={{ marginTop: '1rem', color: '#333' }}>Loading...</p>
           ) : galleryItems.length === 0 ? (
             <p style={{ marginTop: '1rem', color: '#666' }}>No gallery items found.</p>
           ) : (
@@ -206,11 +247,13 @@ export default function GalleryPage() {
                 const cat = categories.find(c => c.id === item.categoryId);
                 return (
                   <div key={item.id} style={{ display: 'flex', gap: '1rem', padding: '1rem', border: '1px solid #eee', borderRadius: '8px' }}>
-                    {item.images && item.images.length > 0 && (
+                    {item.images && item.images.length > 0 ? (
                       <img src={item.images[0]} alt={item.title} style={{ width: '80px', height: '80px', objectFit: 'cover', borderRadius: '8px' }} />
+                    ) : (
+                      <div style={{ width: '80px', height: '80px', background: '#f5f5f5', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#999', fontSize: '12px' }}>No Img</div>
                     )}
                     <div style={{ flex: 1 }}>
-                      <h4 style={{ margin: '0 0 0.3rem 0' }}>{item.title}</h4>
+                      <h4 style={{ margin: '0 0 0.3rem 0', color: '#333' }}>{item.title}</h4>
                       <span style={{ fontSize: '0.8rem', color: '#b98e46', fontWeight: 'bold' }}>
                         {cat ? cat.name : 'Unknown Category'}
                       </span>
@@ -218,9 +261,14 @@ export default function GalleryPage() {
                         {item.location} • {item.images?.length || 0} images
                       </p>
                     </div>
-                    <button onClick={() => handleDelete(item.id)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#e74c3c', alignSelf: 'center' }} title="Delete">
-                      <FiTrash2 size={20} />
-                    </button>
+                    <div style={{ display: 'flex', gap: '0.5rem', alignSelf: 'center' }}>
+                      <button onClick={() => handleEdit(item)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#b98e46', padding: '0.5rem' }} title="Edit">
+                        <FiEdit2 size={20} />
+                      </button>
+                      <button onClick={() => handleDelete(item.id)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#e74c3c', padding: '0.5rem' }} title="Delete">
+                        <FiTrash2 size={20} />
+                      </button>
+                    </div>
                   </div>
                 );
               })}
