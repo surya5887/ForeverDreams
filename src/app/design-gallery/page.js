@@ -70,13 +70,7 @@ function GalleryContent() {
   const activeCategoryId = activeCatObj ? activeCatObj.id : null;
   const activeCategoryName = activeCatObj ? activeCatObj.name : '';
 
-  const currentItems = activeCategorySlug === 'all' ? [] : galleryItems.filter(item => item.categoryId === activeCategoryId);
-
-  const topCategories = categories.filter(c => c.slug !== 'all').map(cat => {
-    const itemForCat = galleryItems.find(item => item.categoryId === cat.id);
-    const img = (itemForCat && itemForCat.images && itemForCat.images[0]) ? itemForCat.images[0] : 'https://picsum.photos/600/400';
-    return { ...cat, image: img };
-  });
+  const currentItems = activeCategorySlug === 'all' ? galleryItems : galleryItems.filter(item => item.categoryId === activeCategoryId);
 
   return (
     <div className={styles.page}>
@@ -122,28 +116,9 @@ function GalleryContent() {
       <div className={styles.container}>
         {isLoading ? (
           <div style={{ textAlign: 'center', padding: '5rem 0' }}>Loading designs...</div>
-        ) : activeCategorySlug === 'all' ? (
-          <div className={styles.categoriesSection}>
-            <h2 className={styles.categoriesTitle}>Top Categories</h2>
-            <div className={styles.categoriesGrid}>
-              {topCategories.map((cat, i) => (
-                <div
-                  key={cat.slug}
-                  className={styles.categoryCard}
-                  onClick={() => handleCategoryClick(cat.slug)}
-                  style={{ animationDelay: `${i * 0.08}s` }}
-                >
-                  <img src={cat.image} alt={cat.name} className={styles.categoryImage} />
-                  <div className={styles.categoryOverlay}>
-                    <h3>{cat.name}</h3>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
         ) : (
           <div className={styles.designsSection}>
-            <h2 className={styles.designsTitle}>{activeCategoryName} Designs</h2>
+            <h2 className={styles.designsTitle}>{activeCategorySlug === 'all' ? 'All Designs' : `${activeCategoryName} Designs`}</h2>
             {currentItems.length === 0 ? (
               <p style={{ textAlign: 'center', padding: '3rem 0', color: '#666' }}>No designs found in this category.</p>
             ) : (
