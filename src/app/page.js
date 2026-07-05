@@ -238,7 +238,7 @@ export default function Home() {
       {/* ── DESIGN PHILOSOPHY (SPLIT LAYOUT) ── */}
       <section className={styles.philosophySection}>
         <div className={styles.philosophyLeft}>
-          <img src="https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258299/forever_dreams/home/u9avggoq7uzfyvzweueu.jpg" alt="Design Philosophy" className={styles.philosophyImg} />
+          <img src="https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258800/forever_dreams/home/eatgcon5zzuop3yuzir4.jpg" alt="Design Philosophy" className={styles.philosophyImg} />
         </div>
         <div className={styles.philosophyRight}>
           <span className={styles.sectionLabelColored}>OUR PHILOSOPHY</span>
