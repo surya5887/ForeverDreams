@@ -19,8 +19,6 @@
   width: 45px;
   height: 45px;
   object-fit: contain;
-  filter: invert(1);
-  mix-blend-mode: screen;
 }
 .fLogoText { display: flex; flex-direction: column; }
 .fLogoTop { font-family: var(--font-heading); font-size: 0.9rem; letter-spacing: 2px; }

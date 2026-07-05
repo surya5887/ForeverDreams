@@ -31,7 +31,7 @@ export default function Footer() {
       <div className={styles.footerContainer}>
         <div className={styles.footerCol}>
           <div className={styles.footerLogo}>
-            <img src="/logo.jpeg" alt="FD Logo" className={styles.fLogoIconImage} />
+            <img src="/logo.png" alt="FD Logo" className={styles.fLogoIconImage} />
             <div className={styles.fLogoText}>
               <span className={styles.fLogoTop}>FOREVER</span>
               <span className={styles.fLogoMid}>Dreams Home</span>
