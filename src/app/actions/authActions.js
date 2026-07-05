@@ -22,7 +22,8 @@ export async function loginAdmin(formData) {
     const data = await response.json();
 
     if (data.idToken) {
-      cookies().set('admin_session', 'true', { 
+      const cookieStore = await cookies();
+      cookieStore.set('admin_session', 'true', { 
         httpOnly: true, 
         secure: process.env.NODE_ENV === 'production',
         maxAge: 60 * 60 * 24 * 7, // 1 week
@@ -38,6 +39,7 @@ export async function loginAdmin(formData) {
 }
 
 export async function logoutAdmin() {
-  cookies().delete('admin_session');
+  const cookieStore = await cookies();
+  cookieStore.delete('admin_session');
   redirect('/admin/login');
 }
