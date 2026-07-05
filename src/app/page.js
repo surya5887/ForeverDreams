@@ -38,9 +38,6 @@ export default function Home() {
               <Link href="/design-gallery" className={styles.primaryBtn}>
                 EXPLORE OUR WORK <FiArrowRight />
               </Link>
-              <button className={styles.videoBtn}>
-                <span className={styles.playIcon}><FiPlay fill="#fff" /></span> WATCH VIDEO
-              </button>
             </div>
           </div>
 
