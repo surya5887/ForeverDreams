@@ -43,9 +43,7 @@ export default function Navbar() {
           
           {/* Logo Area */}
           <Link href="/" className={styles.logoWrap}>
-            <div className={styles.logoIcon}>
-              FD
-            </div>
+            <img src="/logo.jpeg" alt="FD Logo" className={styles.logoIconImage} />
             <div className={styles.logoText}>
               <div className={styles.logoTop}>FOREVER</div>
               <div className={styles.logoMiddle}>Dreams Home</div>
