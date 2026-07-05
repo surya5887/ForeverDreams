@@ -1,7 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { db } from '../../lib/firebase';
+import { doc, getDoc } from 'firebase/firestore';
 import { FiChevronRight, FiSend } from 'react-icons/fi';
 import {
   FaBullseye, FaEye, FaLightbulb, FaGem, FaHandshake, FaHeart,
@@ -18,25 +20,29 @@ const values = [
   { icon: FaHeart, title: 'Customer First', desc: 'Your satisfaction is our top priority', color: '#c9a96e' },
 ];
 
-const contactInfo = [
-  { icon: FaMapMarkerAlt, label: 'Address', value: '123 Design Avenue, Meerut, Uttar Pradesh, India 250001' },
-  { icon: FaPhone, label: 'Phone', value: '+91 12345 67890', href: 'tel:+911234567890' },
-  { icon: FaWhatsapp, label: 'WhatsApp', value: '+91 12345 67890', href: 'https://wa.me/911234567890' },
-  { icon: FaEnvelope, label: 'Email', value: 'info@foreverdreamshome.com', href: 'mailto:info@foreverdreamshome.com' },
-  { icon: FaClock, label: 'Working Hours', value: 'Mon - Sat: 10:00 AM - 7:00 PM' },
-];
-
-const socials = [
-  { icon: FaFacebookF, name: 'Facebook', color: '#1877F2', href: '#' },
-  { icon: FaInstagram, name: 'Instagram', color: '#E4405F', href: '#' },
-  { icon: FaPinterestP, name: 'Pinterest', color: '#BD081C', href: '#' },
-  { icon: FaYoutube, name: 'YouTube', color: '#FF0000', href: '#' },
-  { icon: FaTwitter, name: 'Twitter', color: '#1DA1F2', href: '#' },
-];
-
 export default function AboutUsPage() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  
+  const [siteSettings, setSiteSettings] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchSettings() {
+      try {
+        const docRef = doc(db, 'settings', 'general');
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          setSiteSettings(docSnap.data());
+        }
+      } catch (error) {
+        console.error("Error fetching settings:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    fetchSettings();
+  }, []);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -48,6 +54,19 @@ export default function AboutUsPage() {
     setTimeout(() => setSubmitted(false), 4000);
     setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
   };
+
+  const contactInfo = [
+    { icon: FaMapMarkerAlt, label: 'Address', value: siteSettings?.address || '123 Design Avenue, Meerut, Uttar Pradesh, India 250001' },
+    { icon: FaPhone, label: 'Phone', value: siteSettings?.phone || '+91 12345 67890', href: siteSettings?.phone ? `tel:${siteSettings.phone.replace(/[^0-9+]/g, '')}` : 'tel:+911234567890' },
+    { icon: FaWhatsapp, label: 'WhatsApp', value: siteSettings?.whatsapp || '+91 12345 67890', href: siteSettings?.whatsapp ? `https://wa.me/${siteSettings.whatsapp.replace(/[^0-9]/g, '')}` : 'https://wa.me/911234567890' },
+    { icon: FaEnvelope, label: 'Email', value: siteSettings?.email || 'info@foreverdreamshome.com', href: siteSettings?.email ? `mailto:${siteSettings.email}` : 'mailto:info@foreverdreamshome.com' },
+    { icon: FaClock, label: 'Working Hours', value: 'Mon - Sat: 10:00 AM - 7:00 PM' },
+  ];
+
+  // Default coordinates if not set in db
+  const mapLat = siteSettings?.mapLat || 28.98;
+  const mapLng = siteSettings?.mapLng || 77.68;
+  const mapEmbedUrl = `https://maps.google.com/maps?q=${mapLat},${mapLng}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
 
   return (
     <div className={styles.page}>
@@ -168,7 +187,7 @@ export default function AboutUsPage() {
             </div>
             <div className={styles.mapWrap}>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111510.00!2d77.68!3d28.98!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390c6546e01ef4fb%3A0x45d90e41bcb3eae4!2sMeerut%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1"
+                src={mapEmbedUrl}
                 width="100%"
                 height="100%"
                 style={{ border: 0, borderRadius: '12px', minHeight: '400px' }}
@@ -202,34 +221,33 @@ export default function AboutUsPage() {
               <form onSubmit={handleSubmit} className={styles.form}>
                 <div className={styles.formRow}>
                   <div className={styles.formGroup}>
-                    <label htmlFor="name">Full Name</label>
-                    <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Your full name" required />
+                    <label>Your Name *</label>
+                    <input type="text" name="name" value={formData.name} onChange={handleChange} required placeholder="John Doe" />
                   </div>
                   <div className={styles.formGroup}>
-                    <label htmlFor="email">Email</label>
-                    <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} placeholder="your@email.com" required />
+                    <label>Email Address *</label>
+                    <input type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="john@example.com" />
                   </div>
                 </div>
                 <div className={styles.formRow}>
                   <div className={styles.formGroup}>
-                    <label htmlFor="phone">Phone</label>
-                    <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} placeholder="+91 XXXXX XXXXX" />
+                    <label>Phone Number *</label>
+                    <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required placeholder="+91 98765 43210" />
                   </div>
                   <div className={styles.formGroup}>
-                    <label htmlFor="subject">Subject</label>
-                    <select id="subject" name="subject" value={formData.subject} onChange={handleChange} required>
-                      <option value="">Select a subject</option>
-                      <option value="general">General Inquiry</option>
-                      <option value="consultation">Design Consultation</option>
-                      <option value="quote">Get a Quote</option>
-                      <option value="feedback">Feedback</option>
-                      <option value="other">Other</option>
+                    <label>Subject</label>
+                    <select name="subject" value={formData.subject} onChange={handleChange}>
+                      <option value="">Select a subject...</option>
+                      <option value="Residential">Residential Interior</option>
+                      <option value="Commercial">Commercial Interior</option>
+                      <option value="Renovation">Renovation</option>
+                      <option value="Other">Other Query</option>
                     </select>
                   </div>
                 </div>
                 <div className={styles.formGroup}>
-                  <label htmlFor="message">Message</label>
-                  <textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="Tell us about your project..." rows={5} required></textarea>
+                  <label>Your Message *</label>
+                  <textarea name="message" value={formData.message} onChange={handleChange} required placeholder="Tell us about your project..."></textarea>
                 </div>
                 <button type="submit" className={styles.submitBtn}>
                   Send Message <FiSend />
@@ -243,17 +261,27 @@ export default function AboutUsPage() {
       {/* ── Social Media ── */}
       <section className={styles.socialSection}>
         <div className={styles.container}>
-          <span className={styles.sectionLabelCenter}>CONNECT WITH US</span>
-          <h2 className={styles.sectionTitleCenter}>Follow Us On Social Media</h2>
           <div className={styles.socialGrid}>
-            {socials.map((s, i) => (
-              <a key={i} href={s.href} className={styles.socialCard} style={{ '--social-color': s.color }} target="_blank" rel="noopener noreferrer">
-                <div className={styles.socialIcon}>
-                  <s.icon />
-                </div>
-                <span>{s.name}</span>
-              </a>
-            ))}
+            <a href={siteSettings?.facebook || "#"} className={styles.socialCard} style={{ '--social-color': '#1877F2' }} target="_blank" rel="noreferrer">
+              <div className={styles.socialIcon}><FaFacebookF /></div>
+              <span>Facebook</span>
+            </a>
+            <a href={siteSettings?.instagram || "#"} className={styles.socialCard} style={{ '--social-color': '#E4405F' }} target="_blank" rel="noreferrer">
+              <div className={styles.socialIcon}><FaInstagram /></div>
+              <span>Instagram</span>
+            </a>
+            <a href={siteSettings?.pinterest || "#"} className={styles.socialCard} style={{ '--social-color': '#BD081C' }} target="_blank" rel="noreferrer">
+              <div className={styles.socialIcon}><FaPinterestP /></div>
+              <span>Pinterest</span>
+            </a>
+            <a href={siteSettings?.youtube || "#"} className={styles.socialCard} style={{ '--social-color': '#FF0000' }} target="_blank" rel="noreferrer">
+              <div className={styles.socialIcon}><FaYoutube /></div>
+              <span>YouTube</span>
+            </a>
+            <a href={siteSettings?.twitter || "#"} className={styles.socialCard} style={{ '--social-color': '#1DA1F2' }} target="_blank" rel="noreferrer">
+              <div className={styles.socialIcon}><FaTwitter /></div>
+              <span>Twitter / X</span>
+            </a>
           </div>
         </div>
       </section>
