@@ -33,7 +33,7 @@ export async function loginAdmin(formData) {
       return { error: data.error?.message || 'Invalid email or password' };
     }
   } catch (error) {
-    return { error: 'Authentication failed. Please check your credentials.' };
+    return { error: `System Error: ${error.message}` };
   }
 }
 
