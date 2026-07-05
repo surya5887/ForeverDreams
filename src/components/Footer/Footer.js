@@ -55,7 +55,7 @@ export default function Footer() {
           <ul className={styles.footerList}>
             <li><Link href="/">Home</Link></li>
             <li><Link href="/about-us">About Us</Link></li>
-            <li><Link href="/services">Services</Link></li>
+            <li><Link href="/about-us#contact-form">Services</Link></li>
             <li><Link href="/design-gallery">Portfolio</Link></li>
             <li><Link href="/blog">Blog</Link></li>
             <li><Link href="/about-us#contact-form">Contact Us</Link></li>
@@ -65,12 +65,12 @@ export default function Footer() {
         <div className={styles.footerCol}>
           <h4 className={styles.footerTitle}>Our Services</h4>
           <ul className={styles.footerList}>
-            <li><Link href="/services/residential">Residential Interior</Link></li>
-            <li><Link href="/services/commercial">Commercial Interior</Link></li>
-            <li><Link href="/services/kitchen">Modular Kitchen</Link></li>
-            <li><Link href="/services/furniture">Furniture & Decor</Link></li>
-            <li><Link href="/services/turnkey">Turnkey Projects</Link></li>
-            <li><Link href="/services/3d-design">3D Design & Visual</Link></li>
+            <li><Link href="/about-us#contact-form">Residential Interior</Link></li>
+            <li><Link href="/about-us#contact-form">Commercial Interior</Link></li>
+            <li><Link href="/about-us#contact-form">Modular Kitchen</Link></li>
+            <li><Link href="/about-us#contact-form">Furniture & Decor</Link></li>
+            <li><Link href="/about-us#contact-form">Turnkey Projects</Link></li>
+            <li><Link href="/about-us#contact-form">3D Design & Visual</Link></li>
           </ul>
         </div>
 
