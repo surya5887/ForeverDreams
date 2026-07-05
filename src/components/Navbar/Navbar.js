@@ -69,7 +69,9 @@ export default function Navbar() {
               onMouseLeave={() => setIsGalleryHovered(false)}
             >
               <Link href="/design-gallery" className={`${styles.navLink} ${isActive('/design-gallery') ? styles.active : ''}`}>
-                DESIGN GALLERY <FiChevronDown className={`${styles.chevron} ${isGalleryHovered ? styles.chevronUp : ''}`} />
+                <span style={{ display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
+                  DESIGN GALLERY <FiChevronDown className={`${styles.chevron} ${isGalleryHovered ? styles.chevronUp : ''}`} />
+                </span>
               </Link>
               
               <div className={`${styles.dropdownMenu} ${isGalleryHovered ? styles.dropdownOpen : ''}`}>
