@@ -1,119 +1,102 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { FaFacebookF, FaInstagram, FaPinterestP, FaYoutube, FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
-import { FiArrowRight } from 'react-icons/fi';
+import { db } from '../../lib/firebase';
+import { doc, getDoc } from 'firebase/firestore';
+import { FaFacebookF, FaInstagram, FaPinterestP, FaYoutube, FaTwitter, FaHome } from 'react-icons/fa';
+import { FiArrowRight, FiPhone, FiMail } from 'react-icons/fi';
 import styles from './Footer.module.css';
 
 export default function Footer() {
+  const [siteSettings, setSiteSettings] = useState(null);
+
+  useEffect(() => {
+    const fetchSettings = async () => {
+      try {
+        const docRef = doc(db, 'settings', 'general');
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          setSiteSettings(docSnap.data());
+        }
+      } catch (error) {
+        console.error("Error fetching settings: ", error);
+      }
+    };
+    fetchSettings();
+  }, []);
+
   return (
     <footer className={styles.footer}>
-      {/* ── Call to Action Banner ── */}
-      <div className={styles.ctaBanner}>
-        <div className={styles.ctaContainer}>
-          <div className={styles.ctaContent}>
-            <h2>Let&apos;s Design Something Beautiful Together!</h2>
-            <p>Transform your space with our premium interior design services.</p>
+      <div className={styles.footerContainer}>
+        <div className={styles.footerCol}>
+          <div className={styles.footerLogo}>
+            <div className={styles.fLogoIcon}>FD</div>
+            <div className={styles.fLogoText}>
+              <span className={styles.fLogoTop}>FOREVER</span>
+              <span className={styles.fLogoMid}>Dreams Home</span>
+              <span className={styles.fLogoBot}>INTERIOR DESIGN</span>
+            </div>
           </div>
-          <Link href="/about-us" className={styles.ctaBtn}>
-            BOOK FREE CONSULTATION <FiArrowRight />
-          </Link>
+          <p className={styles.footerDesc}>
+            Designing beautiful spaces that reflect your style and personality.
+          </p>
+          <div className={styles.socialLinks}>
+            <a href={siteSettings?.facebook || "#"} target="_blank" rel="noreferrer"><FaFacebookF/></a>
+            <a href={siteSettings?.instagram || "#"} target="_blank" rel="noreferrer"><FaInstagram/></a>
+            <a href={siteSettings?.pinterest || "#"} target="_blank" rel="noreferrer"><FaPinterestP/></a>
+            <a href={siteSettings?.youtube || "#"} target="_blank" rel="noreferrer"><FaYoutube/></a>
+            <a href={siteSettings?.twitter || "#"} target="_blank" rel="noreferrer"><FaTwitter/></a>
+          </div>
+        </div>
+
+        <div className={styles.footerCol}>
+          <h4 className={styles.footerTitle}>Quick Links</h4>
+          <ul className={styles.footerList}>
+            <li><Link href="/">Home</Link></li>
+            <li><Link href="/about-us">About Us</Link></li>
+            <li><Link href="/services">Services</Link></li>
+            <li><Link href="/design-gallery">Portfolio</Link></li>
+            <li><Link href="/blog">Blog</Link></li>
+            <li><Link href="/about-us#contact-form">Contact Us</Link></li>
+          </ul>
+        </div>
+
+        <div className={styles.footerCol}>
+          <h4 className={styles.footerTitle}>Our Services</h4>
+          <ul className={styles.footerList}>
+            <li><Link href="/services/residential">Residential Interior</Link></li>
+            <li><Link href="/services/commercial">Commercial Interior</Link></li>
+            <li><Link href="/services/kitchen">Modular Kitchen</Link></li>
+            <li><Link href="/services/furniture">Furniture & Decor</Link></li>
+            <li><Link href="/services/turnkey">Turnkey Projects</Link></li>
+            <li><Link href="/services/3d-design">3D Design & Visual</Link></li>
+          </ul>
+        </div>
+
+        <div className={styles.footerCol}>
+          <h4 className={styles.footerTitle}>Contact Us</h4>
+          <ul className={styles.footerContact}>
+            <li><FiPhone color="#b98e46" /> {siteSettings?.phone || '+91 12345 67890'}</li>
+            <li><FiMail color="#b98e46" /> {siteSettings?.email || 'info@foreverdreamshome.com'}</li>
+            <li><FaHome color="#b98e46" /> {siteSettings?.address || 'Meerut, Uttar Pradesh, India'}</li>
+          </ul>
+          
+          <h4 className={styles.footerTitle} style={{marginTop: '2rem'}}>Newsletter</h4>
+          <p className={styles.newsDesc}>Subscribe to get latest updates and interior design tips.</p>
+          <form className={styles.newsForm}>
+            <input type="email" placeholder="Enter your email" className={styles.newsInput} required />
+            <button type="submit" className={styles.newsBtn}><FiArrowRight/></button>
+          </form>
         </div>
       </div>
 
-      <div className={styles.mainFooter}>
-        <div className={styles.container}>
-          <div className={styles.footerGrid}>
-            
-            {/* Column 1: Brand & Social */}
-            <div className={styles.footerCol}>
-              <Link href="/" className={styles.logoWrap}>
-                <div className={styles.logoText}>
-                  <span className={styles.logoMain}>FD</span>
-                  <div className={styles.logoWords}>
-                    <strong>FOREVER DREAMS</strong>
-                    <span>HOME INTERIORS</span>
-                  </div>
-                </div>
-              </Link>
-              <p className={styles.brandDesc}>
-                Crafting timeless interiors that reflect your personality and elevate your lifestyle. We turn your dream home into reality.
-              </p>
-              <div className={styles.socialLinks}>
-                <a href="#" className={styles.socialIcon} aria-label="Facebook"><FaFacebookF /></a>
-                <a href="#" className={styles.socialIcon} aria-label="Instagram"><FaInstagram /></a>
-                <a href="#" className={styles.socialIcon} aria-label="Pinterest"><FaPinterestP /></a>
-                <a href="#" className={styles.socialIcon} aria-label="YouTube"><FaYoutube /></a>
-              </div>
-            </div>
-
-            {/* Column 2: Quick Links */}
-            <div className={styles.footerCol}>
-              <h3 className={styles.colTitle}>Quick Links</h3>
-              <ul className={styles.linkList}>
-                <li><Link href="/">Home</Link></li>
-                <li><Link href="/about-us">About Us</Link></li>
-                <li><Link href="/design-gallery">Design Gallery</Link></li>
-                <li><Link href="/recent-projects">Recent Projects</Link></li>
-                <li><Link href="/about-us">Contact Us</Link></li>
-              </ul>
-            </div>
-
-            {/* Column 3: Services */}
-            <div className={styles.footerCol}>
-              <h3 className={styles.colTitle}>Our Services</h3>
-              <ul className={styles.linkList}>
-                <li><Link href="/design-gallery">Residential Interior</Link></li>
-                <li><Link href="/design-gallery">Commercial Interior</Link></li>
-                <li><Link href="/design-gallery">Modular Kitchen</Link></li>
-                <li><Link href="/design-gallery">Furniture & Decor</Link></li>
-                <li><Link href="/design-gallery">Turnkey Projects</Link></li>
-              </ul>
-            </div>
-
-            {/* Column 4: Contact Info */}
-            <div className={styles.footerCol}>
-              <h3 className={styles.colTitle}>Contact Info</h3>
-              <ul className={styles.contactList}>
-                <li>
-                  <FaPhone className={styles.contactIcon} />
-                  <div>
-                    <span>Phone / WhatsApp</span>
-                    <a href="tel:+911234567890">+91 12345 67890</a>
-                  </div>
-                </li>
-                <li>
-                  <FaEnvelope className={styles.contactIcon} />
-                  <div>
-                    <span>Email</span>
-                    <a href="mailto:info@foreverdreamshome.com">info@foreverdreamshome.com</a>
-                  </div>
-                </li>
-                <li>
-                  <FaMapMarkerAlt className={styles.contactIcon} />
-                  <div>
-                    <span>Address</span>
-                    <p>123 Design Avenue, Meerut,<br />Uttar Pradesh, India</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      {/* ── Bottom Bar ── */}
-      <div className={styles.bottomBar}>
-        <div className={styles.container}>
-          <div className={styles.bottomFlex}>
-            <p>&copy; {new Date().getFullYear()} Forever Dreams Home. All rights reserved.</p>
-            <div className={styles.legalLinks}>
-              <Link href="#">Privacy Policy</Link>
-              <span>|</span>
-              <Link href="#">Terms of Service</Link>
-            </div>
-          </div>
+      <div className={styles.footerBottom}>
+        <p>© 2026 Forever Dreams Home Interior Design. All Rights Reserved.</p>
+        <div className={styles.footerLegal}>
+          <Link href="/privacy">Privacy Policy</Link>
+          <span>|</span>
+          <Link href="/terms">Terms & Conditions</Link>
         </div>
       </div>
     </footer>

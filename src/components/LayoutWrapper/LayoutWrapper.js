@@ -16,6 +16,7 @@ export default function LayoutWrapper({ children }) {
     <>
       <Navbar />
       <main>{children}</main>
+      <Footer />
     </>
   );
 }
