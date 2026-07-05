@@ -1,0 +1,326 @@
+/* ========================================
+   FOOTER STYLES
+   ======================================== */
+
+.footer {
+  background: var(--color-surface-dark);
+  color: #fff;
+  font-family: var(--font-body);
+  position: relative;
+  margin-top: 80px;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ── CTA Banner ── */
+.ctaBanner {
+  position: absolute;
+  top: -80px;
+  left: 0;
+  width: 100%;
+  padding: 0 2rem;
+}
+
+.ctaContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  background: var(--color-primary-gradient);
+  border-radius: var(--radius-lg);
+  padding: 4rem 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 20px 40px -10px rgba(13, 148, 136, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaContainer::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+.ctaContent h2 {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.ctaContent p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.1rem;
+}
+
+.ctaBtn {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #fff;
+  color: var(--color-primary);
+  padding: 16px 36px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  white-space: nowrap;
+}
+
+.ctaBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  color: var(--color-primary-light);
+}
+
+/* ── Main Footer ── */
+.mainFooter {
+  padding: 140px 0 60px; /* space for overlapping CTA */
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 4rem;
+}
+
+.footerCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.logoWrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+}
+
+.logoText {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logoMain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--color-accent-gradient);
+  border-radius: 8px;
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.logoWords {
+  display: flex;
+  flex-direction: column;
+}
+
+.logoWords strong {
+  font-family: var(--font-heading);
+  color: #fff;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  line-height: 1.1;
+}
+
+.logoWords span {
+  font-size: 0.65rem;
+  color: var(--color-accent);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.brandDesc {
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  max-width: 300px;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 1rem;
+}
+
+.socialIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.socialIcon:hover {
+  background: var(--color-accent);
+  color: var(--color-surface-dark);
+  border-color: var(--color-accent);
+  transform: translateY(-3px);
+}
+
+.colTitle {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.colTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: var(--color-accent);
+}
+
+.linkList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.linkList li a, .linkList li span {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.linkList li a:hover {
+  color: var(--color-accent);
+  transform: translateX(5px);
+}
+
+.contactList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contactList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.contactIcon {
+  color: var(--color-accent);
+  font-size: 1.25rem;
+  margin-top: 4px;
+}
+
+.contactList li div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.contactList li span {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.contactList li a, .contactList li p {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+.contactList li a:hover {
+  color: var(--color-accent);
+}
+
+/* ── Bottom Bar ── */
+.bottomBar {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.bottomFlex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bottomFlex p {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+}
+
+.legalLinks {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+}
+
+.legalLinks a {
+  transition: color 0.3s ease;
+}
+
+.legalLinks a:hover {
+  color: var(--color-accent);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .footerGrid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .ctaContainer { flex-direction: column; text-align: center; gap: 2rem; padding: 3rem; }
+  .ctaContent { margin-bottom: 0; }
+}
+
+@media (max-width: 768px) {
+  .footerGrid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .ctaBanner { padding: 0 1rem; }
+  .bottomFlex { flex-direction: column; gap: 1rem; text-align: center; }
+  .ctaContent h2 { font-size: 2rem; }
+}

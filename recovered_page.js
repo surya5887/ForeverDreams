@@ -134,27 +134,25 @@ export default function Home() {
           
           <div className={styles.servicesGrid}>
             {[
-              { icon: <FaCouch style={{color:'#e91e63'}}/>, title: 'Residential Interior', desc: 'Comfortable, stylish and personalized home interiors.', color: '#e91e63', img: 'https://picsum.photos/seed/res/400/300' },
-              { icon: <FaCity style={{color:'#00bcd4'}}/>, title: 'Commercial Interior', desc: 'Functional and productive spaces for your business.', color: '#00bcd4', img: 'https://picsum.photos/seed/com/400/300' },
-              { icon: <FaUtensils style={{color:'#ff9800'}}/>, title: 'Modular Kitchen', desc: 'Smart, stylish & space-saving kitchen designs.', color: '#ff9800', img: 'https://picsum.photos/seed/kit/400/300' },
-              { icon: <FaLightbulb style={{color:'#8b5cf6'}}/>, title: 'Furniture & Decor', desc: 'Handpicked furniture & decor to complete your space.', color: '#8b5cf6', img: 'https://picsum.photos/seed/fur/400/300' },
-              { icon: <FaKey style={{color:'#3b82f6'}}/>, title: 'Turnkey Projects', desc: 'End-to-end solutions with hassle-free execution.', color: '#3b82f6', img: 'https://picsum.photos/seed/turn/400/300' },
-              { icon: <FaCubes style={{color:'#4caf50'}}/>, title: '3D Design & Visual', desc: 'Realistic 3D renders to visualize your dream space.', color: '#4caf50', img: 'https://picsum.photos/seed/3d/400/300' }
+              { icon: <FaCouch style={{color:'#e91e63'}}/>, title: 'Residential Interior', desc: 'Comfortable, stylish and personalized home interiors.', color: '#e91e63', img: 'https://picsum.photos/seed/res/400/250' },
+              { icon: <FaCity style={{color:'#00bcd4'}}/>, title: 'Commercial Interior', desc: 'Functional and productive spaces for your business.', color: '#00bcd4', img: 'https://picsum.photos/seed/com/400/250' },
+              { icon: <FaUtensils style={{color:'#ff9800'}}/>, title: 'Modular Kitchen', desc: 'Smart, stylish & space-saving kitchen designs.', color: '#ff9800', img: 'https://picsum.photos/seed/kit/400/250' },
+              { icon: <FaLightbulb style={{color:'#8b5cf6'}}/>, title: 'Furniture & Decor', desc: 'Handpicked furniture & decor to complete your space.', color: '#8b5cf6', img: 'https://picsum.photos/seed/fur/400/250' },
+              { icon: <FaKey style={{color:'#3b82f6'}}/>, title: 'Turnkey Projects', desc: 'End-to-end solutions with hassle-free execution.', color: '#3b82f6', img: 'https://picsum.photos/seed/turn/400/250' },
+              { icon: <FaCubes style={{color:'#4caf50'}}/>, title: '3D Design & Visual', desc: 'Realistic 3D renders to visualize your dream space.', color: '#4caf50', img: 'https://picsum.photos/seed/3d/400/250' }
             ].map((service, idx) => (
               <div key={idx} className={styles.serviceCard}>
+                <div className={styles.serviceIconWrap}>
+                  {service.icon}
+                </div>
+                <h3 className={styles.serviceTitle}>{service.title}</h3>
                 <div className={styles.serviceImgWrap}>
                   <img src={service.img} alt={service.title} className={styles.serviceImg} />
-                  <div className={styles.serviceIconFloating}>
-                    {service.icon}
-                  </div>
                 </div>
-                <div className={styles.serviceContent}>
-                  <h3 className={styles.serviceTitle}>{service.title}</h3>
-                  <p className={styles.serviceDesc}>{service.desc}</p>
-                  <Link href="#" className={styles.exploreLink} style={{ color: service.color }}>
-                    DISCOVER MORE <FiArrowRight />
-                  </Link>
-                </div>
+                <p className={styles.serviceDesc}>{service.desc}</p>
+                <Link href="#" className={styles.exploreLink} style={{ color: service.color }}>
+                  DISCOVER MORE <FiArrowRight />
+                </Link>
               </div>
             ))}
           </div>
@@ -197,98 +195,40 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── SIGNATURE SPACES (BENTO BOX GALLERY) ── */}
-      <section className={styles.bentoSection}>
-        <div className={styles.container}>
-          <div className={styles.sectionHeaderCentered}>
-            <span className={styles.sectionLabelColored}>SIGNATURE SPACES</span>
-            <h2 className={styles.sectionTitleDark}>A Curated Gallery</h2>
-          </div>
-          
-          <div className={styles.bentoGrid}>
-            <div className={`${styles.bentoItem} ${styles.bentoLarge}`}>
-              <img src="https://picsum.photos/seed/bento1/800/800" alt="Luxury Living" className={styles.bentoImg} />
-              <div className={styles.bentoOverlay}>
-                <h4>The Minimalist Villa</h4>
-                <p>Living Room</p>
-              </div>
-            </div>
-            <div className={styles.bentoItem}>
-              <img src="https://picsum.photos/seed/bento2/400/400" alt="Modern Kitchen" className={styles.bentoImg} />
-              <div className={styles.bentoOverlay}>
-                <h4>Urban Loft</h4>
-                <p>Kitchen</p>
-              </div>
-            </div>
-            <div className={styles.bentoItem}>
-              <img src="https://picsum.photos/seed/bento3/400/400" alt="Elegant Bedroom" className={styles.bentoImg} />
-              <div className={styles.bentoOverlay}>
-                <h4>Serene Suite</h4>
-                <p>Bedroom</p>
-              </div>
-            </div>
-            <div className={`${styles.bentoItem} ${styles.bentoWide}`}>
-              <img src="https://picsum.photos/seed/bento4/800/400" alt="Cozy Dining" className={styles.bentoImg} />
-              <div className={styles.bentoOverlay}>
-                <h4>The Grand Estate</h4>
-                <p>Dining Area</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── DESIGN PHILOSOPHY (SPLIT LAYOUT) ── */}
-      <section className={styles.philosophySection}>
-        <div className={styles.philosophyLeft}>
-          <img src="https://picsum.photos/seed/phil/800/1000" alt="Design Philosophy" className={styles.philosophyImg} />
-        </div>
-        <div className={styles.philosophyRight}>
-          <span className={styles.sectionLabelColored}>OUR PHILOSOPHY</span>
-          <h2 className={styles.philosophyTitle}>Art in Every Detail, Soul in Every Space.</h2>
-          <p className={styles.philosophyText}>
-            We believe that a well-designed space is a reflection of its inhabitants. Our approach blends timeless elegance with modern functionality, creating environments that don't just look beautiful, but feel intimately yours.
-          </p>
-          <div className={styles.philosophySignature}>
-            Elena Rostova <br/> <span>Lead Designer</span>
-          </div>
-        </div>
-      </section>
-
       {/* ── OUR PROCESS ── */}
       <section className={styles.processSection}>
         <div className={styles.container}>
-          <div className={styles.sectionHeaderCentered}>
-            <span className={styles.sectionLabelColored}>OUR PROCESS</span>
-            <h2 className={styles.sectionTitleDark}>From Concept To Creation</h2>
-          </div>
-        </div>
-          
-        <div className={styles.processWrap}>
-          {/* Full width base image */}
-          <img src="/process-bg.png" alt="Our Process" className={styles.processBaseImage} />
-          
-          {/* Overlay content positioned cleanly on the left empty space of the image */}
-          <div className={styles.processContentOverlay}>
-            <div className={styles.timelineDottedLine}></div>
-            {[
-              { num: '01', icon: <FaUsers/>, color: '#e91e63', title: 'Consultation', desc: 'We listen to your ideas and understand your requirements.' },
-              { num: '02', icon: <FaClipboardList/>, color: '#ff9800', title: 'Planning', desc: 'We plan the perfect design and layout for your space.' },
-              { num: '03', icon: <FaPencilRuler/>, color: '#00bcd4', title: 'Design & Develop', desc: 'Our experts design and develop your dream space.' },
-              { num: '04', icon: <FaHardHat/>, color: '#8b5cf6', title: 'Execution', desc: 'We execute the plan with precision and quality.' },
-              { num: '05', icon: <FaCheckCircle/>, color: '#4caf50', title: 'Handover', desc: 'On-time delivery with perfect finishing and satisfaction.' }
-            ].map((step, idx) => (
-              <div key={idx} className={styles.processStepOverlay}>
-                <div className={styles.processIconWrapOverlay} style={{ color: step.color }}>
-                  {step.icon}
-                </div>
-                <div className={styles.processTextWrapOverlay}>
-                  <div className={styles.timelineNum} style={{ color: step.color }}>{step.num}</div>
-                  <h4 className={styles.timelineTitle}>{step.title}</h4>
-                  <p className={styles.timelineDesc}>{step.desc}</p>
+          <div className={styles.processFlex}>
+            <div className={styles.processLeft}>
+              <span className={styles.sectionLabelColored}>OUR PROCESS</span>
+              <h2 className={styles.sectionTitleDark}>From Concept To Creation</h2>
+              
+              <div className={styles.timeline}>
+                <div className={styles.timelineLine}></div>
+                <div className={styles.timelineSteps}>
+                  {[
+                    { num: '01', icon: <FaUsers/>, color: '#e91e63', title: 'Consultation', desc: 'We listen to your ideas and understand your requirements.' },
+                    { num: '02', icon: <FaClipboardList/>, color: '#ff9800', title: 'Planning', desc: 'We plan the perfect design and layout for your space.' },
+                    { num: '03', icon: <FaPencilRuler/>, color: '#00bcd4', title: 'Design & Develop', desc: 'Our experts design and develop your dream space.' },
+                    { num: '04', icon: <FaHardHat/>, color: '#8b5cf6', title: 'Execution', desc: 'We execute the plan with precision and quality.' },
+                    { num: '05', icon: <FaCheckCircle/>, color: '#4caf50', title: 'Handover', desc: 'On-time delivery with perfect finishing and satisfaction.' }
+                  ].map((step, idx) => (
+                    <div key={idx} className={styles.timelineStep}>
+                      <div className={styles.timelineIconWrap} style={{ color: step.color, borderColor: step.color }}>
+                        {step.icon}
+                      </div>
+                      <div className={styles.timelineNum} style={{ color: step.color }}>{step.num}</div>
+                      <h4 className={styles.timelineTitle}>{step.title}</h4>
+                      <p className={styles.timelineDesc}>{step.desc}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
-            ))}
+            </div>
+            
+            <div className={styles.processRight}>
+              <img src="/chair-process.png" alt="Interior Design Chair" className={styles.processImage} />
+            </div>
           </div>
         </div>
       </section>
@@ -336,17 +276,6 @@ export default function Home() {
              <span className={styles.dot}></span>
              <span className={styles.dot}></span>
           </div>
-        </div>
-      </section>
-
-      {/* ── INTERACTIVE ROOM (HOTSPOTS) ── */}
-      <section className={styles.interactiveRoomSection}>
-        <div className={styles.interactiveRoomHeader}>
-          <span className={styles.sectionLabelColored}>EXPLORE THE DETAILS</span>
-          <h2 className={styles.sectionTitleDark}>Shop The Look</h2>
-        </div>
-        <div className={styles.interactiveImageWrap}>
-          <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Interactive Room" className={styles.interactiveImg} />
         </div>
       </section>
 

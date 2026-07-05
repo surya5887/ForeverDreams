@@ -194,9 +194,6 @@ export default function Home() {
             </div>
             <button className={styles.navBtnRight}><FiArrowRight /></button>
           </div>
-        </div>
-      </section>
-
       {/* ── SIGNATURE SPACES (BENTO BOX GALLERY) ── */}
       <section className={styles.bentoSection}>
         <div className={styles.container}>
@@ -257,33 +254,26 @@ export default function Home() {
 
       {/* ── OUR PROCESS ── */}
       <section className={styles.processSection}>
-        <div className={styles.container}>
-          <div className={styles.sectionHeaderCentered}>
-            <span className={styles.sectionLabelColored}>OUR PROCESS</span>
-            <h2 className={styles.sectionTitleDark}>From Concept To Creation</h2>
-          </div>
-        </div>
-          
         <div className={styles.processWrap}>
-          {/* Full width base image */}
-          <img src="/process-bg.png" alt="Our Process" className={styles.processBaseImage} />
+          <img src="https://raw.githubusercontent.com/shadcn-ui/ui/main/apps/www/public/avatars/01.png" alt="Process Base" className={styles.processBaseImgHidden} style={{display:'none'}} /> {/* Placeholder since original was local */}
+          <img src="/Chair_image.png" alt="Our Process Map" className={styles.processBaseImage} />
           
-          {/* Overlay content positioned cleanly on the left empty space of the image */}
+          {/* The content is overlaid on top of the image */}
           <div className={styles.processContentOverlay}>
             <div className={styles.timelineDottedLine}></div>
             {[
-              { num: '01', icon: <FaUsers/>, color: '#e91e63', title: 'Consultation', desc: 'We listen to your ideas and understand your requirements.' },
-              { num: '02', icon: <FaClipboardList/>, color: '#ff9800', title: 'Planning', desc: 'We plan the perfect design and layout for your space.' },
-              { num: '03', icon: <FaPencilRuler/>, color: '#00bcd4', title: 'Design & Develop', desc: 'Our experts design and develop your dream space.' },
-              { num: '04', icon: <FaHardHat/>, color: '#8b5cf6', title: 'Execution', desc: 'We execute the plan with precision and quality.' },
-              { num: '05', icon: <FaCheckCircle/>, color: '#4caf50', title: 'Handover', desc: 'On-time delivery with perfect finishing and satisfaction.' }
+              { num: '01', icon: <FaUsers/>, color: '#e91e63', title: 'Consultation', desc: 'We listen to your ideas & understand your vision.' },
+              { num: '02', icon: <FaClipboardList/>, color: '#ff9800', title: 'Planning', desc: 'Space planning & budgeting for perfect execution.' },
+              { num: '03', icon: <FaCubes/>, color: '#00bcd4', title: '3D Design', desc: 'Realistic 3D renders to visualize the final look.' },
+              { num: '04', icon: <FaTools/>, color: '#8b5cf6', title: 'Execution', desc: 'Our expert team brings the design to reality.' },
+              { num: '05', icon: <FaHome/>, color: '#4caf50', title: 'Handover', desc: 'Move into your perfectly designed dream home.' }
             ].map((step, idx) => (
               <div key={idx} className={styles.processStepOverlay}>
-                <div className={styles.processIconWrapOverlay} style={{ color: step.color }}>
-                  {step.icon}
+                <div className={styles.processIconWrapOverlay} style={{ borderColor: step.color }}>
+                  {React.cloneElement(step.icon, { color: step.color })}
                 </div>
                 <div className={styles.processTextWrapOverlay}>
-                  <div className={styles.timelineNum} style={{ color: step.color }}>{step.num}</div>
+                  <span className={styles.timelineNum} style={{ color: step.color }}>{step.num}</span>
                   <h4 className={styles.timelineTitle}>{step.title}</h4>
                   <p className={styles.timelineDesc}>{step.desc}</p>
                 </div>
@@ -297,19 +287,79 @@ export default function Home() {
       <section className={styles.testimonialSection}>
         <div className={styles.container}>
           <div className={styles.sectionHeaderCentered}>
-            <span className={styles.sectionLabelColored}>TESTIMONIALS</span>
-            <div className={styles.testimonialTitleWrap}>
-               <span className={styles.testLine}></span>
-               <h2 className={styles.sectionTitleDark}>What Our Clients Say</h2>
-               <span className={styles.testLine}></span>
+            <span className={styles.sectionLabelColored}>CLIENT REVIEWS</span>
+            <h2 className={styles.sectionTitleDark}>What Our Clients Say</h2>
+          </div>
+          
+          <div className={styles.testimonialGrid}>
+            {[
+              { name: 'Rahul Sharma', text: 'Absolutely thrilled with the outcome! They completely transformed my apartment into a modern masterpiece.' },
+              { name: 'Priya Verma', text: 'Highly professional team. They listened to all my requirements and delivered beyond my expectations.' },
+              { name: 'Amit Desai', text: 'The 3D designs were so realistic, and the final execution was exactly what was promised. Great work!' }
+            ].map((review, idx) => (
+              <div key={idx} className={styles.testimonialCard}>
+                <div className={styles.quoteIcon}><FaQuoteLeft /></div>
+                <p className={styles.testimonialText}>"{review.text}"</p>
+                <div className={styles.testimonialAuthor}>
+                  <div className={styles.stars}>
+                    <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
+                  </div>
+                  <h4>{review.name}</h4>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── INTERACTIVE ROOM (HOTSPOTS) ── */}
+      <section className={styles.interactiveRoomSection}>
+        <div className={styles.interactiveRoomHeader}>
+          <span className={styles.sectionLabelColored}>EXPLORE THE DETAILS</span>
+          <h2 className={styles.sectionTitleDark}>Shop The Look</h2>
+        </div>
+        <div className={styles.interactiveImageWrap}>
+          <img src="https://picsum.photos/seed/room/1920/1080" alt="Interactive Room" className={styles.interactiveImg} />
+          
+          {/* Hotspot 1 */}
+          <div className={styles.hotspot} style={{ top: '60%', left: '30%' }}>
+            <div className={styles.hotspotDot}>+</div>
+            <div className={styles.hotspotTooltip}>
+              <img src="https://picsum.photos/seed/h1/80/80" alt="Product" className={styles.hotspotThumb} />
+              <div className={styles.hotspotInfo}>
+                <h5>Velvet Armchair</h5>
+                <p>$850</p>
+              </div>
             </div>
           </div>
           
-          <div className={styles.testGrid}>
-            {[
-              { name: 'Pooja Sharma', loc: 'Noida', img: 'https://picsum.photos/seed/user1/100/100', text: 'Forever Dreams Home transformed our house into a dream home. Their creativity and attention to detail is simply amazing!' },
-              { name: 'Rahul Verma', loc: 'Delhi', img: 'https://picsum.photos/seed/user2/100/100', text: 'Professional team, on-time delivery and excellent execution. Highly recommended for interior design!' },
-              { name: 'Anjali Mehta', loc: 'Meerut', img: 'https://picsum.photos/seed/user3/100/100', text: 'They understood our needs perfectly and designed a space that feels just right. Thank you FDH!' }
+          {/* Hotspot 2 */}
+          <div className={styles.hotspot} style={{ top: '30%', left: '60%' }}>
+            <div className={styles.hotspotDot}>+</div>
+            <div className={styles.hotspotTooltip}>
+              <img src="https://picsum.photos/seed/h2/80/80" alt="Product" className={styles.hotspotThumb} />
+              <div className={styles.hotspotInfo}>
+                <h5>Crystal Chandelier</h5>
+                <p>$1,200</p>
+              </div>
+            </div>
+          </div>
+          
+          {/* Hotspot 3 */}
+          <div className={styles.hotspot} style={{ top: '75%', left: '70%' }}>
+            <div className={styles.hotspotDot}>+</div>
+            <div className={styles.hotspotTooltip}>
+              <img src="https://picsum.photos/seed/h3/80/80" alt="Product" className={styles.hotspotThumb} />
+              <div className={styles.hotspotInfo}>
+                <h5>Oak Coffee Table</h5>
+                <p>$450</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA BANNER ── */}
             ].map((test, idx) => (
               <div key={idx} className={styles.testCard}>
                 <div className={styles.testCardContent}>
@@ -336,17 +386,6 @@ export default function Home() {
              <span className={styles.dot}></span>
              <span className={styles.dot}></span>
           </div>
-        </div>
-      </section>
-
-      {/* ── INTERACTIVE ROOM (HOTSPOTS) ── */}
-      <section className={styles.interactiveRoomSection}>
-        <div className={styles.interactiveRoomHeader}>
-          <span className={styles.sectionLabelColored}>EXPLORE THE DETAILS</span>
-          <h2 className={styles.sectionTitleDark}>Shop The Look</h2>
-        </div>
-        <div className={styles.interactiveImageWrap}>
-          <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Interactive Room" className={styles.interactiveImg} />
         </div>
       </section>
 
