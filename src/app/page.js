@@ -152,7 +152,7 @@ export default function Home() {
       </section>
 
       {/* ── SERVICES SECTION ── */}
-      <section className={styles.servicesSection}>
+      <section id="services" className={styles.servicesSection}>
         <div className={styles.container}>
           <div className={styles.sectionHeaderCentered}>
             <span className={styles.sectionLabelColored}>OUR SERVICES</span>
