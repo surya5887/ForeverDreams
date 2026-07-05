@@ -108,7 +108,7 @@ export default function AboutUsPage() {
               </p>
             </div>
             <div className={styles.aboutImageWrap}>
-              <img src="https://picsum.photos/seed/about-team/600/450" alt="Our Team" className={styles.aboutImage} />
+              <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=600&h=450&fit=crop" alt="Our Team" className={styles.aboutImage} />
               <div className={styles.aboutImageAccent}></div>
             </div>
           </div>
@@ -209,7 +209,7 @@ export default function AboutUsPage() {
               <span className={styles.sectionLabel}>SEND A MESSAGE</span>
               <h2 className={styles.sectionTitle}>Let&apos;s Start a Conversation</h2>
               <p>Have a question or want to discuss your project? Fill out the form and our team will get back to you within 24 hours.</p>
-              <img src="https://picsum.photos/seed/contact-decor/500/350" alt="Interior Design" className={styles.formDecorImage} />
+              <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=500&h=350&fit=crop" alt="Interior Design" className={styles.formDecorImage} />
             </div>
             <div className={styles.formWrap}>
               {submitted && (
