@@ -87,7 +87,9 @@ const CATEGORY_IMAGES = CATEGORIES.filter(c => c.id !== 'all').map(cat => ({
   image: `https://picsum.photos/seed/cat-${cat.id}/600/400`,
 }));
 
-export default function DesignGalleryPage() {
+import { Suspense } from 'react';
+
+function GalleryContent() {
   const searchParams = useSearchParams();
   const [activeCategory, setActiveCategory] = useState('all');
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -251,5 +253,13 @@ export default function DesignGalleryPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function DesignGalleryPage() {
+  return (
+    <Suspense fallback={<div style={{ padding: '5rem', textAlign: 'center' }}>Loading Gallery...</div>}>
+      <GalleryContent />
+    </Suspense>
   );
 }
