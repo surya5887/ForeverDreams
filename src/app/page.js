@@ -131,12 +131,12 @@ export default function Home() {
           
           <div className={styles.servicesGrid}>
             {[
-              { icon: <FaCouch style={{color:'#e91e63'}}/>, title: 'Residential Interior', desc: 'Comfortable, stylish and personalized home interiors.', color: '#e91e63', img: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80' },
-              { icon: <FaCity style={{color:'#00bcd4'}}/>, title: 'Commercial Interior', desc: 'Functional and productive spaces for your business.', color: '#00bcd4', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80' },
-              { icon: <FaUtensils style={{color:'#ff9800'}}/>, title: 'Modular Kitchen', desc: 'Smart, stylish & space-saving kitchen designs.', color: '#ff9800', img: 'https://images.unsplash.com/photo-1556910103-1c02745a8728?w=800&q=80' },
-              { icon: <FaLightbulb style={{color:'#8b5cf6'}}/>, title: 'Furniture & Decor', desc: 'Handpicked furniture & decor to complete your space.', color: '#8b5cf6', img: 'https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=800&q=80' },
-              { icon: <FaKey style={{color:'#3b82f6'}}/>, title: 'Turnkey Projects', desc: 'End-to-end solutions with hassle-free execution.', color: '#3b82f6', img: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80' },
-              { icon: <FaCubes style={{color:'#4caf50'}}/>, title: '3D Design & Visual', desc: 'Realistic 3D renders to visualize your dream space.', color: '#4caf50', img: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80' }
+              { icon: <FaCouch style={{color:'#e91e63'}}/>, title: 'Residential Interior', desc: 'Comfortable, stylish and personalized home interiors.', color: '#e91e63', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258284/forever_dreams/home/h3fbmblp6akbvje1jgse.jpg' },
+              { icon: <FaCity style={{color:'#00bcd4'}}/>, title: 'Commercial Interior', desc: 'Functional and productive spaces for your business.', color: '#00bcd4', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258285/forever_dreams/home/hrspiz7a0pamdukou77c.jpg' },
+              { icon: <FaUtensils style={{color:'#ff9800'}}/>, title: 'Modular Kitchen', desc: 'Smart, stylish & space-saving kitchen designs.', color: '#ff9800', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258292/forever_dreams/home/ekqyrpv1zjvze8wiff2p.jpg' },
+              { icon: <FaLightbulb style={{color:'#8b5cf6'}}/>, title: 'Furniture & Decor', desc: 'Handpicked furniture & decor to complete your space.', color: '#8b5cf6', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258287/forever_dreams/home/u0ksx3rcw5cicmmgg6hi.jpg' },
+              { icon: <FaKey style={{color:'#3b82f6'}}/>, title: 'Turnkey Projects', desc: 'End-to-end solutions with hassle-free execution.', color: '#3b82f6', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258288/forever_dreams/home/p0dwuoqs1psbgzacpkjn.jpg' },
+              { icon: <FaCubes style={{color:'#4caf50'}}/>, title: '3D Design & Visual', desc: 'Realistic 3D renders to visualize your dream space.', color: '#4caf50', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258289/forever_dreams/home/e5i4tdncsmwixg2s934p.jpg' }
             ].map((service, idx) => (
               <div key={idx} className={styles.serviceCard}>
                 <div className={styles.serviceImgWrap}>
@@ -175,10 +175,10 @@ export default function Home() {
             <button className={styles.navBtnLeft}><FiArrowLeft /></button>
             <div className={styles.recentCarousel}>
               {[
-                { title: 'Modern Living Room', loc: 'Meerut', img: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80' },
-                { title: 'Luxury Bedroom', loc: 'Noida', img: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&q=80' },
-                { title: 'Elegant Kitchen', loc: 'Delhi', img: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80' },
-                { title: 'Contemporary Office', loc: 'Gurugram', img: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&q=80' }
+                { title: 'Modern Living Room', loc: 'Meerut', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258290/forever_dreams/home/rfsm5hkug7ary3rdls7m.jpg' },
+                { title: 'Luxury Bedroom', loc: 'Noida', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258291/forever_dreams/home/xi7mmmxwd4gf5njvi6bq.jpg' },
+                { title: 'Elegant Kitchen', loc: 'Delhi', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258292/forever_dreams/home/ekqyrpv1zjvze8wiff2p.jpg' },
+                { title: 'Contemporary Office', loc: 'Gurugram', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258293/forever_dreams/home/rajqvbq7p8pihihduqev.jpg' }
               ].map((proj, idx) => (
                 <div key={idx} className={styles.recentCard}>
                   <img src={proj.img} alt={proj.title} className={styles.recentCardImg} />
@@ -204,28 +204,28 @@ export default function Home() {
           
           <div className={styles.bentoGrid}>
             <div className={`${styles.bentoItem} ${styles.bentoLarge}`}>
-              <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1000&q=80" alt="Luxury Living" className={styles.bentoImg} />
+              <img src="https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258294/forever_dreams/home/z7kt6zfn17iqsq5vitiq.jpg" alt="Luxury Living" className={styles.bentoImg} />
               <div className={styles.bentoOverlay}>
                 <h4>The Minimalist Villa</h4>
                 <p>Living Room</p>
               </div>
             </div>
             <div className={styles.bentoItem}>
-              <img src="https://images.unsplash.com/photo-1556912173-3bb406ef7e77?w=800&q=80" alt="Modern Kitchen" className={styles.bentoImg} />
+              <img src="https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258295/forever_dreams/home/jnkbabjs9ofhznox9dr3.jpg" alt="Modern Kitchen" className={styles.bentoImg} />
               <div className={styles.bentoOverlay}>
                 <h4>Urban Loft</h4>
                 <p>Kitchen</p>
               </div>
             </div>
             <div className={styles.bentoItem}>
-              <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=80" alt="Elegant Bedroom" className={styles.bentoImg} />
+              <img src="https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258297/forever_dreams/home/pi202ukiqeffnahthaiy.jpg" alt="Elegant Bedroom" className={styles.bentoImg} />
               <div className={styles.bentoOverlay}>
                 <h4>Serene Suite</h4>
                 <p>Bedroom</p>
               </div>
             </div>
             <div className={`${styles.bentoItem} ${styles.bentoWide}`}>
-              <img src="https://images.unsplash.com/photo-1617806118233-18e1c094f964?w=1000&q=80" alt="Cozy Dining" className={styles.bentoImg} />
+              <img src="https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258291/forever_dreams/home/xi7mmmxwd4gf5njvi6bq.jpg" alt="Cozy Dining" className={styles.bentoImg} />
               <div className={styles.bentoOverlay}>
                 <h4>The Grand Estate</h4>
                 <p>Dining Area</p>
@@ -238,7 +238,7 @@ export default function Home() {
       {/* ── DESIGN PHILOSOPHY (SPLIT LAYOUT) ── */}
       <section className={styles.philosophySection}>
         <div className={styles.philosophyLeft}>
-          <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80" alt="Design Philosophy" className={styles.philosophyImg} />
+          <img src="https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258299/forever_dreams/home/u9avggoq7uzfyvzweueu.jpg" alt="Design Philosophy" className={styles.philosophyImg} />
         </div>
         <div className={styles.philosophyRight}>
           <span className={styles.sectionLabelColored}>OUR PHILOSOPHY</span>
@@ -304,9 +304,9 @@ export default function Home() {
           
           <div className={styles.testGrid}>
             {[
-              { name: 'Pooja Sharma', loc: 'Noida', img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&q=80', text: 'Forever Dreams Home transformed our house into a dream home. Their creativity and attention to detail is simply amazing!' },
-              { name: 'Rahul Verma', loc: 'Delhi', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80', text: 'Professional team, on-time delivery and excellent execution. Highly recommended for interior design!' },
-              { name: 'Anjali Mehta', loc: 'Meerut', img: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&q=80', text: 'They understood our needs perfectly and designed a space that feels just right. Thank you FDH!' }
+              { name: 'Pooja Sharma', loc: 'Noida', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258300/forever_dreams/home/aopulyfwcdfa7v2e2yhr.jpg', text: 'Forever Dreams Home transformed our house into a dream home. Their creativity and attention to detail is simply amazing!' },
+              { name: 'Rahul Verma', loc: 'Delhi', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258301/forever_dreams/home/rc32gvcfjicirau5pthk.jpg', text: 'Professional team, on-time delivery and excellent execution. Highly recommended for interior design!' },
+              { name: 'Anjali Mehta', loc: 'Meerut', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258302/forever_dreams/home/a7xu294rzfji1ysmtlcp.jpg', text: 'They understood our needs perfectly and designed a space that feels just right. Thank you FDH!' }
             ].map((test, idx) => (
               <div key={idx} className={styles.testCard}>
                 <div className={styles.testCardContent}>

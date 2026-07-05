@@ -16,7 +16,7 @@
   display: flex;
   min-height: 100vh;
   position: relative;
-  background: var(--color-bg) url('/hero-bg.png') no-repeat left center;
+  background: var(--color-bg) url('https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258283/forever_dreams/home/d7headfvk2lxsxory5qk.png') no-repeat left center;
   background-size: 100% 100%; /* Forces image to fit screen exactly without cropping */
 }
 
