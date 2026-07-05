@@ -3,18 +3,19 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { db } from '../lib/firebase';
-import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore';
+import { collection, getDocs, query, orderBy, limit, doc, getDoc } from 'firebase/firestore';
 import { FiArrowRight, FiPlay, FiPhone, FiMail, FiArrowLeft } from 'react-icons/fi';
 import { 
   FaWhatsapp, FaHome, FaCity, FaUtensils, FaCouch, FaKey, FaCubes,
   FaLightbulb, FaAward, FaClock, FaHeart, FaStar, FaQuoteLeft,
   FaUsers, FaClipboardList, FaPencilRuler, FaHardHat, FaCheckCircle,
-  FaFacebookF, FaInstagram, FaPinterestP, FaYoutube
+  FaFacebookF, FaInstagram, FaPinterestP, FaYoutube, FaTwitter
 } from 'react-icons/fa';
 import styles from './page.module.css';
 
 export default function Home() {
   const [recentProjects, setRecentProjects] = useState([]);
+  const [siteSettings, setSiteSettings] = useState(null);
 
   useEffect(() => {
     const fetchRecentProjects = async () => {
@@ -36,10 +37,24 @@ export default function Home() {
           setRecentProjects(projects);
         }
       } catch (error) {
-        console.error("Error fetching projects:", error);
+        console.error("Error fetching projects: ", error);
       }
     };
+    
+    const fetchSettings = async () => {
+      try {
+        const docRef = doc(db, 'settings', 'general');
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          setSiteSettings(docSnap.data());
+        }
+      } catch (error) {
+        console.error("Error fetching settings: ", error);
+      }
+    };
+
     fetchRecentProjects();
+    fetchSettings();
   }, []);
 
   return (
@@ -408,10 +423,11 @@ export default function Home() {
               Designing beautiful spaces that reflect your style and personality.
             </p>
             <div className={styles.socialLinks}>
-              <a href="#"><FaFacebookF/></a>
-              <a href="#"><FaInstagram/></a>
-              <a href="#"><FaPinterestP/></a>
-              <a href="#"><FaYoutube/></a>
+              <a href={siteSettings?.facebook || "#"} target="_blank" rel="noreferrer"><FaFacebookF/></a>
+              <a href={siteSettings?.instagram || "#"} target="_blank" rel="noreferrer"><FaInstagram/></a>
+              <a href={siteSettings?.pinterest || "#"} target="_blank" rel="noreferrer"><FaPinterestP/></a>
+              <a href={siteSettings?.youtube || "#"} target="_blank" rel="noreferrer"><FaYoutube/></a>
+              <a href={siteSettings?.twitter || "#"} target="_blank" rel="noreferrer"><FaTwitter/></a>
             </div>
           </div>
 
@@ -442,9 +458,9 @@ export default function Home() {
           <div className={styles.footerCol}>
             <h4 className={styles.footerTitle}>Contact Us</h4>
             <ul className={styles.footerContact}>
-              <li><FiPhone color="#b98e46" /> +91 12345 67890</li>
-              <li><FiMail color="#b98e46" /> info@foreverdreamshome.com</li>
-              <li><FaHome color="#b98e46" /> Meerut, Uttar Pradesh, India</li>
+              <li><FiPhone color="#b98e46" /> {siteSettings?.phone || '+91 12345 67890'}</li>
+              <li><FiMail color="#b98e46" /> {siteSettings?.email || 'info@foreverdreamshome.com'}</li>
+              <li><FaHome color="#b98e46" /> {siteSettings?.address || 'Meerut, Uttar Pradesh, India'}</li>
             </ul>
             
             <h4 className={styles.footerTitle} style={{marginTop: '2rem'}}>Newsletter</h4>
