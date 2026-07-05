@@ -16,8 +16,8 @@
 
 .footerLogo { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.5rem; }
 .fLogoIconImage {
-  width: 90px;
-  height: 90px;
+  width: 120px;
+  height: 120px;
   object-fit: contain;
 }
 .fLogoText { display: flex; flex-direction: column; }
