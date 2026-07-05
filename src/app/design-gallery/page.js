@@ -133,7 +133,9 @@ function GalleryContent() {
                       <div className={styles.designCardBody}>
                         <h3 className={styles.designCardTitle}>{item.title}</h3>
                         <div className={styles.designCardActions}>
-                          <button className={styles.btnQuote}>Get a Quote</button>
+                          <a href={`https://wa.me/911234567890?text=Hello%20ForeverDreams,%20I'm%20interested%20in%20your%20interior%20design%20services.%20Can%20I%20get%20a%20quote%20for%20the%20${encodeURIComponent(item.title)}%20project?`} target="_blank" rel="noopener noreferrer" className={styles.btnQuote} style={{textDecoration: 'none', display: 'inline-block', textAlign: 'center'}}>
+                            Get a Quote
+                          </a>
                           <button className={styles.btnExplore} onClick={() => openSidebar(item)}>
                             Explore more <FiChevronRight />
                           </button>
@@ -170,8 +172,12 @@ function GalleryContent() {
             </div>
 
             <div className={styles.sidebarActions}>
-              <button className={styles.btnPrimary}>Get a Quote <FiArrowRight /></button>
-              <button className={styles.btnOutline}>Book Consultation</button>
+              <a href={`https://wa.me/911234567890?text=Hello%20ForeverDreams,%20I'm%20interested%20in%20your%20interior%20design%20services.%20Can%20I%20get%20a%20quote%20for%20the%20${encodeURIComponent(selectedItem.title)}%20project?`} target="_blank" rel="noopener noreferrer" className={styles.btnPrimary} style={{textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center'}}>
+                Get a Quote <FiArrowRight />
+              </a>
+              <a href="https://wa.me/911234567890?text=Hello%20ForeverDreams,%20I'd%20like%20to%20book%20a%20consultation." target="_blank" rel="noopener noreferrer" className={styles.btnOutline} style={{textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center'}}>
+                Book Consultation
+              </a>
             </div>
           </div>
         )}

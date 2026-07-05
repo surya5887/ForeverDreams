@@ -86,15 +86,21 @@ const RECENT_PROJECTS = [
   }
 ];
 
-const GALLERY_IMAGES = [
-  'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258290/forever_dreams/home/rfsm5hkug7ary3rdls7m.jpg',
-  'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258291/forever_dreams/home/xi7mmmxwd4gf5njvi6bq.jpg',
-  'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258292/forever_dreams/home/ekqyrpv1zjvze8wiff2p.jpg',
-  'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258293/forever_dreams/home/rajqvbq7p8pihihduqev.jpg',
-  'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258294/forever_dreams/home/z7kt6zfn17iqsq5vitiq.jpg',
-  'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258295/forever_dreams/home/jnkbabjs9ofhznox9dr3.jpg',
-  'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258297/forever_dreams/home/pi202ukiqeffnahthaiy.jpg'
-];
+const CATEGORY_IMAGES = {
+  'modular-kitchen': 'https://res.cloudinary.com/waqkndtu/image/upload/v1783271725/forever_dreams/gallery/s26nper78bnirvylnkvk.jpg',
+  'living-room': 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258294/forever_dreams/home/z7kt6zfn17iqsq5vitiq.jpg',
+  'bedroom': 'https://res.cloudinary.com/waqkndtu/image/upload/v1783271726/forever_dreams/gallery/y7nysauhogytxmgz3gtl.jpg',
+  'kids-bedroom': 'https://res.cloudinary.com/waqkndtu/image/upload/v1783271727/forever_dreams/gallery/okx4hby684lcmgq2dk42.jpg',
+  'wardrobe': 'https://res.cloudinary.com/waqkndtu/image/upload/v1783271728/forever_dreams/gallery/orrdm4qvrfxainq3iqyn.jpg',
+  'dining-room': 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258287/forever_dreams/home/u0ksx3rcw5cicmmgg6hi.jpg',
+  'pooja-room': 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258288/forever_dreams/home/p0dwuoqs1psbgzacpkjn.jpg',
+  'space-saving': 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258289/forever_dreams/home/e5i4tdncsmwixg2s934p.jpg',
+  'home-office': 'https://res.cloudinary.com/waqkndtu/image/upload/v1783271732/forever_dreams/gallery/jifmmyibafnciyo17ii0.jpg',
+  'bathroom': 'https://res.cloudinary.com/waqkndtu/image/upload/v1783271732/forever_dreams/gallery/pm6z33o1evabw1nam0ed.jpg',
+  '1-bhk': 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258295/forever_dreams/home/jnkbabjs9ofhznox9dr3.jpg',
+  '2-bhk': 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258297/forever_dreams/home/pi202ukiqeffnahthaiy.jpg',
+  '3-bhk': 'https://res.cloudinary.com/waqkndtu/image/upload/v1783271735/forever_dreams/gallery/xdukpzyr7fobpxghqspd.jpg'
+};
 
 export default function SeedPage() {
   const [status, setStatus] = useState('');
@@ -132,9 +138,10 @@ export default function SeedPage() {
 
       // 3. Seed Gallery Items (2 items per category)
       setStatus('Adding gallery items...');
-      let imgIndex = 0;
       for (const cat of CATEGORIES) {
         const firebaseCatId = categoryMap[cat.id];
+        const categoryImageUrl = CATEGORY_IMAGES[cat.id] || 'https://picsum.photos/seed/gal1/800/600';
+        
         for (let i = 1; i <= 2; i++) {
           await addDoc(collection(db, 'galleryItems'), {
             categoryId: firebaseCatId,
@@ -143,10 +150,9 @@ export default function SeedPage() {
             location: 'Delhi NCR',
             year: '2025',
             description: `A stunning modern ${cat.name.toLowerCase()} design.`,
-            images: [GALLERY_IMAGES[imgIndex % GALLERY_IMAGES.length]],
+            images: [categoryImageUrl],
             createdAt: new Date()
           });
-          imgIndex++;
         }
       }
 
