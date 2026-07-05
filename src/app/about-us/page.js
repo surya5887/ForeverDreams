@@ -50,6 +50,23 @@ export default function AboutUsPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    const { name, email, phone, subject, message } = formData;
+    const adminWhatsApp = siteSettings?.whatsapp ? siteSettings.whatsapp.replace(/[^0-9]/g, '') : '911234567890';
+    
+    const text = `Hello Forever Dreams Home, I have an inquiry:
+
+*Name:* ${name}
+*Email:* ${email}
+*Phone:* ${phone}
+*Subject:* ${subject || 'General Inquiry'}
+
+*Message:*
+${message}`;
+
+    const waUrl = `https://wa.me/${adminWhatsApp}?text=${encodeURIComponent(text)}`;
+    window.open(waUrl, '_blank');
+
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 4000);
     setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
