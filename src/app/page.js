@@ -3,20 +3,17 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { db } from '../lib/firebase';
-import { collection, getDocs, query, orderBy, limit, doc, getDoc } from 'firebase/firestore';
+import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore';
 import { FiArrowRight, FiPlay, FiPhone, FiMail, FiArrowLeft } from 'react-icons/fi';
 import { 
   FaWhatsapp, FaHome, FaCity, FaUtensils, FaCouch, FaKey, FaCubes,
   FaLightbulb, FaAward, FaClock, FaHeart, FaStar, FaQuoteLeft,
   FaUsers, FaClipboardList, FaPencilRuler, FaHardHat, FaCheckCircle,
-  FaFacebookF, FaInstagram, FaPinterestP, FaYoutube, FaTwitter
-} from 'react-icons/fa';
 } from 'react-icons/fa';
 import styles from './page.module.css';
 
 export default function Home() {
   const [recentProjects, setRecentProjects] = useState([]);
-  const [siteSettings, setSiteSettings] = useState(null);
 
   useEffect(() => {
     const fetchRecentProjects = async () => {
@@ -41,21 +38,8 @@ export default function Home() {
         console.error("Error fetching projects: ", error);
       }
     };
-    
-    const fetchSettings = async () => {
-      try {
-        const docRef = doc(db, 'settings', 'general');
-        const docSnap = await getDoc(docRef);
-        if (docSnap.exists()) {
-          setSiteSettings(docSnap.data());
-        }
-      } catch (error) {
-        console.error("Error fetching settings: ", error);
-      }
-    };
 
     fetchRecentProjects();
-    fetchSettings();
   }, []);
 
   return (
