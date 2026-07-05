@@ -45,23 +45,23 @@
 }
 
 .breadcrumb a {
-  color: #1a7a6d;
+  color: var(--color-accent);
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .breadcrumb a:hover {
-  color: #c9a96e;
+  color: var(--color-accent-light);
 }
 
 .breadcrumb span {
-  color: #333;
+  color: rgba(255, 255, 255, 0.7);
   font-weight: 500;
 }
 
 .breadcrumb svg {
   font-size: 0.7rem;
-  color: #ccc;
+  color: rgba(255, 255, 255, 0.4);
 }
 
 /* ── Category Tabs ── */
@@ -85,9 +85,9 @@
 .tab {
   padding: 10px 22px;
   border-radius: 25px;
-  border: 1.5px solid #ddd;
-  background: #fff;
-  color: #555;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
@@ -97,14 +97,14 @@
 }
 
 .tab:hover {
-  border-color: #c9a96e;
-  color: #c9a96e;
+  border-color: var(--color-accent);
+  color: var(--color-accent);
 }
 
 .tabActive {
-  border-color: #c9a96e;
-  color: #c9a96e;
-  background: rgba(201, 169, 110, 0.06);
+  border-color: var(--color-accent);
+  color: #fff;
+  background: var(--color-accent);
   font-weight: 600;
 }
 
@@ -118,7 +118,7 @@
 .categoriesTitle {
   font-family: var(--font-heading);
   font-size: 2rem;
-  color: var(--color-surface-dark);
+  color: var(--color-text-main);
   margin-bottom: 2rem;
 }
 
@@ -185,7 +185,7 @@
 .designsTitle {
   font-family: var(--font-heading);
   font-size: 2rem;
-  color: var(--color-surface-dark);
+  color: var(--color-text-main);
   margin-bottom: 2rem;
 }
 
@@ -196,12 +196,12 @@
 }
 
 .designCard {
-  background: #fff;
+  background: var(--color-surface);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
   transition: all 0.4s ease;
-  border: 1px solid #f0ede8;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   animation: fadeInUp 0.5s ease forwards;
   opacity: 0;
 }
@@ -237,7 +237,7 @@
   font-family: var(--font-heading);
   font-size: 1rem;
   font-weight: 600;
-  color: var(--color-surface-dark);
+  color: var(--color-text-main);
   margin-bottom: 1rem;
   line-height: 1.4;
   display: -webkit-box;
@@ -254,7 +254,7 @@
 
 .btnQuote {
   padding: 8px 20px;
-  background: #1a7a6d;
+  background: var(--color-accent);
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -265,7 +265,7 @@
 }
 
 .btnQuote:hover {
-  background: #15665b;
+  background: var(--color-accent-light);
   transform: translateY(-1px);
 }
 
