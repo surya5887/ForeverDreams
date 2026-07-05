@@ -27,10 +27,10 @@ export default function Home() {
         // If empty, use fallbacks temporarily until seeded
         if (projects.length === 0) {
           setRecentProjects([
-            { id: 1, title: 'Modern Living Room', loc: 'Meerut', imageUrl: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258290/forever_dreams/home/rfsm5hkug7ary3rdls7m.jpg' },
-            { id: 2, title: 'Luxury Bedroom', loc: 'Noida', imageUrl: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258291/forever_dreams/home/xi7mmmxwd4gf5njvi6bq.jpg' },
-            { id: 3, title: 'Elegant Kitchen', loc: 'Delhi', imageUrl: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258292/forever_dreams/home/ekqyrpv1zjvze8wiff2p.jpg' },
-            { id: 4, title: 'Contemporary Office', loc: 'Gurugram', imageUrl: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258293/forever_dreams/home/rajqvbq7p8pihihduqev.jpg' }
+            { id: 1, title: 'Modern Living Room', loc: 'Meerut', imageUrl: 'https://res.cloudinary.com/waqkndtu/image/upload/v1783264123/forever_dreams/recent/living_room_new.jpg' },
+            { id: 2, title: 'Luxury Bedroom', loc: 'Noida', imageUrl: 'https://res.cloudinary.com/waqkndtu/image/upload/v1783264124/forever_dreams/recent/bedroom_new.jpg' },
+            { id: 3, title: 'Elegant Kitchen', loc: 'Delhi', imageUrl: 'https://res.cloudinary.com/waqkndtu/image/upload/v1783264125/forever_dreams/recent/kitchen_new.jpg' },
+            { id: 4, title: 'Contemporary Office', loc: 'Gurugram', imageUrl: 'https://res.cloudinary.com/waqkndtu/image/upload/v1783264126/forever_dreams/recent/office_new.jpg' }
           ]);
         } else {
           setRecentProjects(projects);

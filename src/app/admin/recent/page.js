@@ -14,6 +14,8 @@ export default function RecentProjectsPage() {
   // Form State
   const [title, setTitle] = useState('');
   const [location, setLocation] = useState('');
+  const [category, setCategory] = useState('Residential');
+  const [description, setDescription] = useState('');
   const [file, setFile] = useState(null);
   const [editingId, setEditingId] = useState(null);
   const [isSaving, setIsSaving] = useState(false);
@@ -49,11 +51,6 @@ export default function RecentProjectsPage() {
       alert("Title is required.");
       return;
     }
-    
-    if (!editingId && recentProjects.length >= 8) {
-      alert("You can only have up to 8 recent projects. Please delete one first.");
-      return;
-    }
 
     if (!editingId && !file) {
       alert("Image is required for new projects.");
@@ -72,15 +69,17 @@ export default function RecentProjectsPage() {
       }
       
       if (editingId) {
-        const updateData = { title, location };
-        if (uploadedUrl) updateData.image = uploadedUrl;
+        const updateData = { title, location, category, description };
+        if (uploadedUrl) updateData.imageUrl = uploadedUrl;
         await updateDoc(doc(db, 'recentProjects', editingId), updateData);
         alert("Project updated successfully!");
       } else {
         const newItem = {
           title,
           location,
-          image: uploadedUrl,
+          category,
+          description,
+          imageUrl: uploadedUrl,
           createdAt: new Date()
         };
         await addDoc(collection(db, 'recentProjects'), newItem);
@@ -90,6 +89,8 @@ export default function RecentProjectsPage() {
       // Reset
       setTitle('');
       setLocation('');
+      setCategory('Residential');
+      setDescription('');
       setFile(null);
       setEditingId(null);
       if (fileInputRef.current) fileInputRef.current.value = "";
@@ -106,6 +107,8 @@ export default function RecentProjectsPage() {
   const handleEdit = (item) => {
     setTitle(item.title);
     setLocation(item.location || '');
+    setCategory(item.category || 'Residential');
+    setDescription(item.description || '');
     setEditingId(item.id);
     setFile(null);
     if (fileInputRef.current) fileInputRef.current.value = "";
@@ -125,16 +128,16 @@ export default function RecentProjectsPage() {
   return (
     <div>
       <div className={styles.pageHeader}>
-        <h1 className={styles.pageTitle}>Manage Recent Projects</h1>
+        <h1 className={styles.pageTitle}>Manage Portfolio Projects</h1>
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
         {/* Form */}
         <div className={styles.card}>
-          <h3 style={{ color: '#333' }}>{editingId ? 'Edit Project' : 'Add Homepage Project'}</h3>
+          <h3 style={{ color: '#333' }}>{editingId ? 'Edit Project' : 'Add Project'}</h3>
           {!editingId && (
             <p style={{ fontSize: '0.9rem', color: '#666', marginBottom: '1.5rem' }}>
-              These projects appear in the "Recent Work" section on the homepage. We recommend adding exactly 4 or 8 projects.
+              These projects appear in the "Recent Projects" page and the homepage.
             </p>
           )}
           
@@ -144,13 +147,34 @@ export default function RecentProjectsPage() {
               <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required style={{ color: '#333' }} />
             </div>
             
-            <div className={styles.formGroup}>
-              <label style={{ color: '#555' }}>Location (Optional)</label>
-              <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} placeholder="e.g. Mumbai, India" style={{ color: '#333' }} />
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+              <div className={styles.formGroup}>
+                <label style={{ color: '#555' }}>Location (Optional)</label>
+                <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} placeholder="e.g. Mumbai, India" style={{ color: '#333' }} />
+              </div>
+              
+              <div className={styles.formGroup}>
+                <label style={{ color: '#555' }}>Category</label>
+                <select value={category} onChange={(e) => setCategory(e.target.value)} style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid #ddd', color: '#333' }}>
+                  <option value="Residential">Residential</option>
+                  <option value="Commercial">Commercial</option>
+                </select>
+              </div>
             </div>
 
             <div className={styles.formGroup}>
-              <label style={{ color: '#555' }}>Cover Image (Portrait orientation recommended)</label>
+              <label style={{ color: '#555' }}>Description</label>
+              <textarea 
+                value={description} 
+                onChange={(e) => setDescription(e.target.value)} 
+                rows="3"
+                placeholder="A short description of the project..."
+                style={{ color: '#333' }}
+              ></textarea>
+            </div>
+
+            <div className={styles.formGroup}>
+              <label style={{ color: '#555' }}>Cover Image *</label>
               <input 
                 type="file" 
                 accept="image/*" 
@@ -167,7 +191,7 @@ export default function RecentProjectsPage() {
                 {isSaving ? 'Saving...' : editingId ? 'Update Project' : 'Add Project'}
               </button>
               {editingId && (
-                <button type="button" className={styles.btnSecondary} onClick={() => { setEditingId(null); setTitle(''); setLocation(''); setFile(null); if(fileInputRef.current) fileInputRef.current.value=''; }}>
+                <button type="button" className={styles.btnSecondary} onClick={() => { setEditingId(null); setTitle(''); setLocation(''); setCategory('Residential'); setDescription(''); setFile(null); if(fileInputRef.current) fileInputRef.current.value=''; }}>
                   Cancel
                 </button>
               )}
@@ -177,7 +201,7 @@ export default function RecentProjectsPage() {
 
         {/* List */}
         <div className={styles.card}>
-          <h3 style={{ color: '#333' }}>Current Projects ({recentProjects.length}/8)</h3>
+          <h3 style={{ color: '#333' }}>Current Projects ({recentProjects.length})</h3>
           {isLoading ? (
             <p style={{ marginTop: '1rem', color: '#333' }}>Loading...</p>
           ) : recentProjects.length === 0 ? (
@@ -185,18 +209,18 @@ export default function RecentProjectsPage() {
           ) : (
             <div style={{ marginTop: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {recentProjects.map(item => {
-                const img = item.image || item.imageUrl;
+                const img = item.imageUrl || item.image;
                 return (
                   <div key={item.id} style={{ display: 'flex', gap: '1rem', padding: '1rem', border: '1px solid #eee', borderRadius: '8px' }}>
                     {img ? (
-                      <img src={img} alt={item.title} style={{ width: '60px', height: '80px', objectFit: 'cover', borderRadius: '4px' }} />
+                      <img src={img} alt={item.title} style={{ width: '80px', height: '60px', objectFit: 'cover', borderRadius: '4px' }} />
                     ) : (
-                      <div style={{ width: '60px', height: '80px', background: '#f5f5f5', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#999', fontSize: '10px' }}>No Img</div>
+                      <div style={{ width: '80px', height: '60px', background: '#f5f5f5', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#999', fontSize: '10px' }}>No Img</div>
                     )}
                     <div style={{ flex: 1 }}>
                       <h4 style={{ margin: '0 0 0.3rem 0', color: '#333' }}>{item.title}</h4>
                       <p style={{ fontSize: '0.8rem', color: '#666', margin: 0 }}>
-                        {item.location || 'No location specified'}
+                        {item.location || 'No location specified'} • <span style={{ color: '#b98e46', fontWeight: 'bold' }}>{item.category || 'Residential'}</span>
                       </p>
                     </div>
                     <div style={{ display: 'flex', gap: '0.5rem', alignSelf: 'center' }}>
