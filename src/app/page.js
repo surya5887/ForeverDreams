@@ -189,7 +189,7 @@ export default function Home() {
       </section>
 
       {/* ── RECENT WORK ── */}
-      <section className={styles.recentWorkSection}>
+      <section id="recent-work" className={styles.recentWorkSection}>
         <div className={styles.container}>
           <div className={styles.recentHeader}>
             <div>
@@ -220,7 +220,7 @@ export default function Home() {
       </section>
 
       {/* ── SIGNATURE SPACES (BENTO BOX GALLERY) ── */}
-      <section className={styles.bentoSection}>
+      <section id="curated-gallery" className={styles.bentoSection}>
         <div className={styles.container}>
           <div className={styles.sectionHeaderCentered}>
             <span className={styles.sectionLabelColored}>SIGNATURE SPACES</span>
@@ -362,7 +362,7 @@ export default function Home() {
       </section>
 
       {/* ── INTERACTIVE ROOM (HOTSPOTS) ── */}
-      <section className={styles.interactiveRoomSection}>
+      <section id="shop-the-look" className={styles.interactiveRoomSection}>
         <div className={styles.interactiveRoomHeader}>
           <span className={styles.sectionLabelColored}>EXPLORE THE DETAILS</span>
           <h2 className={styles.sectionTitleDark}>Shop The Look</h2>

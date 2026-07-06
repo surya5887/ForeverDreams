@@ -65,12 +65,12 @@ export default function Footer() {
         <div className={styles.footerCol}>
           <h4 className={styles.footerTitle}>Our Services</h4>
           <ul className={styles.footerList}>
-            <li><Link href="/services/residential">Residential Interior</Link></li>
-            <li><Link href="/services/commercial">Commercial Interior</Link></li>
-            <li><Link href="/services/kitchen">Modular Kitchen</Link></li>
-            <li><Link href="/services/furniture">Furniture & Decor</Link></li>
-            <li><Link href="/services/turnkey">Turnkey Projects</Link></li>
-            <li><Link href="/services/3d-design">3D Design & Visual</Link></li>
+            <li><Link href="/recent-projects?category=Residential">Residential Interior</Link></li>
+            <li><Link href="/recent-projects?category=Commercial">Commercial Interior</Link></li>
+            <li><Link href="/design-gallery?category=modular-kitchen">Modular Kitchen</Link></li>
+            <li><Link href="/#curated-gallery">Furniture & Decor</Link></li>
+            <li><Link href="/#recent-work">Turnkey Projects</Link></li>
+            <li><Link href="/#shop-the-look">3D Design & Visual</Link></li>
           </ul>
         </div>
 

@@ -16,6 +16,16 @@ export default function RecentProjectsPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const searchParams = new URLSearchParams(window.location.search);
+      const category = searchParams.get('category');
+      if (category && FILTERS.includes(category)) {
+        setActiveFilter(category);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
     const fetchProjects = async () => {
       try {
         const snap = await getDocs(collection(db, 'recentProjects'));
