@@ -102,12 +102,12 @@ export default function SettingsPage() {
               <input type="text" name="whatsapp" value={settings.whatsapp || ''} onChange={handleChange} placeholder="919876543210" />
             </div>
 
-            <div className={styles.formGroup} style={{ gridColumn: 'span 2' }}>
+            <div className={styles.formGroup}>
               <label>Physical Address</label>
               <input type="text" name="address" value={settings.address || ''} onChange={handleChange} placeholder="Meerut, Uttar Pradesh, India" />
             </div>
 
-            <div className={styles.formGroup} style={{ gridColumn: 'span 2' }}>
+            <div className={styles.formGroup}>
               <label>Office Map Location (Drag to set your location)</label>
               <MapPicker lat={settings.mapLat} lng={settings.mapLng} onChange={handleMapChange} />
             </div>
