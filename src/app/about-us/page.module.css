@@ -313,7 +313,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-surface-dark);
+  color: var(--color-primary);
   font-size: 1.1rem;
   flex-shrink: 0;
 }
@@ -356,7 +356,7 @@ a.contactValue:hover {
 }
 
 .formSection .sectionTitle {
-  color: var(--color-surface-dark);
+  color: var(--color-primary);
 }
 
 .formGrid {
@@ -458,7 +458,7 @@ a.contactValue:hover {
   gap: 0.5rem;
   padding: 15px 36px;
   background: linear-gradient(135deg, #c9a96e, #dfc08a, #c9a96e);
-  color: var(--color-surface-dark);
+  color: #fff;
   font-size: 0.95rem;
   font-weight: 700;
   border-radius: 10px;
