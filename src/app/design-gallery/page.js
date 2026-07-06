@@ -32,6 +32,20 @@ function GalleryContent() {
             fetchedCats.push({ id: doc.id, ...data });
           }
         });
+        const CATEGORY_ORDER = [
+          'Modular Kitchen', 'Living Room', 'Bedroom', 'Wardrobe', 
+          'Kids Bedroom', 'Bathroom', 'Home Office', 'Dining Room', 
+          'Pooja Room', '1 BHK Interior', '2 BHK Interior', '3 BHK Interior'
+        ];
+
+        fetchedCats.sort((a, b) => {
+          const indexA = CATEGORY_ORDER.indexOf(a.name);
+          const indexB = CATEGORY_ORDER.indexOf(b.name);
+          const weightA = indexA === -1 ? 999 : indexA;
+          const weightB = indexB === -1 ? 999 : indexB;
+          return weightA - weightB;
+        });
+
         setCategories([{ slug: 'all', name: 'All' }, ...fetchedCats]);
         
         const galSnap = await getDocs(collection(db, 'galleryItems'));
