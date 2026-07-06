@@ -36,7 +36,18 @@ export default function CategoriesPage() {
           cats.push({ id: doc.id, ...data });
         }
       });
-      setCategories(cats);
+      const CATEGORY_ORDER = [
+        'Modular Kitchen', 'Living Room', 'Bedroom', 'Wardrobe', 
+        'Kids Bedroom', 'Bathroom', 'Home Office', 'Dining Room', 
+        'Pooja Room', '1 BHK Interior', '2 BHK Interior', '3 BHK Interior'
+      ];
+      
+      const filteredCats = cats.filter(cat => CATEGORY_ORDER.includes(cat.name));
+      filteredCats.sort((a, b) => {
+        return CATEGORY_ORDER.indexOf(a.name) - CATEGORY_ORDER.indexOf(b.name);
+      });
+
+      setCategories(filteredCats);
     } catch (error) {
       console.error("Error fetching categories:", error);
     } finally {

@@ -38,15 +38,13 @@ function GalleryContent() {
           'Pooja Room', '1 BHK Interior', '2 BHK Interior', '3 BHK Interior'
         ];
 
-        fetchedCats.sort((a, b) => {
-          const indexA = CATEGORY_ORDER.indexOf(a.name);
-          const indexB = CATEGORY_ORDER.indexOf(b.name);
-          const weightA = indexA === -1 ? 999 : indexA;
-          const weightB = indexB === -1 ? 999 : indexB;
-          return weightA - weightB;
+        const filteredCats = fetchedCats.filter(cat => CATEGORY_ORDER.includes(cat.name));
+
+        filteredCats.sort((a, b) => {
+          return CATEGORY_ORDER.indexOf(a.name) - CATEGORY_ORDER.indexOf(b.name);
         });
 
-        setCategories([{ slug: 'all', name: 'All' }, ...fetchedCats]);
+        setCategories([{ slug: 'all', name: 'All' }, ...filteredCats]);
         
         const galSnap = await getDocs(collection(db, 'galleryItems'));
         const fetchedItems = [];
