@@ -118,7 +118,7 @@
 }
 
 .filterActive:hover {
-  background: var(--color-surface-dark);
+  background: var(--color-primary);
   color: #fff;
 }
 
@@ -220,7 +220,7 @@
   gap: 0.5rem;
   padding: 12px 24px;
   background: linear-gradient(135deg, #c9a96e, #dfc08a);
-  color: var(--color-surface-dark);
+  color: #fff;
   font-size: 0.85rem;
   font-weight: 700;
   border-radius: 8px;
@@ -247,7 +247,7 @@
 .projectTitle {
   font-family: var(--font-heading);
   font-size: 1.2rem;
-  color: var(--color-surface-dark);
+  color: var(--color-primary);
   margin-bottom: 0.5rem;
 }
 
@@ -322,7 +322,7 @@
 .sidebarTitle {
   font-family: var(--font-heading);
   font-size: 1.5rem;
-  color: var(--color-surface-dark);
+  color: var(--color-primary);
   margin: 0;
 }
 
