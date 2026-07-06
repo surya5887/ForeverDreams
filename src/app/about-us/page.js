@@ -77,7 +77,7 @@ ${message}`;
     { icon: FaPhone, label: 'Phone', value: siteSettings?.phone || '+91 12345 67890', href: siteSettings?.phone ? `tel:${siteSettings.phone.replace(/[^0-9+]/g, '')}` : 'tel:+911234567890' },
     { icon: FaWhatsapp, label: 'WhatsApp', value: siteSettings?.whatsapp || '+91 12345 67890', href: siteSettings?.whatsapp ? `https://wa.me/${siteSettings.whatsapp.replace(/[^0-9]/g, '')}` : 'https://wa.me/911234567890' },
     { icon: FaEnvelope, label: 'Email', value: siteSettings?.email || 'info@foreverdreamshome.com', href: siteSettings?.email ? `mailto:${siteSettings.email}` : 'mailto:info@foreverdreamshome.com' },
-    { icon: FaClock, label: 'Working Hours', value: 'Mon - Sat: 10:00 AM - 7:00 PM' },
+    { icon: FaClock, label: 'Working Hours', value: siteSettings?.workingHours || 'Mon - Sat: 10:00 AM - 7:00 PM' },
   ];
 
   // Default coordinates if not set in db

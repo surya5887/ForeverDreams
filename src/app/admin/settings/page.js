@@ -22,7 +22,8 @@ export default function SettingsPage() {
     instagram: '',
     youtube: '',
     pinterest: '',
-    twitter: ''
+    twitter: '',
+    workingHours: ''
   });
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
@@ -105,6 +106,11 @@ export default function SettingsPage() {
             <div className={styles.formGroup}>
               <label>Physical Address</label>
               <input type="text" name="address" value={settings.address || ''} onChange={handleChange} placeholder="Meerut, Uttar Pradesh, India" />
+            </div>
+
+            <div className={styles.formGroup}>
+              <label>Working Hours</label>
+              <input type="text" name="workingHours" value={settings.workingHours || ''} onChange={handleChange} placeholder="Mon - Sat: 10:00 AM - 7:00 PM" />
             </div>
 
             <div className={styles.formGroup}>
