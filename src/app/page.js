@@ -178,7 +178,7 @@ export default function Home() {
                 <div className={styles.serviceContent}>
                   <h3 className={styles.serviceTitle}>{service.title}</h3>
                   <p className={styles.serviceDesc}>{service.desc}</p>
-                  <Link href="#" className={styles.exploreLink} style={{ color: service.color }}>
+                  <Link href="/design-gallery" className={styles.exploreLink} style={{ color: service.color }}>
                     DISCOVER MORE <FiArrowRight />
                   </Link>
                 </div>
