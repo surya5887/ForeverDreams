@@ -85,9 +85,9 @@
 .tab {
   padding: 10px 22px;
   border-radius: 25px;
-  border: 1.5px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.05);
-  color: rgba(255, 255, 255, 0.7);
+  border: 1.5px solid rgba(1, 23, 40, 0.1);
+  background: rgba(1, 23, 40, 0.03);
+  color: var(--color-text-muted);
   font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
