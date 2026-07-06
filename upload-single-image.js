@@ -13,8 +13,7 @@ cloudinary.config({
   api_key: env.CLOUDINARY_API_KEY,
   api_secret: env.CLOUDINARY_API_SECRET,
 });
-
-const newImage = 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg';
+const newImage = process.argv[2] || 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg';
 
 async function upload() {
   try {
