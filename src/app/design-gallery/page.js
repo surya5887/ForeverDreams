@@ -96,7 +96,7 @@ function GalleryContent() {
   const activeCategoryId = activeCatObj ? activeCatObj.id : null;
   const activeCategoryName = activeCatObj ? activeCatObj.name : '';
 
-  const currentItems = activeCategorySlug === 'all' ? galleryItems : galleryItems.filter(item => item.categoryId === activeCategoryId);
+  const currentItems = activeCategorySlug === 'all' ? galleryItems : galleryItems.filter(item => item.categoryId === activeCategoryId || item.category === activeCategoryName);
 
   return (
     <div className={styles.page}>
