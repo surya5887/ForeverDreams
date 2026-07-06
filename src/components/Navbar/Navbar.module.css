@@ -50,10 +50,14 @@
 
 .logoTop {
   font-family: var(--font-heading);
-  color: #fff;
+  color: var(--color-primary);
   font-size: 1rem;
   letter-spacing: 2px;
   line-height: 1;
+}
+
+.header.scrolled .logoTop {
+  color: #fff;
 }
 
 .logoMiddle {
@@ -70,9 +74,13 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 0.55rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--color-text-muted);
   letter-spacing: 3px;
   white-space: nowrap;
+}
+
+.header.scrolled .logoBottom {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .line {
@@ -92,7 +100,7 @@
 .navLink {
   font-size: 0.75rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--color-primary);
   letter-spacing: 1px;
   text-transform: uppercase;
   display: flex;
@@ -102,6 +110,10 @@
   position: relative;
   transition: color 0.3s ease;
   text-decoration: none;
+}
+
+.header.scrolled .navLink {
+  color: #fff;
 }
 
 .navLink::after {
@@ -230,9 +242,13 @@
   background: none;
   border: none;
   font-size: 1.5rem;
-  color: #fff;
+  color: var(--color-primary);
   cursor: pointer;
   z-index: 1001;
+}
+
+.header.scrolled .mobileToggle {
+  color: #fff;
 }
 
 /* ── Mobile Drawer ── */
