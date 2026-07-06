@@ -1,0 +1,94 @@
+.page {
+  padding: 120px 0 60px;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.lastUpdated {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+}
+
+.content {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 3rem;
+  backdrop-filter: blur(10px);
+}
+
+.content h2 {
+  color: var(--color-accent);
+  font-size: 1.8rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.content h2:first-child {
+  margin-top: 0;
+}
+
+.content p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+  font-size: 1.05rem;
+}
+
+.content ul {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+  padding-left: 1.5rem;
+  font-size: 1.05rem;
+}
+
+.content li {
+  margin-bottom: 0.5rem;
+}
+
+.contactInfo {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-top: 2rem;
+}
+
+.contactInfo p {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.contactInfo p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.2rem;
+  }
+  .content {
+    padding: 2rem 1.5rem;
+  }
+  .content h2 {
+    font-size: 1.5rem;
+  }
+}
