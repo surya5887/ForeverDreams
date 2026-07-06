@@ -37,12 +37,23 @@
   z-index: 1001;
 }
 
-.logoIconImage {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
+.logoCircle {
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   border: 2px solid var(--color-accent);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logoIconImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.6);
 }
 
 .logoText {

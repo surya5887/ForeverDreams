@@ -15,12 +15,23 @@
 }
 
 .footerLogo { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.5rem; }
-.fLogoIconImage {
-  width: 170px;
-  height: 170px;
-  object-fit: cover;
+.fLogoCircle {
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  border: 4px solid #b98e46; /* Matching the footer logo mid color */
+  border: 3px solid #b98e46; /* Matching the footer logo mid color */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.fLogoIconImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.6);
 }
 .fLogoText { display: flex; flex-direction: column; }
 .fLogoTop { font-family: var(--font-heading); font-size: 0.9rem; letter-spacing: 2px; }

@@ -43,7 +43,9 @@ export default function Navbar() {
           
           {/* Logo Area */}
           <Link href="/" className={styles.logoWrap}>
-            <img src="https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783333182/forever_dreams/home/iicu6f0ktc53dkqjzftz.jpg" alt="FD Logo" className={styles.logoIconImage} />
+            <div className={styles.logoCircle}>
+              <img src="https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783333182/forever_dreams/home/iicu6f0ktc53dkqjzftz.jpg" alt="FD Logo" className={styles.logoIconImage} />
+            </div>
             <div className={styles.logoText}>
               <div className={styles.logoTop}>FOREVER</div>
               <div className={styles.logoMiddle}>Dreams Home</div>
