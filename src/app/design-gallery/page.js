@@ -24,7 +24,14 @@ function GalleryContent() {
       try {
         const catSnap = await getDocs(collection(db, 'categories'));
         const fetchedCats = [];
-        catSnap.forEach(doc => fetchedCats.push({ id: doc.id, ...doc.data() }));
+        const seenSlugs = new Set();
+        catSnap.forEach(doc => {
+          const data = doc.data();
+          if (!seenSlugs.has(data.slug)) {
+            seenSlugs.add(data.slug);
+            fetchedCats.push({ id: doc.id, ...data });
+          }
+        });
         setCategories([{ slug: 'all', name: 'All' }, ...fetchedCats]);
         
         const galSnap = await getDocs(collection(db, 'galleryItems'));
