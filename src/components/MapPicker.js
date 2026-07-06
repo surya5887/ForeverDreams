@@ -127,23 +127,15 @@ export default function MapPicker({ lat, lng, onChange }) {
         <LayersControl position="topright">
           <LayersControl.BaseLayer checked name="Standard View">
             <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution='&copy; Google Maps'
+              url="https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}"
             />
           </LayersControl.BaseLayer>
           <LayersControl.BaseLayer name="Satellite View">
-            <LayerGroup>
-              <TileLayer
-                attribution='Tiles &copy; Esri'
-                url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
-              />
-              <TileLayer
-                url="https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}"
-              />
-              <TileLayer
-                url="https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer/tile/{z}/{y}/{x}"
-              />
-            </LayerGroup>
+            <TileLayer
+              attribution='&copy; Google Maps Satellite'
+              url="https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}"
+            />
           </LayersControl.BaseLayer>
         </LayersControl>
         <LocationMarker position={position} setPosition={handlePositionChange} />
