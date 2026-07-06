@@ -16,6 +16,10 @@ export default function RecentProjectsPage() {
   const [location, setLocation] = useState('');
   const [category, setCategory] = useState('Residential');
   const [description, setDescription] = useState('');
+  const [clientName, setClientName] = useState('');
+  const [projectArea, setProjectArea] = useState('');
+  const [duration, setDuration] = useState('');
+  const [year, setYear] = useState('');
   const [file, setFile] = useState(null);
   const [editingId, setEditingId] = useState(null);
   const [isSaving, setIsSaving] = useState(false);
@@ -69,7 +73,7 @@ export default function RecentProjectsPage() {
       }
       
       if (editingId) {
-        const updateData = { title, location, category, description };
+        const updateData = { title, location, category, description, clientName, projectArea, duration, year };
         if (uploadedUrl) updateData.imageUrl = uploadedUrl;
         await updateDoc(doc(db, 'recentProjects', editingId), updateData);
         alert("Project updated successfully!");
@@ -79,6 +83,10 @@ export default function RecentProjectsPage() {
           location,
           category,
           description,
+          clientName,
+          projectArea,
+          duration,
+          year,
           imageUrl: uploadedUrl,
           createdAt: new Date()
         };
@@ -91,6 +99,10 @@ export default function RecentProjectsPage() {
       setLocation('');
       setCategory('Residential');
       setDescription('');
+      setClientName('');
+      setProjectArea('');
+      setDuration('');
+      setYear('');
       setFile(null);
       setEditingId(null);
       if (fileInputRef.current) fileInputRef.current.value = "";
@@ -109,6 +121,10 @@ export default function RecentProjectsPage() {
     setLocation(item.location || '');
     setCategory(item.category || 'Residential');
     setDescription(item.description || '');
+    setClientName(item.clientName || '');
+    setProjectArea(item.projectArea || '');
+    setDuration(item.duration || '');
+    setYear(item.year || '');
     setEditingId(item.id);
     setFile(null);
     if (fileInputRef.current) fileInputRef.current.value = "";
@@ -162,7 +178,29 @@ export default function RecentProjectsPage() {
               </div>
             </div>
 
-            <div className={styles.formGroup}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '1rem' }}>
+              <div className={styles.formGroup}>
+                <label style={{ color: '#555' }}>Client Name (Optional)</label>
+                <input type="text" value={clientName} onChange={(e) => setClientName(e.target.value)} placeholder="e.g. Mr. Sharma" style={{ color: '#333' }} />
+              </div>
+              <div className={styles.formGroup}>
+                <label style={{ color: '#555' }}>Project Area (Optional)</label>
+                <input type="text" value={projectArea} onChange={(e) => setProjectArea(e.target.value)} placeholder="e.g. 2500 sq ft" style={{ color: '#333' }} />
+              </div>
+            </div>
+            
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '1rem' }}>
+              <div className={styles.formGroup}>
+                <label style={{ color: '#555' }}>Duration (Optional)</label>
+                <input type="text" value={duration} onChange={(e) => setDuration(e.target.value)} placeholder="e.g. 45 Days" style={{ color: '#333' }} />
+              </div>
+              <div className={styles.formGroup}>
+                <label style={{ color: '#555' }}>Year (Optional)</label>
+                <input type="text" value={year} onChange={(e) => setYear(e.target.value)} placeholder="e.g. 2024" style={{ color: '#333' }} />
+              </div>
+            </div>
+
+            <div className={styles.formGroup} style={{ marginTop: '1rem' }}>
               <label style={{ color: '#555' }}>Description</label>
               <textarea 
                 value={description} 
@@ -191,7 +229,7 @@ export default function RecentProjectsPage() {
                 {isSaving ? 'Saving...' : editingId ? 'Update Project' : 'Add Project'}
               </button>
               {editingId && (
-                <button type="button" className={styles.btnSecondary} onClick={() => { setEditingId(null); setTitle(''); setLocation(''); setCategory('Residential'); setDescription(''); setFile(null); if(fileInputRef.current) fileInputRef.current.value=''; }}>
+                <button type="button" className={styles.btnSecondary} onClick={() => { setEditingId(null); setTitle(''); setLocation(''); setCategory('Residential'); setDescription(''); setClientName(''); setProjectArea(''); setDuration(''); setYear(''); setFile(null); if(fileInputRef.current) fileInputRef.current.value=''; }}>
                   Cancel
                 </button>
               )}
