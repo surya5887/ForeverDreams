@@ -293,7 +293,7 @@
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 900;
+  z-index: 99998;
   animation: fadeIn 0.3s ease;
 }
 
@@ -309,14 +309,14 @@
   width: 460px;
   height: 100vh;
   background: #fff;
-  z-index: 950;
+  z-index: 99999;
   overflow-y: auto;
   transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   box-shadow: -5px 0 30px rgba(0, 0, 0, 0.15);
 }
 
-.sidebarOpen {
-  right: 0;
+.sidebar.sidebarOpen {
+  right: 0 !important;
 }
 
 .sidebarClose {

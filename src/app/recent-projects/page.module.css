@@ -203,6 +203,16 @@
   opacity: 1;
 }
 
+@media (max-width: 768px) {
+  .projectOverlay {
+    opacity: 1;
+    background: linear-gradient(transparent, rgba(10, 22, 40, 0.8));
+  }
+  .viewBtn {
+    transform: translateY(0);
+  }
+}
+
 .viewBtn {
   display: flex;
   align-items: center;
@@ -266,7 +276,7 @@
   inset: 0;
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(4px);
-  z-index: 999;
+  z-index: 99999;
   display: flex;
   justify-content: flex-end;
   opacity: 0;
