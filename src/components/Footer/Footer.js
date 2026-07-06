@@ -55,9 +55,7 @@ export default function Footer() {
           <ul className={styles.footerList}>
             <li><Link href="/">Home</Link></li>
             <li><Link href="/about-us">About Us</Link></li>
-            <li><Link href="/services/residential">Services</Link></li>
             <li><Link href="/design-gallery">Portfolio</Link></li>
-            <li><Link href="/blog">Blog</Link></li>
             <li><Link href="/about-us#contact-form">Contact Us</Link></li>
           </ul>
         </div>
