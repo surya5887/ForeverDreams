@@ -145,5 +145,6 @@ export default function MapPicker({ lat, lng, onChange }) {
         Click anywhere on the map to set the exact location for your office. Dragging the map will not change the location.
       </div>
     </div>
+    </div>
   );
 }
