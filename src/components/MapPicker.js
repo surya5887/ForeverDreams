@@ -23,13 +23,6 @@ function LocationMarker({ position, setPosition }) {
     }
   });
 
-  // Also update position when map center changes (panning)
-  useMapEvents({
-    moveend(e) {
-      setPosition(e.target.getCenter());
-    }
-  });
-
   return position === null ? null : (
     <Marker position={position}></Marker>
   );
@@ -49,7 +42,7 @@ export default function MapPicker({ lat, lng, onChange }) {
       <MapContainer 
         center={position} 
         zoom={13} 
-        scrollWheelZoom={true} 
+        scrollWheelZoom={false} 
         style={{ height: '100%', width: '100%' }}
       >
         <TileLayer
@@ -59,7 +52,7 @@ export default function MapPicker({ lat, lng, onChange }) {
         <LocationMarker position={position} setPosition={handlePositionChange} />
       </MapContainer>
       <div style={{ padding: '8px', background: '#f5f5f5', fontSize: '12px', textAlign: 'center', color: '#666' }}>
-        Drag the map or click to set the exact location for your office.
+        Click anywhere on the map to set the exact location for your office. Dragging the map will not change the location.
       </div>
     </div>
   );
