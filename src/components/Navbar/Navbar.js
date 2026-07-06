@@ -38,7 +38,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
+      <header className={`${styles.header} ${(isScrolled || pathname !== '/') ? styles.scrolled : ''}`}>
         <div className={styles.container}>
           
           {/* Logo Area */}
