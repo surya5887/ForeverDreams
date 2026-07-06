@@ -147,7 +147,7 @@ export default function RecentProjectsPage() {
         <h1 className={styles.pageTitle}>Manage Portfolio Projects</h1>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+      <div className={styles.twoColGrid}>
         {/* Form */}
         <div className={styles.card}>
           <h3 style={{ color: '#333' }}>{editingId ? 'Edit Project' : 'Add Project'}</h3>
@@ -163,7 +163,7 @@ export default function RecentProjectsPage() {
               <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required style={{ color: '#333' }} />
             </div>
             
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+            <div className={styles.formGrid}>
               <div className={styles.formGroup}>
                 <label style={{ color: '#555' }}>Location (Optional)</label>
                 <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} placeholder="e.g. Mumbai, India" style={{ color: '#333' }} />
@@ -178,7 +178,7 @@ export default function RecentProjectsPage() {
               </div>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '1rem' }}>
+            <div className={styles.formGrid} style={{ marginTop: '1rem' }}>
               <div className={styles.formGroup}>
                 <label style={{ color: '#555' }}>Client Name (Optional)</label>
                 <input type="text" value={clientName} onChange={(e) => setClientName(e.target.value)} placeholder="e.g. Mr. Sharma" style={{ color: '#333' }} />
@@ -189,7 +189,7 @@ export default function RecentProjectsPage() {
               </div>
             </div>
             
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '1rem' }}>
+            <div className={styles.formGrid} style={{ marginTop: '1rem' }}>
               <div className={styles.formGroup}>
                 <label style={{ color: '#555' }}>Duration (Optional)</label>
                 <input type="text" value={duration} onChange={(e) => setDuration(e.target.value)} placeholder="e.g. 45 Days" style={{ color: '#333' }} />

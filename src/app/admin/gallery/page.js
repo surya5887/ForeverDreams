@@ -153,7 +153,7 @@ export default function GalleryPage() {
         <h1 className={styles.pageTitle}>Manage Gallery Cards</h1>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+      <div className={styles.twoColGrid}>
         {/* Form */}
         <div className={styles.card}>
           <h3 style={{ color: '#333' }}>{editingId ? 'Edit Design Card' : 'Add New Design Card'}</h3>
@@ -178,7 +178,7 @@ export default function GalleryPage() {
               </select>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+            <div className={styles.formGrid}>
               <div className={styles.formGroup}>
                 <label style={{ color: '#555' }}>Client Name</label>
                 <input type="text" value={clientName} onChange={(e) => setClientName(e.target.value)} style={{ color: '#333' }} />

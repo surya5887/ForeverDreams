@@ -80,7 +80,7 @@ export default function SettingsPage() {
 
       <div className={styles.card}>
         <form onSubmit={handleSave}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+          <div className={styles.twoColGrid}>
             
             <div className={styles.formGroup}>
               <label>Site Name</label>

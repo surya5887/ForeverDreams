@@ -119,7 +119,7 @@ export default function CategoriesPage() {
         <h1 className={styles.pageTitle}>Manage Categories</h1>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '2rem' }}>
+      <div className={styles.twoColGrid}>
         {/* Form */}
         <div className={styles.card}>
           <h3 style={{ color: '#333' }}>{editingId ? 'Edit Category' : 'Add New Category'}</h3>
