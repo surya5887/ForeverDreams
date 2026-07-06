@@ -458,7 +458,7 @@
    RECENT WORK
    ══════════════════════════════════ */
 .recentWorkSection {
-  background: #0f1626; /* Dark navy */
+  background: #fff; /* Light */
   padding: 5rem 0;
 }
 
@@ -469,23 +469,31 @@
   margin-bottom: 3rem;
 }
 
+.rwTitle {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: #fff; /* Keep white because it's inside the dark gradient overlay of the image */
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+}
+
 .viewAllBtn {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #fff;
+  color: var(--color-primary);
   font-size: 0.8rem;
   font-weight: 600;
-  border: 1px solid rgba(255,255,255,0.3);
+  border: 1px solid rgba(1, 23, 40, 0.3);
   padding: 10px 20px;
   border-radius: 50px;
+  transition: all 0.3s;
   text-decoration: none;
-  transition: all 0.3s ease;
 }
-
 .viewAllBtn:hover {
-  background: #fff;
-  color: #0f1626;
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
 }
 
 .recentCarouselWrap {

@@ -194,7 +194,7 @@ export default function Home() {
           <div className={styles.recentHeader}>
             <div>
               <span className={styles.sectionLabelDark}>OUR RECENT WORK</span>
-              <h2 className={styles.sectionTitleLight}>Spaces That Speak Style</h2>
+              <h2 className={styles.sectionTitleDark}>Spaces That Speak Style</h2>
             </div>
             <Link href="/design-gallery" className={styles.viewAllBtn}>
               VIEW ALL PROJECTS <FiArrowRight />

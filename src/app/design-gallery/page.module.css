@@ -15,7 +15,7 @@
 
 /* ── Page Header ── */
 .pageHeader {
-  background: linear-gradient(135deg, var(--color-surface-dark) 0%, var(--color-primary) 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
   padding: 3rem 0 2.5rem;
   text-align: center;
 }
