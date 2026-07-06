@@ -28,8 +28,13 @@ export default function CategoriesPage() {
     try {
       const querySnapshot = await getDocs(collection(db, 'categories'));
       const cats = [];
+      const seenSlugs = new Set();
       querySnapshot.forEach((doc) => {
-        cats.push({ id: doc.id, ...doc.data() });
+        const data = doc.data();
+        if (!seenSlugs.has(data.slug)) {
+          seenSlugs.add(data.slug);
+          cats.push({ id: doc.id, ...data });
+        }
       });
       setCategories(cats);
     } catch (error) {

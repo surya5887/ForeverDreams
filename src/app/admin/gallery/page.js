@@ -34,13 +34,27 @@ export default function GalleryPage() {
       // Fetch Categories
       const catSnap = await getDocs(collection(db, 'categories'));
       const cats = [];
-      catSnap.forEach((doc) => cats.push({ id: doc.id, ...doc.data() }));
+      const seenCatSlugs = new Set();
+      catSnap.forEach((doc) => {
+        const data = doc.data();
+        if (!seenCatSlugs.has(data.slug)) {
+          seenCatSlugs.add(data.slug);
+          cats.push({ id: doc.id, ...data });
+        }
+      });
       setCategories(cats);
 
       // Fetch Gallery Items
       const galSnap = await getDocs(collection(db, 'galleryItems'));
       const items = [];
-      galSnap.forEach((doc) => items.push({ id: doc.id, ...doc.data() }));
+      const seenTitles = new Set();
+      galSnap.forEach((doc) => {
+        const data = doc.data();
+        if (!seenTitles.has(data.title)) {
+          seenTitles.add(data.title);
+          items.push({ id: doc.id, ...data });
+        }
+      });
       setGalleryItems(items);
     } catch (error) {
       console.error("Error fetching data:", error);

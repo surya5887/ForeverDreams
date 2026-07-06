@@ -34,7 +34,14 @@ export default function RecentProjectsPage() {
     try {
       const snap = await getDocs(collection(db, 'recentProjects'));
       const items = [];
-      snap.forEach((doc) => items.push({ id: doc.id, ...doc.data() }));
+      const seenTitles = new Set();
+      snap.forEach((doc) => {
+        const data = doc.data();
+        if (!seenTitles.has(data.title)) {
+          seenTitles.add(data.title);
+          items.push({ id: doc.id, ...data });
+        }
+      });
       setRecentProjects(items);
     } catch (error) {
       console.error("Error fetching data:", error);
