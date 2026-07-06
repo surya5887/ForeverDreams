@@ -396,7 +396,7 @@
 @media (max-width: 768px) {
   .heroBanner { height: 300px; }
   .heroTitle { font-size: 2.25rem; }
-  .projectsGrid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+  .projectsGrid { grid-template-columns: 1fr; gap: 1.25rem; }
   .projectImageWrap { height: 200px; }
 }
 

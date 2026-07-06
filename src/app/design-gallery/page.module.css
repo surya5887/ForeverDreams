@@ -489,8 +489,8 @@
 
 @media (max-width: 768px) {
   .pageTitle { font-size: 1.75rem; }
-  .designsGrid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-  .categoriesGrid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .designsGrid { grid-template-columns: 1fr; gap: 1rem; }
+  .categoriesGrid { grid-template-columns: 1fr; gap: 1rem; }
   .sidebar { width: 100%; right: -100%; }
   .categoriesTitle, .designsTitle { font-size: 1.5rem; }
 }
