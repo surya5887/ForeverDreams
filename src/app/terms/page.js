@@ -1,4 +1,5 @@
 import styles from '../legal.module.css';
+import LegalContactInfo from '../../components/LegalContactInfo/LegalContactInfo';
 
 export const metadata = {
   title: 'Terms of Service | Forever Dreams Home',
@@ -73,12 +74,7 @@ export default function TermsOfService() {
 
           <h2>8. Contact Us</h2>
           <p>In order to resolve a complaint regarding the Site or to receive further information regarding use of the Site, please contact us at:</p>
-          <div className={styles.contactInfo}>
-            <p>Forever Dreams Home Interior Design</p>
-            <p>Meerut, Uttar Pradesh, India 250001</p>
-            <p>Email: <a href="mailto:info@foreverdreamshome.com" style={{color: 'var(--color-accent)'}}>info@foreverdreamshome.com</a></p>
-            <p>Phone: +91 12345 67890</p>
-          </div>
+          <LegalContactInfo />
         </div>
       </div>
     </div>

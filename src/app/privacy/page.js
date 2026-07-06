@@ -1,5 +1,6 @@
 import styles from '../legal.module.css';
 import Link from 'next/link';
+import LegalContactInfo from '../../components/LegalContactInfo/LegalContactInfo';
 
 export const metadata = {
   title: 'Privacy Policy | Forever Dreams Home',
@@ -69,12 +70,7 @@ export default function PrivacyPolicy() {
 
           <h2>7. Contact Us</h2>
           <p>If you have any questions about this Privacy Policy, you can contact us:</p>
-          <div className={styles.contactInfo}>
-            <p>Forever Dreams Home Interior Design</p>
-            <p>Meerut, Uttar Pradesh, India 250001</p>
-            <p>Email: <a href="mailto:info@foreverdreamshome.com" style={{color: 'var(--color-accent)'}}>info@foreverdreamshome.com</a></p>
-            <p>Phone: +91 12345 67890</p>
-          </div>
+          <LegalContactInfo />
         </div>
       </div>
     </div>
