@@ -786,7 +786,7 @@
    ══════════════════════════════════ */
 .ctaSection {
   background: #111624;
-  padding: 0;
+  padding: 3rem 0 1rem;
 }
 
 .ctaBanner {
@@ -796,8 +796,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 3rem;
-  margin: 0 2rem;
-  transform: translateY(-50%); /* Half overlap with section above */
+  margin: 0 2rem 1rem 2rem;
   position: relative;
   overflow: hidden;
   aspect-ratio: 2155 / 229;
@@ -1132,9 +1131,9 @@
    ══════════════════════════════════ */
 .footer {
   background: #0f1626;
-  padding: 0 0 2rem; 
+  padding: 1rem 0 2rem; 
   color: #fff;
-  margin-top: -3rem; /* Compensate for CTA transform */
+  margin-top: 0;
 }
 
 .footerContainer {
