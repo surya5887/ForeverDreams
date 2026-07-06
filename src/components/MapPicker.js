@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { MapContainer, TileLayer, Marker, useMapEvents, LayersControl } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, useMapEvents, LayersControl, LayerGroup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
@@ -53,10 +53,18 @@ export default function MapPicker({ lat, lng, onChange }) {
             />
           </LayersControl.BaseLayer>
           <LayersControl.BaseLayer name="Satellite View">
-            <TileLayer
-              attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-              url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
-            />
+            <LayerGroup>
+              <TileLayer
+                attribution='Tiles &copy; Esri'
+                url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+              />
+              <TileLayer
+                url="https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}"
+              />
+              <TileLayer
+                url="https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer/tile/{z}/{y}/{x}"
+              />
+            </LayerGroup>
           </LayersControl.BaseLayer>
         </LayersControl>
         <LocationMarker position={position} setPosition={handlePositionChange} />
