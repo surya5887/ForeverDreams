@@ -31,7 +31,7 @@ export default function Footer() {
       <div className={styles.footerContainer}>
         <div className={styles.footerCol}>
           <div className={styles.footerLogo}>
-            <img src="/logo.png" alt="FD Logo" className={styles.fLogoIconImage} />
+            <img src="https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783333182/forever_dreams/home/iicu6f0ktc53dkqjzftz.jpg" alt="FD Logo" className={styles.fLogoIconImage} />
             <div className={styles.fLogoText}>
               <span className={styles.fLogoTop}>FOREVER</span>
               <span className={styles.fLogoMid}>Dreams Home</span>
