@@ -4,10 +4,10 @@ import LayoutWrapper from '@/components/LayoutWrapper/LayoutWrapper';
 export const metadata = {
   title: 'Forever Dreams Home | Premium Interior Design & Architecture',
   description:
-    'Transform your living spaces with Forever Dreams Home. Expert interior design services, modular kitchens, living rooms, bedrooms, 2BHK/3BHK complete home makeovers, luxury home decor, and architectural planning in Meerut, Delhi NCR, and across India.',
+    'Transform your living spaces with Forever Dreams Home. Expert interior design services, modular kitchens, living rooms, bedrooms, 2BHK/3BHK complete home makeovers, luxury home decor, and architectural planning in Noida, Delhi NCR, and across India.',
   keywords: [
     // Direct interior design keywords
-    'interior design', 'interior designer near me', 'best interior designer in Meerut', 'modular kitchen design',
+    'interior design', 'interior designer near me', 'best interior designer in Noida', 'modular kitchen design',
     'living room interior', 'bedroom interior', 'home decor', 'Forever Dreams Home', 'luxury interior design',
     'modern interior design', 'home renovation', 'office interior design', 'commercial interior design',
     'turnkey interior contractors', 'space planning', 'custom furniture design', 'wardrobe design',
