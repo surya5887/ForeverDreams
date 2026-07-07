@@ -35,6 +35,9 @@ export const metadata = {
       'max-snippet': -1,
     },
   },
+  verification: {
+    google: 'iIZddNWnvrjEKW1OT1Xs3TjW8ATAlr9opXAjW191qGw',
+  },
   openGraph: {
     title: 'Forever Dreams Home | Premium Interior Design & Luxury Makeovers',
     description:
