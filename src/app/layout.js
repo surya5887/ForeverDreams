@@ -38,6 +38,10 @@ export const metadata = {
   verification: {
     google: 'iIZddNWnvrjEKW1OT1Xs3TjW8ATAlr9opXAjW191qGw',
   },
+  icons: {
+    icon: '/logo.jpeg',
+    apple: '/logo.jpeg',
+  },
   openGraph: {
     title: 'Forever Dreams Home | Premium Interior Design & Luxury Makeovers',
     description:
