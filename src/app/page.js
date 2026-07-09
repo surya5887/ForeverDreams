@@ -47,62 +47,27 @@ export default function Home() {
       
       {/* ── HERO SECTION ── */}
       <section className={styles.hero}>
-        <div className={styles.heroLeft}>
-          <div className={styles.heroContent}>
-            <div className={styles.heroLabelWrap}>
-              <span className={styles.heroLabelLine}></span>
-              <span className={styles.heroLabelText}>DESIGNING SPACES THAT <span className={styles.goldText}>INSPIRE LIFE</span></span>
-            </div>
-            
-            <h1 className={styles.heroTitle}>
-              Where Home<br/>
-              Breathes <span className={styles.heroTitleScript}>Beauty</span>
-            </h1>
-            
-            <p className={styles.heroSubtitle}>
-              From concept to creation, we craft stunning interiors<br/>
-              that reflect your personality and elevate everyday living.
-            </p>
-            
-            <div className={styles.heroActions}>
-              <Link href="/design-gallery" className={styles.primaryBtn}>
-                EXPLORE OUR WORK <FiArrowRight />
-              </Link>
-            </div>
-          </div>
-
-          <div className={styles.heroStats}>
-            <div className={styles.statItem}>
-              <span className={styles.statEmoji}>😊</span>
-              <div className={styles.statInfo}>
-                <span className={styles.statNum}>500+</span>
-                <span className={styles.statText}>Happy Clients</span>
-              </div>
-            </div>
-            <div className={styles.statDivider}></div>
-            <div className={styles.statItem}>
-              <span className={styles.statEmoji}>🏢</span>
-              <div className={styles.statInfo}>
-                <span className={styles.statNum}>650+</span>
-                <span className={styles.statText}>Projects Completed</span>
-              </div>
-            </div>
-            <div className={styles.statDivider}></div>
-            <div className={styles.statItem}>
-              <span className={styles.statEmoji}>🏅</span>
-              <div className={styles.statInfo}>
-                <span className={styles.statNum}>10+</span>
-                <span className={styles.statText}>Years Experience</span>
-              </div>
-            </div>
-            <div className={styles.statDivider}></div>
-            <div className={styles.statItem}>
-              <span className={styles.statEmoji}>👨‍🎨</span>
-              <div className={styles.statInfo}>
-                <span className={styles.statNum}>25+</span>
-                <span className={styles.statText}>Expert Designers</span>
-              </div>
-            </div>
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className={styles.heroVideo}
+        >
+          <source src="/hero-bg.mp4" type="video/mp4" />
+        </video>
+        <div className={styles.heroOverlay}></div>
+        
+        <div className={styles.heroContent}>
+          <h1 className={styles.heroTitle}>
+            Where Home<br/>
+            Breathes <span className={styles.heroTitleScript}>Beauty</span>
+          </h1>
+          
+          <div className={styles.heroActions}>
+            <Link href="/design-gallery" className={styles.primaryBtn}>
+              EXPLORE OUR WORK <FiArrowRight />
+            </Link>
           </div>
         </div>
       </section>
