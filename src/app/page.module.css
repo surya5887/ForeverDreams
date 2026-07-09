@@ -65,11 +65,15 @@
 .heroTitleScript {
   font-family: var(--font-script);
   font-size: 5.5rem;
-  color: var(--color-gold);
   font-weight: 400;
   margin-left: 15px;
   display: inline-block;
-  text-shadow: 0 4px 15px rgba(255, 255, 255, 0.8), 0 2px 5px rgba(255, 255, 255, 0.5);
+  background: linear-gradient(to right, #c5972c, #fff4d4, #c5972c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 4px 10px rgba(255, 255, 255, 0.8));
 }
 
 .heroActions {
