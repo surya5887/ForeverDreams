@@ -4,8 +4,10 @@ import React, { useState, useEffect } from 'react';
 import { useQuoteContext } from '../../context/QuoteContext';
 import { db } from '../../lib/firebase';
 import { doc, getDoc } from 'firebase/firestore';
-import { FiX } from 'react-icons/fi';
+import { FiX, FiChevronDown } from 'react-icons/fi';
+import Image from 'next/image';
 import Link from 'next/link';
+import { countryCodes } from '../../utils/countryCodes';
 import styles from './QuotePopup.module.css';
 
 const propertyTypes = ['1 BHK', '2 BHK', '3 BHK', '4+ BHK / Duplex'];
@@ -18,7 +20,6 @@ const locations = [
 
 export default function QuotePopup() {
   const { isQuoteOpen, closeQuote, prefilledProject } = useQuoteContext();
-  const [whatsappNumber, setWhatsappNumber] = useState('911234567890');
   
   const [formData, setFormData] = useState({
     propertyType: '',
@@ -26,6 +27,11 @@ export default function QuotePopup() {
     name: '',
     mobile: ''
   });
+  const [whatsappNumber, setWhatsappNumber] = useState('');
+  
+  const [selectedCountry, setSelectedCountry] = useState(countryCodes.find(c => c.code === 'IN'));
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     const fetchSettings = async () => {
@@ -46,8 +52,18 @@ export default function QuotePopup() {
   }, []);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (e.target.name === 'mobile') {
+      const value = e.target.value.replace(/\D/g, '');
+      setFormData({ ...formData, mobile: value });
+    } else {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
   };
+
+  const filteredCountries = countryCodes.filter(c => 
+    c.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+    c.dial_code.includes(searchQuery)
+  );
 
   const handlePropertyType = (type) => {
     setFormData({ ...formData, propertyType: type });
@@ -60,17 +76,9 @@ export default function QuotePopup() {
       return;
     }
 
-    let text = `Hello Forever Dreams Home, I would like to get a free design consultation.\n\n`;
-    text += `*Name:* ${formData.name}\n`;
-    text += `*Mobile:* +91 ${formData.mobile}\n`;
-    text += `*Property Type:* ${formData.propertyType}\n`;
-    text += `*Location:* ${formData.location}\n`;
-    
-    if (prefilledProject) {
-      text += `*Interested In:* ${prefilledProject}\n`;
-    }
+    const text = `Hello! I would like to book a free consultation.%0A%0A*Details:*%0AProperty Type: ${formData.propertyType}%0ALocation: ${formData.location}%0AProject: ${prefilledProject || 'General Enquiry'}%0A%0A*Contact Info:*%0AName: ${formData.name}%0AMobile: ${selectedCountry.dial_code} ${formData.mobile}`;
 
-    const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+    const waUrl = `https://wa.me/${whatsappNumber}?text=${text}`;
     window.open(waUrl, '_blank');
     closeQuote();
   };
@@ -137,7 +145,40 @@ export default function QuotePopup() {
 
             <div className={styles.formGroup}>
               <div className={styles.phoneInputWrap}>
-                <span className={styles.countryCode}>+91</span>
+                <div className={styles.countryDropdown}>
+                  <div 
+                    className={styles.countryToggle} 
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  >
+                    {selectedCountry.dial_code} <FiChevronDown />
+                  </div>
+                  {isDropdownOpen && (
+                    <div className={styles.dropdownMenu}>
+                      <input 
+                        type="text" 
+                        className={styles.searchInput}
+                        placeholder="Search country..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        autoFocus
+                      />
+                      {filteredCountries.map(c => (
+                        <div 
+                          key={c.code} 
+                          className={styles.dropdownItem}
+                          onClick={() => {
+                            setSelectedCountry(c);
+                            setIsDropdownOpen(false);
+                            setSearchQuery('');
+                          }}
+                        >
+                          <span>{c.name}</span>
+                          <span style={{ color: '#888' }}>{c.dial_code}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
                 <input 
                   type="tel" 
                   name="mobile" 

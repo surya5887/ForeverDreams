@@ -165,19 +165,70 @@
   border: 1px solid #ddd;
   border-radius: 4px;
   background: white;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .phoneInputWrap:focus-within {
   border-color: var(--color-gold);
 }
 
-.countryCode {
+.countryDropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.countryToggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
   padding: 12px 15px;
   background: #f9f9f9;
   border-right: 1px solid #ddd;
   color: #555;
   font-weight: 500;
+  cursor: pointer;
+  height: 100%;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  width: 250px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  z-index: 100;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #eee;
+  outline: none;
+  position: sticky;
+  top: 0;
+  background: white;
+  font-size: 0.9rem;
+}
+
+.dropdownItem {
+  padding: 10px 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.dropdownItem:hover {
+  background: #f5f5f5;
 }
 
 .phoneInput {
