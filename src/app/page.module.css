@@ -68,12 +68,12 @@
   font-weight: 400;
   margin-left: 15px;
   display: inline-block;
-  background: linear-gradient(to right, #9e750e, #d4af37, #9e750e);
+  background: linear-gradient(to right, #8A2387, #E94057, #F27121); /* Vibrant colorful premium gradient */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
-  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2)); /* Subtle dark shadow for crisp edges */
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.25)); /* Dark shadow for pop */
 }
 
 .heroActions {
