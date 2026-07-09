@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://foreverdreams.in/sitemap.xml
+Sitemap: https://www.foreverdreams.in/sitemap.xml

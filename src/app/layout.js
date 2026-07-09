@@ -2,6 +2,7 @@ import './globals.css';
 import LayoutWrapper from '@/components/LayoutWrapper/LayoutWrapper';
 
 export const metadata = {
+  metadataBase: new URL('https://www.foreverdreams.in'),
   title: 'Forever Dreams Home | Premium Interior Design & Architecture',
   description:
     'Transform your living spaces with Forever Dreams Home. Expert interior design services, modular kitchens, living rooms, bedrooms, 2BHK/3BHK complete home makeovers, luxury home decor, and architectural planning in Noida, Delhi NCR, and across India.',
@@ -46,7 +47,7 @@ export const metadata = {
     title: 'Forever Dreams Home | Premium Interior Design & Luxury Makeovers',
     description:
       'Crafting timeless interiors that reflect your personality and elevate your lifestyle. Discover bespoke design solutions for your dream home.',
-    url: 'https://foreverdreams.in',
+    url: 'https://www.foreverdreams.in',
     siteName: 'Forever Dreams Home',
     images: [
       {
