@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { logoutAdmin } from '../actions/authActions';
-import { FiSettings, FiGrid, FiImage, FiStar, FiLogOut, FiMenu, FiX } from 'react-icons/fi';
+import { FiSettings, FiGrid, FiImage, FiStar, FiLogOut, FiMenu, FiX, FiShield } from 'react-icons/fi';
 import styles from './admin.module.css';
 
 export default function AdminLayout({ children }) {
@@ -44,6 +44,9 @@ export default function AdminLayout({ children }) {
         <nav className={styles.sidebarNav}>
           <Link href="/admin/settings" className={`${styles.navLink} ${pathname === '/admin/settings' ? styles.active : ''}`} onClick={closeSidebar}>
             <FiSettings /> Settings
+          </Link>
+          <Link href="/admin/account" className={`${styles.navLink} ${pathname === '/admin/account' ? styles.active : ''}`} onClick={closeSidebar}>
+            <FiShield /> Account Security
           </Link>
           <Link href="/admin/categories" className={`${styles.navLink} ${pathname === '/admin/categories' ? styles.active : ''}`} onClick={closeSidebar}>
             <FiGrid /> Categories
