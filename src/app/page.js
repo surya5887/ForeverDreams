@@ -67,7 +67,7 @@ export default function Home() {
           
           <div className={styles.heroActions}>
             <Link href="/design-gallery" className={styles.primaryBtn}>
-              EXPLORE OUR WORK <FiArrowRight />
+              EXPLORE OUR WORK <FiArrowRight style={{ color: '#e60000' }} />
             </Link>
           </div>
         </div>

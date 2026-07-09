@@ -105,7 +105,7 @@ export default function Navbar() {
           {/* CTA & Mobile Toggle */}
           <div className={styles.rightActions}>
             <button onClick={() => openQuote()} className={styles.ctaBtn}>
-              GET A FREE QUOTE <FiArrowRight /> <FaWhatsapp style={{ fontSize: '1.2em' }} />
+              GET A FREE QUOTE <FiArrowRight style={{ color: '#e60000' }} /> <FaWhatsapp style={{ fontSize: '1.2em', color: '#25D366' }} />
             </button>
             
             <button 
