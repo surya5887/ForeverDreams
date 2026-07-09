@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FiMenu, FiX, FiChevronDown, FiArrowRight } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
 import { useQuoteContext } from '@/context/QuoteContext';
 import styles from './Navbar.module.css';
 
@@ -104,7 +105,7 @@ export default function Navbar() {
           {/* CTA & Mobile Toggle */}
           <div className={styles.rightActions}>
             <button onClick={() => openQuote()} className={styles.ctaBtn}>
-              GET A FREE QUOTE <FiArrowRight />
+              GET A FREE QUOTE <FiArrowRight /> <FaWhatsapp style={{ fontSize: '1.2em' }} />
             </button>
             
             <button 

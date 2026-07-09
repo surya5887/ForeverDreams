@@ -157,7 +157,7 @@ export default function QuotePopup() {
             </button>
             
             <p className={styles.disclaimer}>
-              By submitting, you consent to our <Link href="/privacy">privacy policy</Link> and <Link href="/terms">terms of use</Link>.
+              By submitting, you consent to our <Link href="/privacy" className={styles.highlightLink} onClick={closeQuote}>privacy policy</Link> and <Link href="/terms" className={styles.highlightLink} onClick={closeQuote}>terms of use</Link>.
             </p>
           </form>
         </div>

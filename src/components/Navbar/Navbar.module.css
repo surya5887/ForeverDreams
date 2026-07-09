@@ -229,6 +229,11 @@
 }
 
 .ctaBtn {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border: none;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
@@ -242,6 +247,26 @@
   text-transform: uppercase;
   transition: all 0.3s ease;
   text-decoration: none;
+}
+
+.ctaBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.2);
+  z-index: -1;
+  animation: fillAnimation 3s infinite ease-in-out;
+}
+
+@keyframes fillAnimation {
+  0% { transform: scaleX(0); transform-origin: left; }
+  40% { transform: scaleX(1); transform-origin: left; }
+  50% { transform: scaleX(1); transform-origin: right; }
+  90% { transform: scaleX(0); transform-origin: right; }
+  100% { transform: scaleX(0); transform-origin: right; }
 }
 
 .ctaBtn:hover {
