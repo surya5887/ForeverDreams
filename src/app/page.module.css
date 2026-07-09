@@ -59,7 +59,7 @@
   line-height: 1.1;
   color: #1A202C; /* Dark, legible color */
   margin-bottom: 2.5rem;
-  text-shadow: 0 4px 15px rgba(255, 255, 255, 0.8), 0 2px 5px rgba(255, 255, 255, 0.5);
+  /* Removed white text-shadow for a cleaner look */
 }
 
 .heroTitleScript {
@@ -68,12 +68,12 @@
   font-weight: 400;
   margin-left: 15px;
   display: inline-block;
-  background: linear-gradient(to right, #c5972c, #fff4d4, #c5972c);
+  background: linear-gradient(to right, #9e750e, #d4af37, #9e750e);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
-  filter: drop-shadow(0 4px 10px rgba(255, 255, 255, 0.8));
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2)); /* Subtle dark shadow for crisp edges */
 }
 
 .heroActions {
