@@ -5,6 +5,7 @@ import { useQuoteContext } from '../../context/QuoteContext';
 import { db } from '../../lib/firebase';
 import { doc, getDoc } from 'firebase/firestore';
 import { FiX } from 'react-icons/fi';
+import Link from 'next/link';
 import styles from './QuotePopup.module.css';
 
 const propertyTypes = ['1 BHK', '2 BHK', '3 BHK', '4+ BHK / Duplex'];
@@ -85,12 +86,6 @@ export default function QuotePopup() {
         
         <div className={styles.leftSide}>
           <img src="/form_bg_img.jpeg" alt="Luxury Interior Design" className={styles.bgImage} />
-          <div className={styles.imageOverlay}>
-            <div className={styles.badge}>
-              <span className={styles.badgeText}>Forever Dreams Home</span>
-            </div>
-            <h2 className={styles.imageTitle}>Premium Interiors<br/>For Your Dream Home</h2>
-          </div>
         </div>
 
         <div className={styles.rightSide}>
@@ -162,7 +157,7 @@ export default function QuotePopup() {
             </button>
             
             <p className={styles.disclaimer}>
-              By submitting, you consent to our privacy policy and terms of use.
+              By submitting, you consent to our <Link href="/privacy">privacy policy</Link> and <Link href="/terms">terms of use</Link>.
             </p>
           </form>
         </div>
