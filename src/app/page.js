@@ -51,7 +51,8 @@ export default function Home() {
           autoPlay 
           loop 
           muted 
-          playsInline 
+          playsInline
+          preload="auto"
           className={styles.heroVideo}
         >
           <source src="/hero-bg.mp4" type="video/mp4" />
