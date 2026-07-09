@@ -92,7 +92,7 @@
   align-items: center;
   gap: 0.75rem;
   background: var(--color-accent-gradient);
-  color: #fff;
+  color: #1A202C;
   padding: 14px 28px; /* Scaled down from 16x32 */
   border-radius: 50px;
   font-weight: 600;
