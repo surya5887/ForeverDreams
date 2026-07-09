@@ -6,6 +6,7 @@ import { useSearchParams } from 'next/navigation';
 import { FiX, FiArrowRight, FiChevronRight } from 'react-icons/fi';
 import { db } from '../../lib/firebase';
 import { collection, getDocs } from 'firebase/firestore';
+import { useQuoteContext } from '@/context/QuoteContext';
 import styles from './page.module.css';
 
 function GalleryContent() {
@@ -13,6 +14,7 @@ function GalleryContent() {
   const [activeCategorySlug, setActiveCategorySlug] = useState('all');
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
+  const { openQuote } = useQuoteContext();
 
   const [categories, setCategories] = useState([{ slug: 'all', name: 'All' }]);
   const [galleryItems, setGalleryItems] = useState([]);
@@ -159,9 +161,9 @@ function GalleryContent() {
                       <div className={styles.designCardBody}>
                         <h3 className={styles.designCardTitle}>{item.title}</h3>
                         <div className={styles.designCardActions}>
-                          <a href={`https://wa.me/911234567890?text=Hello%20ForeverDreams,%20I'm%20interested%20in%20your%20interior%20design%20services.%20Can%20I%20get%20a%20quote%20for%20the%20${encodeURIComponent(item.title)}%20project?`} target="_blank" rel="noopener noreferrer" className={styles.btnQuote} style={{textDecoration: 'none', display: 'inline-block', textAlign: 'center'}}>
+                          <button onClick={(e) => { e.preventDefault(); openQuote(item.title); }} className={styles.btnQuote} style={{display: 'inline-block', textAlign: 'center', border: 'none', cursor: 'pointer'}}>
                             Get a Quote
-                          </a>
+                          </button>
                           <button className={styles.btnExplore} onClick={() => openSidebar(item)}>
                             Explore more <FiChevronRight />
                           </button>
@@ -198,9 +200,9 @@ function GalleryContent() {
             </div>
 
             <div className={styles.sidebarActions}>
-              <a href={`https://wa.me/911234567890?text=Hello%20ForeverDreams,%20I'm%20interested%20in%20your%20interior%20design%20services.%20Can%20I%20get%20a%20quote%20for%20the%20${encodeURIComponent(selectedItem.title)}%20project?`} target="_blank" rel="noopener noreferrer" className={styles.btnPrimary} style={{textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center'}}>
+              <button onClick={() => { openQuote(selectedItem.title); setSelectedItem(null); }} className={styles.btnPrimary} style={{display: 'inline-flex', alignItems: 'center', justifyContent: 'center', border: 'none', cursor: 'pointer'}}>
                 Get a Quote <FiArrowRight />
-              </a>
+              </button>
               <a href="https://wa.me/911234567890?text=Hello%20ForeverDreams,%20I'd%20like%20to%20book%20a%20consultation." target="_blank" rel="noopener noreferrer" className={styles.btnOutline} style={{textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center'}}>
                 Book Consultation
               </a>

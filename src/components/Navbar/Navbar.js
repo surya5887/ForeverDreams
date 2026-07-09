@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FiMenu, FiX, FiChevronDown, FiArrowRight } from 'react-icons/fi';
+import { useQuoteContext } from '@/context/QuoteContext';
 import styles from './Navbar.module.css';
 
 const CATEGORIES = [
@@ -17,6 +18,7 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isGalleryHovered, setIsGalleryHovered] = useState(false);
   const pathname = usePathname();
+  const { openQuote } = useQuoteContext();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -101,9 +103,9 @@ export default function Navbar() {
 
           {/* CTA & Mobile Toggle */}
           <div className={styles.rightActions}>
-            <Link href="/about-us#contact-form" className={styles.ctaBtn}>
+            <button onClick={() => openQuote()} className={styles.ctaBtn}>
               GET A FREE QUOTE <FiArrowRight />
-            </Link>
+            </button>
             
             <button 
               className={styles.mobileToggle} 
