@@ -34,7 +34,7 @@ export default function Footer() {
             <div className={styles.fLogoCircle}>
               <img src="/main_logo.jpeg" alt="FD Logo" className={styles.fLogoIconImage} />
             </div>
-            <img src="/name_img.png" alt="Forever Dreams Home" className={styles.nameImgFooter} style={{ height: '40px', width: 'auto', objectFit: 'contain', filter: 'brightness(0) invert(1)', transform: 'scale(4.5)', transformOrigin: 'left center', marginLeft: '15px' }} />
+            <img src="/name_img.png" alt="Forever Dreams Home" className={styles.nameImgFooter} style={{ height: '40px', width: 'auto', objectFit: 'contain', filter: 'brightness(0) invert(1)', marginLeft: '10px' }} />
           </div>
           <p className={styles.footerDesc}>
             Designing beautiful spaces that reflect your style and personality.
