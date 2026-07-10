@@ -10,10 +10,23 @@ import {
   FaLightbulb, FaAward, FaClock, FaHeart, FaStar, FaQuoteLeft,
   FaUsers, FaClipboardList, FaPencilRuler, FaHardHat, FaCheckCircle,
 } from 'react-icons/fa';
+import { useQuoteContext } from '../context/QuoteContext';
 import styles from './page.module.css';
 
 export default function Home() {
+  const { openQuote } = useQuoteContext();
   const [recentProjects, setRecentProjects] = useState([]);
+
+  useEffect(() => {
+    const hasSeenPopup = sessionStorage.getItem('hasSeenAutoPopup');
+    if (!hasSeenPopup) {
+      const timer = setTimeout(() => {
+        openQuote();
+        sessionStorage.setItem('hasSeenAutoPopup', 'true');
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [openQuote]);
 
   useEffect(() => {
     const fetchRecentProjects = async () => {
