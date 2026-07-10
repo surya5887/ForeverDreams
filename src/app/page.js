@@ -23,7 +23,7 @@ export default function Home() {
       const timer = setTimeout(() => {
         openQuote();
         sessionStorage.setItem('hasSeenAutoPopup', 'true');
-      }, 5000);
+      }, 10000);
       return () => clearTimeout(timer);
     }
   }, [openQuote]);

@@ -32,13 +32,9 @@ export default function Footer() {
         <div className={styles.footerCol}>
           <div className={styles.footerLogo}>
             <div className={styles.fLogoCircle}>
-              <img src="https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783333182/forever_dreams/home/iicu6f0ktc53dkqjzftz.jpg" alt="FD Logo" className={styles.fLogoIconImage} />
+              <img src="/main_logo.jpeg" alt="FD Logo" className={styles.fLogoIconImage} />
             </div>
-            <div className={styles.fLogoText}>
-              <span className={styles.fLogoTop}>FOREVER</span>
-              <span className={styles.fLogoMid}>Dreams Home</span>
-              <span className={styles.fLogoBot}>INTERIOR DESIGN</span>
-            </div>
+            <img src="/name_img.png" alt="Forever Dreams Home" className={styles.nameImgFooter} style={{ height: '40px', width: 'auto', objectFit: 'contain', filter: 'brightness(0) invert(1)' }} />
           </div>
           <p className={styles.footerDesc}>
             Designing beautiful spaces that reflect your style and personality.
