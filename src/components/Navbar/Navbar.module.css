@@ -53,47 +53,18 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1.6);
 }
 
-.logoText {
-  display: flex;
-  flex-direction: column;
+.nameImg {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
 }
 
-.logoTop {
-  font-family: var(--font-heading);
-  color: var(--color-primary);
-  font-size: 1rem;
-  letter-spacing: 2px;
-  line-height: 1;
-}
-
-.header.scrolled .logoTop {
-  color: #fff;
-}
-
-.logoMiddle {
-  font-family: var(--font-script);
-  color: var(--color-accent);
-  font-size: 1.5rem;
-  line-height: 1;
-  margin-top: -3px;
-  margin-bottom: 2px;
-}
-
-.logoBottom {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.55rem;
-  color: var(--color-text-muted);
-  letter-spacing: 3px;
-  white-space: nowrap;
-}
-
-.header.scrolled .logoBottom {
-  color: rgba(255, 255, 255, 0.7);
+@media (max-width: 768px) {
+  .nameImg {
+    height: 30px;
+  }
 }
 
 .line {

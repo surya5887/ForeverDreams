@@ -47,17 +47,9 @@ export default function Navbar() {
           {/* Logo Area */}
           <Link href="/" className={styles.logoWrap}>
             <div className={styles.logoCircle}>
-              <img src="https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783333182/forever_dreams/home/iicu6f0ktc53dkqjzftz.jpg" alt="FD Logo" className={styles.logoIconImage} />
+              <img src="/main_logo.jpeg" alt="FD Logo" className={styles.logoIconImage} />
             </div>
-            <div className={styles.logoText}>
-              <div className={styles.logoTop}>FOREVER</div>
-              <div className={styles.logoMiddle}>Dreams Home</div>
-              <div className={styles.logoBottom}>
-                <span className={styles.line}></span>
-                INTERIOR DESIGN
-                <span className={styles.line}></span>
-              </div>
-            </div>
+            <img src="/name_img.png" alt="Forever Dreams Home" className={styles.nameImg} />
           </Link>
 
           {/* Desktop Nav */}
