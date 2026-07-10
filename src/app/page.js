@@ -18,14 +18,10 @@ export default function Home() {
   const [recentProjects, setRecentProjects] = useState([]);
 
   useEffect(() => {
-    const hasSeenPopup = sessionStorage.getItem('hasSeenAutoPopup');
-    if (!hasSeenPopup) {
-      const timer = setTimeout(() => {
-        openQuote();
-        sessionStorage.setItem('hasSeenAutoPopup', 'true');
-      }, 10000);
-      return () => clearTimeout(timer);
-    }
+    const timer = setTimeout(() => {
+      openQuote();
+    }, 3000);
+    return () => clearTimeout(timer);
   }, [openQuote]);
 
   useEffect(() => {
