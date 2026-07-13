@@ -18,10 +18,24 @@ export default function Home() {
   const [recentProjects, setRecentProjects] = useState([]);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      openQuote();
-    }, 3000);
-    return () => clearTimeout(timer);
+    const hasTriggered = sessionStorage.getItem('homePopupTriggered');
+    
+    if (!hasTriggered) {
+      const timer = setTimeout(() => {
+        openQuote();
+        sessionStorage.setItem('homePopupTriggered', 'true');
+      }, 3000);
+      
+      const handleUnload = () => {
+        sessionStorage.removeItem('homePopupTriggered');
+      };
+      window.addEventListener('beforeunload', handleUnload);
+      
+      return () => {
+        clearTimeout(timer);
+        window.removeEventListener('beforeunload', handleUnload);
+      };
+    }
   }, [openQuote]);
 
   useEffect(() => {
