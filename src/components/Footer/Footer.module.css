@@ -38,6 +38,14 @@
 .fLogoTop { font-family: var(--font-heading); font-size: 0.9rem; letter-spacing: 2px; }
 .fLogoMid { font-family: var(--font-script); color: #b98e46; font-size: 1.2rem; line-height: 0.8; margin-top: -2px; }
 
+.nameImgFooter {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  margin-left: 10px;
+}
+
 .footerDesc { color: #a0aec0; font-size: 0.85rem; line-height: 1.6; margin-bottom: 2rem; max-width: 250px; }
 
 .socialLinks { display: flex; gap: 1rem; }
@@ -73,21 +81,31 @@
 
 @media (max-width: 768px) {
   .footerContainer { 
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 1.5rem; 
+    grid-template-columns: 1fr; 
+    gap: 2.5rem; 
     padding-bottom: 2rem; 
   }
-  .footerCol:nth-child(1), .footerCol:nth-child(4) {
-    grid-column: span 2;
+  .footerCol, .footerCol:nth-child(1), .footerCol:nth-child(2), .footerCol:nth-child(3), .footerCol:nth-child(4) {
+    grid-column: span 1;
     text-align: center;
   }
-  .footerCol:nth-child(2), .footerCol:nth-child(3) {
-    text-align: left;
+  .footerLogo { 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 1rem; 
   }
-  .footerLogo { justify-content: center; }
+  .fLogoCircle {
+    width: 90px;
+    height: 90px;
+  }
+  .nameImgFooter {
+    height: 35px;
+    margin-left: 0;
+  }
   .footerDesc { margin: 0 auto 1.5rem auto; }
   .socialLinks { justify-content: center; }
-  .footerContact li { justify-content: center; margin-bottom: 0.5rem; }
-  .footerList { gap: 0.5rem; }
+  .footerContact li { justify-content: center; flex-direction: column; gap: 0.5rem; margin-bottom: 1.2rem; }
+  .footerList { gap: 0.8rem; align-items: center; }
   .footerBottom { flex-direction: column; gap: 1rem; text-align: center; }
 }
