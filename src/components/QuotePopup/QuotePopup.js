@@ -10,7 +10,8 @@ import Link from 'next/link';
 import { countryCodes } from '../../utils/countryCodes';
 import styles from './QuotePopup.module.css';
 
-const propertyTypes = ['1 BHK', '2 BHK', '3 BHK', '4+ BHK / Duplex'];
+const residentialTypes = ['1 BHK', '2 BHK', '3 BHK', '4+ BHK', 'Villa'];
+const commercialTypes = ['Office Space', 'Retail Shop', 'Restaurant/Cafe', 'Clinic', 'Others'];
 const locations = [
   'Bangalore', 'Hyderabad', 'Chennai', 'Mumbai', 'Navi Mumbai', 'Thane', 'Pune',
   'New Delhi', 'Gurugram', 'Noida', 'Ghaziabad', 'Faridabad', 'Vizag', 'Kolkata',
@@ -22,6 +23,7 @@ export default function QuotePopup() {
   const { isQuoteOpen, closeQuote, prefilledProject } = useQuoteContext();
   
   const [formData, setFormData] = useState({
+    propertyCategory: 'Residential',
     propertyType: '',
     location: '',
     name: '',
@@ -76,7 +78,7 @@ export default function QuotePopup() {
       return;
     }
 
-    const text = `Hello! I would like to book a free consultation.%0A%0A*Details:*%0AProperty Type: ${formData.propertyType}%0ALocation: ${formData.location}%0AProject: ${prefilledProject || 'General Enquiry'}%0A%0A*Contact Info:*%0AName: ${formData.name}%0AMobile: ${selectedCountry.dial_code} ${formData.mobile}`;
+    const text = `Hello! I would like to book a free consultation.%0A%0A*Details:*%0AProperty: ${formData.propertyCategory} - ${formData.propertyType}%0ALocation: ${formData.location}%0AProject: ${prefilledProject || 'General Enquiry'}%0A%0A*Contact Info:*%0AName: ${formData.name}%0AMobile: ${selectedCountry.dial_code} ${formData.mobile}`;
 
     const waUrl = `https://wa.me/${whatsappNumber}?text=${text}`;
     window.open(waUrl, '_blank');
@@ -101,9 +103,25 @@ export default function QuotePopup() {
           
           <form onSubmit={handleSubmit} className={styles.form}>
             <div className={styles.formGroup}>
-              <label>Property type</label>
+              <label>Property Category</label>
               <div className={styles.buttonGroup}>
-                {propertyTypes.map((type) => (
+                {['Residential', 'Commercial'].map((category) => (
+                  <button 
+                    type="button" 
+                    key={category}
+                    className={`${styles.typeBtn} ${formData.propertyCategory === category ? styles.activeType : ''}`}
+                    onClick={() => setFormData({ ...formData, propertyCategory: category, propertyType: '' })}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className={styles.formGroup}>
+              <label>{formData.propertyCategory === 'Residential' ? 'Configuration' : 'Office Type'}</label>
+              <div className={styles.buttonGroup}>
+                {(formData.propertyCategory === 'Residential' ? residentialTypes : commercialTypes).map((type) => (
                   <button 
                     type="button" 
                     key={type}
