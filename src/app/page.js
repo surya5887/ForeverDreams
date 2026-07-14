@@ -316,36 +316,49 @@ export default function Home() {
             </div>
           </div>
           
-          <div className={styles.testGrid}>
-            {[
-              { name: 'Pooja Sharma', loc: 'Noida', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258300/forever_dreams/home/aopulyfwcdfa7v2e2yhr.jpg', text: 'Forever Dreams Home transformed our house into a dream home. Their creativity and attention to detail is simply amazing!' },
-              { name: 'Rahul Verma', loc: 'Delhi', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258301/forever_dreams/home/rc32gvcfjicirau5pthk.jpg', text: 'Professional team, on-time delivery and excellent execution. Highly recommended for interior design!' },
-              { name: 'Anjali Mehta', loc: 'Meerut', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258302/forever_dreams/home/a7xu294rzfji1ysmtlcp.jpg', text: 'They understood our needs perfectly and designed a space that feels just right. Thank you FDH!' }
-            ].map((test, idx) => (
-              <div key={idx} className={styles.testCard}>
-                <div className={styles.testCardContent}>
-                  <div className={styles.testCardTop}>
-                     <FaQuoteLeft className={styles.quoteIcon} />
-                     <div className={styles.testUser}>
-                        <img src={test.img} alt={test.name} className={styles.testUserImg} />
-                     </div>
-                  </div>
-                  <div className={styles.stars}>
-                    <FaStar/><FaStar/><FaStar/><FaStar/><FaStar/>
-                  </div>
-                  <p className={styles.testText}>{test.text}</p>
-                  <div className={styles.testUserInfo}>
-                     <h5 className={styles.testUserName}>{test.name}</h5>
-                     <span className={styles.testUserLoc}>- {test.loc}</span>
+          <div className={styles.testGridWrapper}>
+            <div className={styles.testGridTrack}>
+              {[
+                { name: 'Pooja Sharma', loc: 'Noida', img: 'https://randomuser.me/api/portraits/women/6.jpg', text: 'Forever Dreams Home transformed our house into a dream home. Their creativity and attention to detail is simply amazing!' },
+                { name: 'Rahul Verma', loc: 'Delhi', img: 'https://randomuser.me/api/portraits/men/32.jpg', text: 'Professional team, on-time delivery and excellent execution. Highly recommended for interior design!' },
+                { name: 'Anjali Mehta', loc: 'Meerut', img: 'https://randomuser.me/api/portraits/women/44.jpg', text: 'They understood our needs perfectly and designed a space that feels just right. Thank you FDH!' },
+                { name: 'Sameer Desai', loc: 'Mumbai', img: 'https://randomuser.me/api/portraits/men/52.jpg', text: 'The 3D visualizations were spot on. What we saw is exactly what we got. Brilliant work!' },
+                { name: 'Kavita Singh', loc: 'Gurugram', img: 'https://randomuser.me/api/portraits/women/68.jpg', text: 'Our modular kitchen is not only beautiful but incredibly functional. FDH truly knows their craft.' },
+                { name: 'Rohan Kapoor', loc: 'Pune', img: 'https://randomuser.me/api/portraits/men/43.jpg', text: 'From concept to execution, the process was seamless. The turnkey solution saved us so much time.' },
+                { name: 'Neha Gupta', loc: 'Bangalore', img: 'https://randomuser.me/api/portraits/women/17.jpg', text: 'I loved the furniture selection! They curated pieces that perfectly matched our vibrant personality.' },
+                { name: 'Vikram Rathore', loc: 'Hyderabad', img: 'https://randomuser.me/api/portraits/men/66.jpg', text: 'Amazing commercial interior design for our new office. It completely transformed our workspace vibe.' },
+                { name: 'Sneha Reddy', loc: 'Chennai', img: 'https://randomuser.me/api/portraits/women/24.jpg', text: 'Exceptional service and extremely polite staff. They listened to every small detail we asked for.' },
+                // Duplicate for infinite scroll
+                { name: 'Pooja Sharma', loc: 'Noida', img: 'https://randomuser.me/api/portraits/women/6.jpg', text: 'Forever Dreams Home transformed our house into a dream home. Their creativity and attention to detail is simply amazing!' },
+                { name: 'Rahul Verma', loc: 'Delhi', img: 'https://randomuser.me/api/portraits/men/32.jpg', text: 'Professional team, on-time delivery and excellent execution. Highly recommended for interior design!' },
+                { name: 'Anjali Mehta', loc: 'Meerut', img: 'https://randomuser.me/api/portraits/women/44.jpg', text: 'They understood our needs perfectly and designed a space that feels just right. Thank you FDH!' },
+                { name: 'Sameer Desai', loc: 'Mumbai', img: 'https://randomuser.me/api/portraits/men/52.jpg', text: 'The 3D visualizations were spot on. What we saw is exactly what we got. Brilliant work!' },
+                { name: 'Kavita Singh', loc: 'Gurugram', img: 'https://randomuser.me/api/portraits/women/68.jpg', text: 'Our modular kitchen is not only beautiful but incredibly functional. FDH truly knows their craft.' },
+                { name: 'Rohan Kapoor', loc: 'Pune', img: 'https://randomuser.me/api/portraits/men/43.jpg', text: 'From concept to execution, the process was seamless. The turnkey solution saved us so much time.' },
+                { name: 'Neha Gupta', loc: 'Bangalore', img: 'https://randomuser.me/api/portraits/women/17.jpg', text: 'I loved the furniture selection! They curated pieces that perfectly matched our vibrant personality.' },
+                { name: 'Vikram Rathore', loc: 'Hyderabad', img: 'https://randomuser.me/api/portraits/men/66.jpg', text: 'Amazing commercial interior design for our new office. It completely transformed our workspace vibe.' },
+                { name: 'Sneha Reddy', loc: 'Chennai', img: 'https://randomuser.me/api/portraits/women/24.jpg', text: 'Exceptional service and extremely polite staff. They listened to every small detail we asked for.' }
+              ].map((test, idx) => (
+                <div key={idx} className={styles.testCard}>
+                  <div className={styles.testCardContent}>
+                    <div className={styles.testCardTop}>
+                       <FaQuoteLeft className={styles.quoteIcon} />
+                       <div className={styles.testUser}>
+                          <img src={test.img} alt={test.name} className={styles.testUserImg} />
+                       </div>
+                    </div>
+                    <div className={styles.stars}>
+                      <FaStar/><FaStar/><FaStar/><FaStar/><FaStar/>
+                    </div>
+                    <p className={styles.testText}>{test.text}</p>
+                    <div className={styles.testUserInfo}>
+                       <h5 className={styles.testUserName}>{test.name}</h5>
+                       <span className={styles.testUserLoc}>- {test.loc}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-          <div className={styles.testDots}>
-             <span className={styles.dotActive}></span>
-             <span className={styles.dot}></span>
-             <span className={styles.dot}></span>
+              ))}
+            </div>
           </div>
         </div>
       </section>

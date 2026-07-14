@@ -704,11 +704,47 @@
   background: #e91e63;
 }
 
-.testGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.testGridWrapper {
+  overflow: hidden;
+  width: 100%;
+  padding: 1rem 0 3rem;
+  position: relative;
+}
+
+/* Gradient masks for smooth fading on edges */
+.testGridWrapper::before,
+.testGridWrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+.testGridWrapper::before {
+  left: 0;
+  background: linear-gradient(to right, #fafafa, transparent);
+}
+.testGridWrapper::after {
+  right: 0;
+  background: linear-gradient(to left, #fafafa, transparent);
+}
+
+.testGridTrack {
+  display: flex;
   gap: 2rem;
-  margin-bottom: 2rem;
+  width: max-content;
+  animation: scrollTestimonials 40s linear infinite;
+}
+
+.testGridTrack:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollTestimonials {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 1rem)); }
 }
 
 .testCard {
@@ -718,6 +754,8 @@
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
   border-top: 4px solid #fff;
   transition: all 0.3s ease;
+  width: 350px; /* Fixed width for slider items */
+  flex-shrink: 0;
 }
 
 .testCard:hover {
@@ -780,24 +818,6 @@
 .testUserLoc {
   color: #888;
   font-size: 0.75rem;
-}
-
-.testDots {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.dot, .dotActive {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #ccc;
-  cursor: pointer;
-}
-
-.dotActive {
-  background: #e91e63;
 }
 
 /* ══════════════════════════════════
