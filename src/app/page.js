@@ -319,25 +319,25 @@ export default function Home() {
           <div className={styles.testGridWrapper}>
             <div className={styles.testGridTrack}>
               {[
-                { name: 'Pooja Sharma', loc: 'Noida', img: 'https://randomuser.me/api/portraits/women/6.jpg', text: 'Forever Dreams Home transformed our house into a dream home. Their creativity and attention to detail is simply amazing!' },
-                { name: 'Rahul Verma', loc: 'Delhi', img: 'https://randomuser.me/api/portraits/men/32.jpg', text: 'Professional team, on-time delivery and excellent execution. Highly recommended for interior design!' },
-                { name: 'Anjali Mehta', loc: 'Meerut', img: 'https://randomuser.me/api/portraits/women/44.jpg', text: 'They understood our needs perfectly and designed a space that feels just right. Thank you FDH!' },
-                { name: 'Sameer Desai', loc: 'Mumbai', img: 'https://randomuser.me/api/portraits/men/52.jpg', text: 'The 3D visualizations were spot on. What we saw is exactly what we got. Brilliant work!' },
-                { name: 'Kavita Singh', loc: 'Gurugram', img: 'https://randomuser.me/api/portraits/women/68.jpg', text: 'Our modular kitchen is not only beautiful but incredibly functional. FDH truly knows their craft.' },
-                { name: 'Rohan Kapoor', loc: 'Pune', img: 'https://randomuser.me/api/portraits/men/43.jpg', text: 'From concept to execution, the process was seamless. The turnkey solution saved us so much time.' },
+                { name: 'Pooja Sharma', loc: 'Noida', img: 'https://randomuser.me/api/portraits/women/20.jpg', text: 'Forever Dreams Home transformed our house into a dream home. Their creativity and attention to detail is simply amazing!' },
+                { name: 'Rahul Verma', loc: 'Delhi', img: 'https://randomuser.me/api/portraits/men/61.jpg', text: 'Professional team, on-time delivery and excellent execution. Highly recommended for interior design!' },
+                { name: 'Anjali Mehta', loc: 'Meerut', img: 'https://randomuser.me/api/portraits/women/96.jpg', text: 'They understood our needs perfectly and designed a space that feels just right. Thank you FDH!' },
+                { name: 'Sameer Desai', loc: 'Mumbai', img: 'https://randomuser.me/api/portraits/men/29.jpg', text: 'The 3D visualizations were spot on. What we saw is exactly what we got. Brilliant work!' },
+                { name: 'Kavita Singh', loc: 'Gurugram', img: 'https://randomuser.me/api/portraits/women/85.jpg', text: 'Our modular kitchen is not only beautiful but incredibly functional. FDH truly knows their craft.' },
+                { name: 'Rohan Kapoor', loc: 'Pune', img: 'https://randomuser.me/api/portraits/men/88.jpg', text: 'From concept to execution, the process was seamless. The turnkey solution saved us so much time.' },
                 { name: 'Neha Gupta', loc: 'Bangalore', img: 'https://randomuser.me/api/portraits/women/17.jpg', text: 'I loved the furniture selection! They curated pieces that perfectly matched our vibrant personality.' },
-                { name: 'Vikram Rathore', loc: 'Hyderabad', img: 'https://randomuser.me/api/portraits/men/66.jpg', text: 'Amazing commercial interior design for our new office. It completely transformed our workspace vibe.' },
-                { name: 'Sneha Reddy', loc: 'Chennai', img: 'https://randomuser.me/api/portraits/women/24.jpg', text: 'Exceptional service and extremely polite staff. They listened to every small detail we asked for.' },
+                { name: 'Vikram Rathore', loc: 'Hyderabad', img: 'https://randomuser.me/api/portraits/men/8.jpg', text: 'Amazing commercial interior design for our new office. It completely transformed our workspace vibe.' },
+                { name: 'Sneha Reddy', loc: 'Chennai', img: 'https://randomuser.me/api/portraits/women/28.jpg', text: 'Exceptional service and extremely polite staff. They listened to every small detail we asked for.' },
                 // Duplicate for infinite scroll
-                { name: 'Pooja Sharma', loc: 'Noida', img: 'https://randomuser.me/api/portraits/women/6.jpg', text: 'Forever Dreams Home transformed our house into a dream home. Their creativity and attention to detail is simply amazing!' },
-                { name: 'Rahul Verma', loc: 'Delhi', img: 'https://randomuser.me/api/portraits/men/32.jpg', text: 'Professional team, on-time delivery and excellent execution. Highly recommended for interior design!' },
-                { name: 'Anjali Mehta', loc: 'Meerut', img: 'https://randomuser.me/api/portraits/women/44.jpg', text: 'They understood our needs perfectly and designed a space that feels just right. Thank you FDH!' },
-                { name: 'Sameer Desai', loc: 'Mumbai', img: 'https://randomuser.me/api/portraits/men/52.jpg', text: 'The 3D visualizations were spot on. What we saw is exactly what we got. Brilliant work!' },
-                { name: 'Kavita Singh', loc: 'Gurugram', img: 'https://randomuser.me/api/portraits/women/68.jpg', text: 'Our modular kitchen is not only beautiful but incredibly functional. FDH truly knows their craft.' },
-                { name: 'Rohan Kapoor', loc: 'Pune', img: 'https://randomuser.me/api/portraits/men/43.jpg', text: 'From concept to execution, the process was seamless. The turnkey solution saved us so much time.' },
+                { name: 'Pooja Sharma', loc: 'Noida', img: 'https://randomuser.me/api/portraits/women/20.jpg', text: 'Forever Dreams Home transformed our house into a dream home. Their creativity and attention to detail is simply amazing!' },
+                { name: 'Rahul Verma', loc: 'Delhi', img: 'https://randomuser.me/api/portraits/men/61.jpg', text: 'Professional team, on-time delivery and excellent execution. Highly recommended for interior design!' },
+                { name: 'Anjali Mehta', loc: 'Meerut', img: 'https://randomuser.me/api/portraits/women/96.jpg', text: 'They understood our needs perfectly and designed a space that feels just right. Thank you FDH!' },
+                { name: 'Sameer Desai', loc: 'Mumbai', img: 'https://randomuser.me/api/portraits/men/29.jpg', text: 'The 3D visualizations were spot on. What we saw is exactly what we got. Brilliant work!' },
+                { name: 'Kavita Singh', loc: 'Gurugram', img: 'https://randomuser.me/api/portraits/women/85.jpg', text: 'Our modular kitchen is not only beautiful but incredibly functional. FDH truly knows their craft.' },
+                { name: 'Rohan Kapoor', loc: 'Pune', img: 'https://randomuser.me/api/portraits/men/88.jpg', text: 'From concept to execution, the process was seamless. The turnkey solution saved us so much time.' },
                 { name: 'Neha Gupta', loc: 'Bangalore', img: 'https://randomuser.me/api/portraits/women/17.jpg', text: 'I loved the furniture selection! They curated pieces that perfectly matched our vibrant personality.' },
-                { name: 'Vikram Rathore', loc: 'Hyderabad', img: 'https://randomuser.me/api/portraits/men/66.jpg', text: 'Amazing commercial interior design for our new office. It completely transformed our workspace vibe.' },
-                { name: 'Sneha Reddy', loc: 'Chennai', img: 'https://randomuser.me/api/portraits/women/24.jpg', text: 'Exceptional service and extremely polite staff. They listened to every small detail we asked for.' }
+                { name: 'Vikram Rathore', loc: 'Hyderabad', img: 'https://randomuser.me/api/portraits/men/8.jpg', text: 'Amazing commercial interior design for our new office. It completely transformed our workspace vibe.' },
+                { name: 'Sneha Reddy', loc: 'Chennai', img: 'https://randomuser.me/api/portraits/women/28.jpg', text: 'Exceptional service and extremely polite staff. They listened to every small detail we asked for.' }
               ].map((test, idx) => (
                 <div key={idx} className={styles.testCard}>
                   <div className={styles.testCardContent}>
