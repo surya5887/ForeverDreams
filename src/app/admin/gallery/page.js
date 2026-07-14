@@ -56,13 +56,9 @@ export default function GalleryPage() {
       // Fetch Gallery Items
       const galSnap = await getDocs(collection(db, 'galleryItems'));
       const items = [];
-      const seenTitles = new Set();
       galSnap.forEach((doc) => {
         const data = doc.data();
-        if (!seenTitles.has(data.title)) {
-          seenTitles.add(data.title);
-          items.push({ id: doc.id, ...data });
-        }
+        items.push({ id: doc.id, ...data });
       });
       setGalleryItems(items);
     } catch (error) {

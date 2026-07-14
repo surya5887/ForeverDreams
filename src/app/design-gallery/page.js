@@ -50,13 +50,9 @@ function GalleryContent() {
         
         const galSnap = await getDocs(collection(db, 'galleryItems'));
         const fetchedItems = [];
-        const seenTitles = new Set();
         galSnap.forEach(doc => {
           const data = doc.data();
-          if (!seenTitles.has(data.title)) {
-            seenTitles.add(data.title);
-            fetchedItems.push({ id: doc.id, ...data });
-          }
+          fetchedItems.push({ id: doc.id, ...data });
         });
         setGalleryItems(fetchedItems);
       } catch (error) {
