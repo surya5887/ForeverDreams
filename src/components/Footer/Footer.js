@@ -34,7 +34,7 @@ export default function Footer() {
             <div className={styles.fLogoCircle}>
               <img src="/main_logo.jpeg" alt="FD Logo" className={styles.fLogoIconImage} />
             </div>
-            <img src="/name_img.png" alt="Forever Dreams Home" className={styles.nameImgFooter} />
+            <img src="/forever_dream_spaces.jpeg" alt="Forever Dreams Home" className={styles.nameImgFooter} />
           </div>
           <p className={styles.footerDesc}>
             Designing beautiful spaces that reflect your style and personality.
