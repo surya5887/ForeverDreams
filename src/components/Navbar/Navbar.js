@@ -49,7 +49,7 @@ export default function Navbar() {
             <div className={styles.logoCircle}>
               <img src="/main_logo.jpeg" alt="FD Logo" className={styles.logoIconImage} />
             </div>
-            <img src="/forever_dream_spaces.jpeg" alt="Forever Dreams Home" className={styles.nameImg} />
+            <img src="/forever_dream_spaces.png" alt="Forever Dreams Home" className={styles.nameImg} />
           </Link>
 
           {/* Desktop Nav */}
