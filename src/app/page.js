@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { db } from '../lib/firebase';
 import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore';
 import { FiArrowRight, FiPlay, FiPhone, FiMail, FiArrowLeft } from 'react-icons/fi';
-import { 
+import {
   FaWhatsapp, FaHome, FaCity, FaUtensils, FaCouch, FaKey, FaCubes,
   FaLightbulb, FaAward, FaClock, FaHeart, FaStar, FaQuoteLeft,
   FaUsers, FaClipboardList, FaPencilRuler, FaHardHat, FaCheckCircle,
@@ -19,18 +19,18 @@ export default function Home() {
 
   useEffect(() => {
     const hasTriggered = sessionStorage.getItem('homePopupTriggered');
-    
+
     if (!hasTriggered) {
       const timer = setTimeout(() => {
         openQuote();
         sessionStorage.setItem('homePopupTriggered', 'true');
       }, 3000);
-      
+
       const handleUnload = () => {
         sessionStorage.removeItem('homePopupTriggered');
       };
       window.addEventListener('beforeunload', handleUnload);
-      
+
       return () => {
         clearTimeout(timer);
         window.removeEventListener('beforeunload', handleUnload);
@@ -45,7 +45,7 @@ export default function Home() {
         const snap = await getDocs(q);
         const projects = [];
         snap.forEach(doc => projects.push({ id: doc.id, ...doc.data() }));
-        
+
         // If empty, use fallbacks temporarily until seeded
         if (projects.length === 0) {
           setRecentProjects([
@@ -67,13 +67,13 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
-      
+
       {/* ── HERO SECTION ── */}
       <section className={styles.hero}>
-        <video 
-          autoPlay 
-          loop 
-          muted 
+        <video
+          autoPlay
+          loop
+          muted
           playsInline
           preload="auto"
           className={styles.heroVideo}
@@ -81,13 +81,13 @@ export default function Home() {
           <source src="/hero-bg.mp4" type="video/mp4" />
         </video>
         <div className={styles.heroOverlay}></div>
-        
+
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>
-            Where Home<br/>
+            Where Home<br />
             Breathes <span className={styles.heroTitleScript}>Beauty</span>
           </h1>
-          
+
           <div className={styles.heroActions}>
             <Link href="/design-gallery" className={styles.primaryBtn}>
               EXPLORE OUR WORK <FiArrowRight style={{ color: '#e60000' }} />
@@ -147,15 +147,15 @@ export default function Home() {
             <span className={styles.sectionLabelColored}>OUR SERVICES</span>
             <h2 className={styles.sectionTitleDark}>Designing Spaces You'll Love</h2>
           </div>
-          
+
           <div className={styles.servicesGrid}>
             {[
-              { icon: <FaCouch style={{color:'#e91e63'}}/>, title: 'Residential Interior', desc: 'Comfortable, stylish and personalized home interiors.', color: '#e91e63', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258284/forever_dreams/home/h3fbmblp6akbvje1jgse.jpg' },
-              { icon: <FaCity style={{color:'#00bcd4'}}/>, title: 'Commercial Interior', desc: 'Functional and productive spaces for your business.', color: '#00bcd4', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258285/forever_dreams/home/hrspiz7a0pamdukou77c.jpg' },
-              { icon: <FaUtensils style={{color:'#ff9800'}}/>, title: 'Modular Kitchen', desc: 'Smart, stylish & space-saving kitchen designs.', color: '#ff9800', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258292/forever_dreams/home/ekqyrpv1zjvze8wiff2p.jpg' },
-              { icon: <FaLightbulb style={{color:'#8b5cf6'}}/>, title: 'Furniture & Decor', desc: 'Handpicked furniture & decor to complete your space.', color: '#8b5cf6', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258287/forever_dreams/home/u0ksx3rcw5cicmmgg6hi.jpg' },
-              { icon: <FaKey style={{color:'#3b82f6'}}/>, title: 'Turnkey Projects', desc: 'End-to-end solutions with hassle-free execution.', color: '#3b82f6', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258288/forever_dreams/home/p0dwuoqs1psbgzacpkjn.jpg' },
-              { icon: <FaCubes style={{color:'#4caf50'}}/>, title: '3D Design & Visual', desc: 'Realistic 3D renders to visualize your dream space.', color: '#4caf50', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258289/forever_dreams/home/e5i4tdncsmwixg2s934p.jpg' }
+              { icon: <FaCouch style={{ color: '#e91e63' }} />, title: 'Residential Interior', desc: 'Comfortable, stylish and personalized home interiors.', color: '#e91e63', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258284/forever_dreams/home/h3fbmblp6akbvje1jgse.jpg' },
+              { icon: <FaCity style={{ color: '#00bcd4' }} />, title: 'Commercial Interior', desc: 'Functional and productive spaces for your business.', color: '#00bcd4', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258285/forever_dreams/home/hrspiz7a0pamdukou77c.jpg' },
+              { icon: <FaUtensils style={{ color: '#ff9800' }} />, title: 'Modular Kitchen', desc: 'Smart, stylish & space-saving kitchen designs.', color: '#ff9800', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258292/forever_dreams/home/ekqyrpv1zjvze8wiff2p.jpg' },
+              { icon: <FaLightbulb style={{ color: '#8b5cf6' }} />, title: 'Furniture & Decor', desc: 'Handpicked furniture & decor to complete your space.', color: '#8b5cf6', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258287/forever_dreams/home/u0ksx3rcw5cicmmgg6hi.jpg' },
+              { icon: <FaKey style={{ color: '#3b82f6' }} />, title: 'Turnkey Projects', desc: 'End-to-end solutions with hassle-free execution.', color: '#3b82f6', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258288/forever_dreams/home/p0dwuoqs1psbgzacpkjn.jpg' },
+              { icon: <FaCubes style={{ color: '#4caf50' }} />, title: '3D Design & Visual', desc: 'Realistic 3D renders to visualize your dream space.', color: '#4caf50', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258289/forever_dreams/home/e5i4tdncsmwixg2s934p.jpg' }
             ].map((service, idx) => (
               <div key={idx} className={styles.serviceCard}>
                 <div className={styles.serviceImgWrap}>
@@ -189,7 +189,7 @@ export default function Home() {
               VIEW ALL PROJECTS <FiArrowRight />
             </Link>
           </div>
-          
+
           <div className={styles.recentCarouselWrap}>
             <button className={styles.navBtnLeft}><FiArrowLeft /></button>
             <div className={styles.recentCarousel}>
@@ -215,7 +215,7 @@ export default function Home() {
             <span className={styles.sectionLabelColored}>SIGNATURE SPACES</span>
             <h2 className={styles.sectionTitleDark}>A Curated Gallery</h2>
           </div>
-          
+
           <div className={styles.bentoGrid}>
             <div className={`${styles.bentoItem} ${styles.bentoLarge}`}>
               <img src="https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258294/forever_dreams/home/z7kt6zfn17iqsq5vitiq.jpg" alt="Luxury Living" className={styles.bentoImg} />
@@ -261,7 +261,7 @@ export default function Home() {
             We believe that a well-designed space is a reflection of its inhabitants. Our approach blends timeless elegance with modern functionality, creating environments that don't just look beautiful, but feel intimately yours.
           </p>
           <div className={styles.philosophySignature}>
-            Elena Rostova <br/> <span>Lead Designer</span>
+            Elena Rostova <br /> <span>Lead Designer</span>
           </div>
         </div>
       </section>
@@ -274,20 +274,20 @@ export default function Home() {
             <h2 className={styles.sectionTitleDark}>From Concept To Creation</h2>
           </div>
         </div>
-          
+
         <div className={styles.processWrap}>
           {/* Full width base image */}
           <img src="/process-bg.png" alt="Our Process" className={styles.processBaseImage} />
-          
+
           {/* Overlay content positioned cleanly on the left empty space of the image */}
           <div className={styles.processContentOverlay}>
             <div className={styles.timelineDottedLine}></div>
             {[
-              { num: '01', icon: <FaUsers/>, color: '#e91e63', title: 'Consultation', desc: 'We listen to your ideas and understand your requirements.' },
-              { num: '02', icon: <FaClipboardList/>, color: '#ff9800', title: 'Planning', desc: 'We plan the perfect design and layout for your space.' },
-              { num: '03', icon: <FaPencilRuler/>, color: '#00bcd4', title: 'Design & Develop', desc: 'Our experts design and develop your dream space.' },
-              { num: '04', icon: <FaHardHat/>, color: '#8b5cf6', title: 'Execution', desc: 'We execute the plan with precision and quality.' },
-              { num: '05', icon: <FaCheckCircle/>, color: '#4caf50', title: 'Handover', desc: 'On-time delivery with perfect finishing and satisfaction.' }
+              { num: '01', icon: <FaUsers />, color: '#e91e63', title: 'Consultation', desc: 'We listen to your ideas and understand your requirements.' },
+              { num: '02', icon: <FaClipboardList />, color: '#ff9800', title: 'Planning', desc: 'We plan the perfect design and layout for your space.' },
+              { num: '03', icon: <FaPencilRuler />, color: '#00bcd4', title: 'Design & Develop', desc: 'Our experts design and develop your dream space.' },
+              { num: '04', icon: <FaHardHat />, color: '#8b5cf6', title: 'Execution', desc: 'We execute the plan with precision and quality.' },
+              { num: '05', icon: <FaCheckCircle />, color: '#4caf50', title: 'Handover', desc: 'On-time delivery with perfect finishing and satisfaction.' }
             ].map((step, idx) => (
               <div key={idx} className={styles.processStepOverlay}>
                 <div className={styles.processIconWrapOverlay} style={{ color: step.color }}>
@@ -310,50 +310,50 @@ export default function Home() {
           <div className={styles.sectionHeaderCentered}>
             <span className={styles.sectionLabelColored}>TESTIMONIALS</span>
             <div className={styles.testimonialTitleWrap}>
-               <span className={styles.testLine}></span>
-               <h2 className={styles.sectionTitleDark}>What Our Clients Say</h2>
-               <span className={styles.testLine}></span>
+              <span className={styles.testLine}></span>
+              <h2 className={styles.sectionTitleDark}>What Our Clients Say</h2>
+              <span className={styles.testLine}></span>
             </div>
           </div>
-          
+
           <div className={styles.testGridWrapper}>
             <div className={styles.testGridTrack}>
               {[
-                { name: 'Pooja Sharma', loc: 'Noida', img: 'https://randomuser.me/api/portraits/women/20.jpg', text: 'Forever Dreams Home transformed our house into a dream home. Their creativity and attention to detail is simply amazing!' },
-                { name: 'Rahul Verma', loc: 'Delhi', img: 'https://randomuser.me/api/portraits/men/61.jpg', text: 'Professional team, on-time delivery and excellent execution. Highly recommended for interior design!' },
-                { name: 'Anjali Mehta', loc: 'Meerut', img: 'https://randomuser.me/api/portraits/women/96.jpg', text: 'They understood our needs perfectly and designed a space that feels just right. Thank you FDH!' },
-                { name: 'Sameer Desai', loc: 'Mumbai', img: 'https://randomuser.me/api/portraits/men/29.jpg', text: 'The 3D visualizations were spot on. What we saw is exactly what we got. Brilliant work!' },
-                { name: 'Kavita Singh', loc: 'Gurugram', img: 'https://randomuser.me/api/portraits/women/85.jpg', text: 'Our modular kitchen is not only beautiful but incredibly functional. FDH truly knows their craft.' },
-                { name: 'Rohan Kapoor', loc: 'Pune', img: 'https://randomuser.me/api/portraits/men/88.jpg', text: 'From concept to execution, the process was seamless. The turnkey solution saved us so much time.' },
-                { name: 'Neha Gupta', loc: 'Bangalore', img: 'https://randomuser.me/api/portraits/women/17.jpg', text: 'I loved the furniture selection! They curated pieces that perfectly matched our vibrant personality.' },
-                { name: 'Vikram Rathore', loc: 'Hyderabad', img: 'https://randomuser.me/api/portraits/men/8.jpg', text: 'Amazing commercial interior design for our new office. It completely transformed our workspace vibe.' },
-                { name: 'Sneha Reddy', loc: 'Chennai', img: 'https://randomuser.me/api/portraits/women/28.jpg', text: 'Exceptional service and extremely polite staff. They listened to every small detail we asked for.' },
+                { name: 'Pooja Sharma', loc: 'Noida', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096559/women_4_mzuxua.jpg', text: 'Forever Dreams Home transformed our house into a dream home. Their creativity and attention to detail is simply amazing!' },
+                { name: 'Rahul Verma', loc: 'Delhi', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096561/man_2_dtwxrn.png', text: 'Professional team, on-time delivery and excellent execution. Highly recommended for interior design!' },
+                { name: 'Anjali Mehta', loc: 'Meerut', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096558/women_5_nk0ey2.jpg', text: 'They understood our needs perfectly and designed a space that feels just right. Thank you FDH!' },
+                { name: 'Sameer Desai', loc: 'Mumbai', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096560/man_1_tbotms.jpg', text: 'The 3D visualizations were spot on. What we saw is exactly what we got. Brilliant work!' },
+                { name: 'Kavita Singh', loc: 'Gurugram', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096559/women_1_c3i2y6.jpg', text: 'Our modular kitchen is not only beautiful but incredibly functional. FDH truly knows their craft.' },
+                { name: 'Rohan Kapoor', loc: 'Pune', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096559/man_4_igtrmq.jpg', text: 'From concept to execution, the process was seamless. The turnkey solution saved us so much time.' },
+                { name: 'Neha Gupta', loc: 'Bangalore', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096558/women_3_zb91tl.jpg', text: 'I loved the furniture selection! They curated pieces that perfectly matched our vibrant personality.' },
+                { name: 'Vikram Sing', loc: 'Hyderabad', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096558/man_3_kwlvwk.jpg', text: 'Amazing commercial interior design for our new office. It completely transformed our workspace vibe.' },
+                { name: 'Sneha Reddy', loc: 'Chennai', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096557/women_1_dijget.avif', text: 'Exceptional service and extremely polite staff. They listened to every small detail we asked for.' },
                 // Duplicate for infinite scroll
-                { name: 'Pooja Sharma', loc: 'Noida', img: 'https://randomuser.me/api/portraits/women/20.jpg', text: 'Forever Dreams Home transformed our house into a dream home. Their creativity and attention to detail is simply amazing!' },
-                { name: 'Rahul Verma', loc: 'Delhi', img: 'https://randomuser.me/api/portraits/men/61.jpg', text: 'Professional team, on-time delivery and excellent execution. Highly recommended for interior design!' },
-                { name: 'Anjali Mehta', loc: 'Meerut', img: 'https://randomuser.me/api/portraits/women/96.jpg', text: 'They understood our needs perfectly and designed a space that feels just right. Thank you FDH!' },
-                { name: 'Sameer Desai', loc: 'Mumbai', img: 'https://randomuser.me/api/portraits/men/29.jpg', text: 'The 3D visualizations were spot on. What we saw is exactly what we got. Brilliant work!' },
-                { name: 'Kavita Singh', loc: 'Gurugram', img: 'https://randomuser.me/api/portraits/women/85.jpg', text: 'Our modular kitchen is not only beautiful but incredibly functional. FDH truly knows their craft.' },
-                { name: 'Rohan Kapoor', loc: 'Pune', img: 'https://randomuser.me/api/portraits/men/88.jpg', text: 'From concept to execution, the process was seamless. The turnkey solution saved us so much time.' },
-                { name: 'Neha Gupta', loc: 'Bangalore', img: 'https://randomuser.me/api/portraits/women/17.jpg', text: 'I loved the furniture selection! They curated pieces that perfectly matched our vibrant personality.' },
-                { name: 'Vikram Rathore', loc: 'Hyderabad', img: 'https://randomuser.me/api/portraits/men/8.jpg', text: 'Amazing commercial interior design for our new office. It completely transformed our workspace vibe.' },
-                { name: 'Sneha Reddy', loc: 'Chennai', img: 'https://randomuser.me/api/portraits/women/28.jpg', text: 'Exceptional service and extremely polite staff. They listened to every small detail we asked for.' }
+                { name: 'Pooja Sharma', loc: 'Noida', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096559/women_4_mzuxua.jpg', text: 'Forever Dreams Home transformed our house into a dream home. Their creativity and attention to detail is simply amazing!' },
+                { name: 'Rahul Verma', loc: 'Delhi', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096561/man_2_dtwxrn.png', text: 'Professional team, on-time delivery and excellent execution. Highly recommended for interior design!' },
+                { name: 'Anjali Mehta', loc: 'Meerut', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096558/women_5_nk0ey2.jpg', text: 'They understood our needs perfectly and designed a space that feels just right. Thank you FDH!' },
+                { name: 'Sameer Desai', loc: 'Mumbai', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096560/man_1_tbotms.jpg', text: 'The 3D visualizations were spot on. What we saw is exactly what we got. Brilliant work!' },
+                { name: 'Kavita Singh', loc: 'Gurugram', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096559/women_1_c3i2y6.jpg', text: 'Our modular kitchen is not only beautiful but incredibly functional. FDH truly knows their craft.' },
+                { name: 'Rohan Kapoor', loc: 'Pune', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096559/man_4_igtrmq.jpg', text: 'From concept to execution, the process was seamless. The turnkey solution saved us so much time.' },
+                { name: 'Neha Gupta', loc: 'Bangalore', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096558/women_3_zb91tl.jpg', text: 'I loved the furniture selection! They curated pieces that perfectly matched our vibrant personality.' },
+                { name: 'Vikram Rathore', loc: 'Hyderabad', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096558/man_3_kwlvwk.jpg', text: 'Amazing commercial interior design for our new office. It completely transformed our workspace vibe.' },
+                { name: 'Sneha Reddy', loc: 'Chennai', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096557/women_1_dijget.avif', text: 'Exceptional service and extremely polite staff. They listened to every small detail we asked for.' }
               ].map((test, idx) => (
                 <div key={idx} className={styles.testCard}>
                   <div className={styles.testCardContent}>
                     <div className={styles.testCardTop}>
-                       <FaQuoteLeft className={styles.quoteIcon} />
-                       <div className={styles.testUser}>
-                          <img src={test.img} alt={test.name} className={styles.testUserImg} />
-                       </div>
+                      <FaQuoteLeft className={styles.quoteIcon} />
+                      <div className={styles.testUser}>
+                        <img src={test.img} alt={test.name} className={styles.testUserImg} />
+                      </div>
                     </div>
                     <div className={styles.stars}>
-                      <FaStar/><FaStar/><FaStar/><FaStar/><FaStar/>
+                      <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
                     </div>
                     <p className={styles.testText}>{test.text}</p>
                     <div className={styles.testUserInfo}>
-                       <h5 className={styles.testUserName}>{test.name}</h5>
-                       <span className={styles.testUserLoc}>- {test.loc}</span>
+                      <h5 className={styles.testUserName}>{test.name}</h5>
+                      <span className={styles.testUserLoc}>- {test.loc}</span>
                     </div>
                   </div>
                 </div>
