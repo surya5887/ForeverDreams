@@ -6,6 +6,7 @@ import { db } from '../../lib/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import { FiChevronRight, FiMapPin, FiArrowRight, FiX } from 'react-icons/fi';
 import { FaTag } from 'react-icons/fa';
+import { useQuoteContext } from '@/context/QuoteContext';
 import styles from './page.module.css';
 
 const FILTERS = ['All', 'Residential', 'Commercial'];
@@ -14,8 +15,7 @@ export default function RecentProjectsPage() {
   const [activeFilter, setActiveFilter] = useState('All');
   const [projects, setProjects] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState(null);
+  const { openQuote } = useQuoteContext();
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -66,19 +66,7 @@ export default function RecentProjectsPage() {
     ? projects
     : projects.filter(p => p.category === activeFilter);
 
-  const handleViewDetails = (project) => {
-    setSelectedProject(project);
-    setSidebarOpen(true);
-    document.body.style.overflow = 'hidden';
-  };
 
-  const closeSidebar = () => {
-    setSidebarOpen(false);
-    setTimeout(() => {
-      setSelectedProject(null);
-    }, 300); // Wait for transition
-    document.body.style.overflow = 'auto';
-  };
 
   return (
     <div className={styles.page}>
@@ -130,14 +118,14 @@ export default function RecentProjectsPage() {
                         <FaTag /> {project.category}
                       </span>
                     )}
-                    <div className={styles.projectOverlay}>
-                      <button className={styles.viewBtn} onClick={() => handleViewDetails(project)}>View Details <FiArrowRight /></button>
-                    </div>
                   </div>
                   <div className={styles.projectInfo}>
                     <h3 className={styles.projectTitle}>{project.title}</h3>
-                    <p className={styles.projectLocation}><FiMapPin /> {project.location}</p>
-                    <p className={styles.projectDesc}>{project.description}</p>
+                    <div style={{ marginTop: '1rem' }}>
+                      <button onClick={(e) => { e.preventDefault(); openQuote(project.title); }} style={{display: 'inline-block', textAlign: 'center', border: 'none', cursor: 'pointer', width: '100%', padding: '0.8rem', borderRadius: '4px', backgroundColor: '#b98e46', color: '#fff', fontWeight: 'bold', fontSize: '0.9rem'}}>
+                        Get a Quote
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -146,73 +134,7 @@ export default function RecentProjectsPage() {
         </div>
       </section>
 
-      {/* ── Project Details Sidebar ── */}
-      <div className={`${styles.sidebarOverlay} ${sidebarOpen ? styles.sidebarOverlayOpen : ''}`} onClick={closeSidebar}>
-        <div className={styles.sidebar} onClick={(e) => e.stopPropagation()}>
-          <div className={styles.sidebarHeader}>
-            <h2 className={styles.sidebarTitle}>Project Details</h2>
-            <button className={styles.closeBtn} onClick={closeSidebar}>
-              <FiX />
-            </button>
-          </div>
-          
-          {selectedProject && (
-            <div className={styles.sidebarContent}>
-              <img src={selectedProject.image} alt={selectedProject.title} className={styles.sidebarImage} />
-              
-              <div className={styles.sidebarDetails}>
-                <h3 className={styles.projectTitle} style={{ fontSize: '1.6rem', marginBottom: '0.5rem' }}>{selectedProject.title}</h3>
-                
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', margin: '1rem 0', background: '#fcfaf8', padding: '1.5rem', borderRadius: '12px' }}>
-                  {selectedProject.location && (
-                    <div className={styles.detailRow}>
-                      <span className={styles.detailLabel}>Location</span>
-                      <span className={styles.detailValue}>{selectedProject.location}</span>
-                    </div>
-                  )}
-                  {selectedProject.category && (
-                    <div className={styles.detailRow}>
-                      <span className={styles.detailLabel}>Category</span>
-                      <span className={styles.detailValue}>{selectedProject.category}</span>
-                    </div>
-                  )}
-                  {selectedProject.clientName && (
-                    <div className={styles.detailRow}>
-                      <span className={styles.detailLabel}>Client</span>
-                      <span className={styles.detailValue}>{selectedProject.clientName}</span>
-                    </div>
-                  )}
-                  {selectedProject.projectArea && (
-                    <div className={styles.detailRow}>
-                      <span className={styles.detailLabel}>Area</span>
-                      <span className={styles.detailValue}>{selectedProject.projectArea}</span>
-                    </div>
-                  )}
-                  {selectedProject.duration && (
-                    <div className={styles.detailRow}>
-                      <span className={styles.detailLabel}>Duration</span>
-                      <span className={styles.detailValue}>{selectedProject.duration}</span>
-                    </div>
-                  )}
-                  {selectedProject.year && (
-                    <div className={styles.detailRow}>
-                      <span className={styles.detailLabel}>Year</span>
-                      <span className={styles.detailValue}>{selectedProject.year}</span>
-                    </div>
-                  )}
-                </div>
 
-                <div className={styles.detailRow} style={{ marginTop: '0.5rem' }}>
-                  <span className={styles.detailLabel}>Description</span>
-                  <p className={styles.detailValue} style={{ lineHeight: '1.7', color: '#555', fontSize: '1rem' }}>
-                    {selectedProject.description || 'No description available for this project.'}
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
     </div>
   );
 }

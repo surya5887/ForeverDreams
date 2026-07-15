@@ -13,13 +13,7 @@ export default function RecentProjectsPage() {
   
   // Form State
   const [title, setTitle] = useState('');
-  const [location, setLocation] = useState('');
   const [category, setCategory] = useState('Residential');
-  const [description, setDescription] = useState('');
-  const [clientName, setClientName] = useState('');
-  const [projectArea, setProjectArea] = useState('');
-  const [duration, setDuration] = useState('');
-  const [year, setYear] = useState('');
   const [file, setFile] = useState(null);
   const [editingId, setEditingId] = useState(null);
   const [isSaving, setIsSaving] = useState(false);
@@ -34,13 +28,9 @@ export default function RecentProjectsPage() {
     try {
       const snap = await getDocs(collection(db, 'recentProjects'));
       const items = [];
-      const seenTitles = new Set();
       snap.forEach((doc) => {
         const data = doc.data();
-        if (!seenTitles.has(data.title)) {
-          seenTitles.add(data.title);
-          items.push({ id: doc.id, ...data });
-        }
+        items.push({ id: doc.id, ...data });
       });
       setRecentProjects(items);
     } catch (error) {
@@ -80,20 +70,14 @@ export default function RecentProjectsPage() {
       }
       
       if (editingId) {
-        const updateData = { title, location, category, description, clientName, projectArea, duration, year };
+        const updateData = { title, category };
         if (uploadedUrl) updateData.imageUrl = uploadedUrl;
         await updateDoc(doc(db, 'recentProjects', editingId), updateData);
         alert("Project updated successfully!");
       } else {
         const newItem = {
           title,
-          location,
           category,
-          description,
-          clientName,
-          projectArea,
-          duration,
-          year,
           imageUrl: uploadedUrl,
           createdAt: new Date()
         };
@@ -103,13 +87,7 @@ export default function RecentProjectsPage() {
       
       // Reset
       setTitle('');
-      setLocation('');
       setCategory('Residential');
-      setDescription('');
-      setClientName('');
-      setProjectArea('');
-      setDuration('');
-      setYear('');
       setFile(null);
       setEditingId(null);
       if (fileInputRef.current) fileInputRef.current.value = "";
@@ -125,13 +103,7 @@ export default function RecentProjectsPage() {
 
   const handleEdit = (item) => {
     setTitle(item.title);
-    setLocation(item.location || '');
     setCategory(item.category || 'Residential');
-    setDescription(item.description || '');
-    setClientName(item.clientName || '');
-    setProjectArea(item.projectArea || '');
-    setDuration(item.duration || '');
-    setYear(item.year || '');
     setEditingId(item.id);
     setFile(null);
     if (fileInputRef.current) fileInputRef.current.value = "";
@@ -170,12 +142,6 @@ export default function RecentProjectsPage() {
               <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required style={{ color: '#333' }} />
             </div>
             
-            <div className={styles.formGrid}>
-              <div className={styles.formGroup}>
-                <label style={{ color: '#555' }}>Location (Optional)</label>
-                <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} placeholder="e.g. Mumbai, India" style={{ color: '#333' }} />
-              </div>
-              
               <div className={styles.formGroup}>
                 <label style={{ color: '#555' }}>Category</label>
                 <select value={category} onChange={(e) => setCategory(e.target.value)} style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid #ddd', color: '#333' }}>
@@ -183,40 +149,6 @@ export default function RecentProjectsPage() {
                   <option value="Commercial">Commercial</option>
                 </select>
               </div>
-            </div>
-
-            <div className={styles.formGrid} style={{ marginTop: '1rem' }}>
-              <div className={styles.formGroup}>
-                <label style={{ color: '#555' }}>Client Name (Optional)</label>
-                <input type="text" value={clientName} onChange={(e) => setClientName(e.target.value)} placeholder="e.g. Mr. Sharma" style={{ color: '#333' }} />
-              </div>
-              <div className={styles.formGroup}>
-                <label style={{ color: '#555' }}>Project Area (Optional)</label>
-                <input type="text" value={projectArea} onChange={(e) => setProjectArea(e.target.value)} placeholder="e.g. 2500 sq ft" style={{ color: '#333' }} />
-              </div>
-            </div>
-            
-            <div className={styles.formGrid} style={{ marginTop: '1rem' }}>
-              <div className={styles.formGroup}>
-                <label style={{ color: '#555' }}>Duration (Optional)</label>
-                <input type="text" value={duration} onChange={(e) => setDuration(e.target.value)} placeholder="e.g. 45 Days" style={{ color: '#333' }} />
-              </div>
-              <div className={styles.formGroup}>
-                <label style={{ color: '#555' }}>Year (Optional)</label>
-                <input type="text" value={year} onChange={(e) => setYear(e.target.value)} placeholder="e.g. 2024" style={{ color: '#333' }} />
-              </div>
-            </div>
-
-            <div className={styles.formGroup} style={{ marginTop: '1rem' }}>
-              <label style={{ color: '#555' }}>Description</label>
-              <textarea 
-                value={description} 
-                onChange={(e) => setDescription(e.target.value)} 
-                rows="3"
-                placeholder="A short description of the project..."
-                style={{ color: '#333' }}
-              ></textarea>
-            </div>
 
             <div className={styles.formGroup}>
               <label style={{ color: '#555' }}>Cover Image *</label>
@@ -236,7 +168,7 @@ export default function RecentProjectsPage() {
                 {isSaving ? 'Saving...' : editingId ? 'Update Project' : 'Add Project'}
               </button>
               {editingId && (
-                <button type="button" className={styles.btnSecondary} onClick={() => { setEditingId(null); setTitle(''); setLocation(''); setCategory('Residential'); setDescription(''); setClientName(''); setProjectArea(''); setDuration(''); setYear(''); setFile(null); if(fileInputRef.current) fileInputRef.current.value=''; }}>
+                <button type="button" className={styles.btnSecondary} onClick={() => { setEditingId(null); setTitle(''); setCategory('Residential'); setFile(null); if(fileInputRef.current) fileInputRef.current.value=''; }}>
                   Cancel
                 </button>
               )}
