@@ -12,8 +12,6 @@ import styles from './page.module.css';
 function GalleryContent() {
   const searchParams = useSearchParams();
   const [activeCategorySlug, setActiveCategorySlug] = useState('all');
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(null);
   const { openQuote } = useQuoteContext();
 
   const [categories, setCategories] = useState([{ slug: 'all', name: 'All' }]);
@@ -78,17 +76,7 @@ function GalleryContent() {
     window.history.pushState(null, '', catSlug === 'all' ? '/design-gallery' : `/design-gallery?category=${catSlug}`);
   };
 
-  const openSidebar = (item) => {
-    setSelectedItem(item);
-    setSidebarOpen(true);
-    document.body.style.overflow = 'hidden';
-  };
 
-  const closeSidebar = () => {
-    setSidebarOpen(false);
-    document.body.style.overflow = '';
-    setTimeout(() => setSelectedItem(null), 300);
-  };
 
   const activeCatObj = categories.find(c => c.slug === activeCategorySlug);
   const activeCategoryId = activeCatObj ? activeCatObj.id : null;
@@ -157,11 +145,8 @@ function GalleryContent() {
                       <div className={styles.designCardBody}>
                         <h3 className={styles.designCardTitle}>{item.title}</h3>
                         <div className={styles.designCardActions}>
-                          <button onClick={(e) => { e.preventDefault(); openQuote(item.title); }} className={styles.btnQuote} style={{display: 'inline-block', textAlign: 'center', border: 'none', cursor: 'pointer'}}>
+                          <button onClick={(e) => { e.preventDefault(); openQuote(item.title); }} className={styles.btnQuoteFull} style={{display: 'inline-block', textAlign: 'center', border: 'none', cursor: 'pointer', width: '100%', padding: '0.8rem', borderRadius: '4px', backgroundColor: '#b98e46', color: '#fff', fontWeight: 'bold', fontSize: '0.9rem'}}>
                             Get a Quote
-                          </button>
-                          <button className={styles.btnExplore} onClick={() => openSidebar(item)}>
-                            Explore more <FiChevronRight />
                           </button>
                         </div>
                       </div>
@@ -174,38 +159,6 @@ function GalleryContent() {
         )}
       </div>
 
-      {sidebarOpen && <div className={styles.backdrop} onClick={closeSidebar}></div>}
-      <div className={`${styles.sidebar} ${sidebarOpen ? styles.sidebarOpen : ''}`}>
-        <button className={styles.sidebarClose} onClick={closeSidebar}><FiX /></button>
-        {selectedItem && (
-          <div className={styles.sidebarContent}>
-            <img 
-              src={(selectedItem.images && selectedItem.images.length > 0) ? selectedItem.images[0] : 'https://picsum.photos/600/400'} 
-              alt={selectedItem.title} 
-              className={styles.sidebarImage} 
-            />
-            <h2 className={styles.sidebarTitle}>{selectedItem.title}</h2>
-            <p className={styles.sidebarCategory}>{categories.find(c => c.id === selectedItem.categoryId)?.name}</p>
-            <p className={styles.sidebarDesc}>{selectedItem.description}</p>
-
-            <div className={styles.sidebarSection}>
-              <h4>Details</h4>
-              <p><strong>Client:</strong> {selectedItem.clientName || 'N/A'}</p>
-              <p><strong>Location:</strong> {selectedItem.location || 'N/A'}</p>
-              <p><strong>Year:</strong> {selectedItem.year || 'N/A'}</p>
-            </div>
-
-            <div className={styles.sidebarActions}>
-              <button onClick={() => { openQuote(selectedItem.title); setSelectedItem(null); }} className={styles.btnPrimary} style={{display: 'inline-flex', alignItems: 'center', justifyContent: 'center', border: 'none', cursor: 'pointer'}}>
-                Get a Quote <FiArrowRight />
-              </button>
-              <a href="https://wa.me/911234567890?text=Hello%20ForeverDreams,%20I'd%20like%20to%20book%20a%20consultation." target="_blank" rel="noopener noreferrer" className={styles.btnOutline} style={{textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center'}}>
-                Book Consultation
-              </a>
-            </div>
-          </div>
-        )}
-      </div>
     </div>
   );
 }

@@ -15,10 +15,6 @@ export default function GalleryPage() {
   // Form State
   const [title, setTitle] = useState('');
   const [categoryId, setCategoryId] = useState('');
-  const [clientName, setClientName] = useState('');
-  const [location, setLocation] = useState('');
-  const [year, setYear] = useState('');
-  const [description, setDescription] = useState('');
   const [files, setFiles] = useState([]);
   const [editingId, setEditingId] = useState(null);
   const [isSaving, setIsSaving] = useState(false);
@@ -102,7 +98,7 @@ export default function GalleryPage() {
       }
 
       if (editingId) {
-        const updateData = { title, categoryId, clientName, location, year, description };
+        const updateData = { title, categoryId };
         if (uploadedImageUrls.length > 0) {
           updateData.images = uploadedImageUrls; // Note: This replaces old images, for simplicity
         }
@@ -112,10 +108,6 @@ export default function GalleryPage() {
         const newItem = {
           title,
           categoryId,
-          clientName,
-          location,
-          year,
-          description,
           images: uploadedImageUrls,
           createdAt: new Date()
         };
@@ -126,10 +118,6 @@ export default function GalleryPage() {
       // Reset
       setTitle('');
       setCategoryId('');
-      setClientName('');
-      setLocation('');
-      setYear('');
-      setDescription('');
       setFiles([]);
       setEditingId(null);
       if (fileInputRef.current) fileInputRef.current.value = "";
@@ -146,10 +134,6 @@ export default function GalleryPage() {
   const handleEdit = (item) => {
     setTitle(item.title);
     setCategoryId(item.categoryId);
-    setClientName(item.clientName || '');
-    setLocation(item.location || '');
-    setYear(item.year || '');
-    setDescription(item.description || '');
     setEditingId(item.id);
     setFiles([]); // Require re-uploading if they want to change images
     if (fileInputRef.current) fileInputRef.current.value = "";
@@ -197,31 +181,7 @@ export default function GalleryPage() {
               </select>
             </div>
 
-            <div className={styles.formGrid}>
-              <div className={styles.formGroup}>
-                <label style={{ color: '#555' }}>Client Name</label>
-                <input type="text" value={clientName} onChange={(e) => setClientName(e.target.value)} style={{ color: '#333' }} />
-              </div>
-              <div className={styles.formGroup}>
-                <label style={{ color: '#555' }}>Location</label>
-                <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} style={{ color: '#333' }} />
-              </div>
-            </div>
 
-            <div className={styles.formGroup}>
-              <label style={{ color: '#555' }}>Year</label>
-              <input type="text" value={year} onChange={(e) => setYear(e.target.value)} placeholder="e.g. 2026" style={{ color: '#333' }} />
-            </div>
-
-            <div className={styles.formGroup}>
-              <label style={{ color: '#555' }}>Project Description (Sidebar details)</label>
-              <textarea 
-                value={description} 
-                onChange={(e) => setDescription(e.target.value)} 
-                rows="4"
-                style={{ color: '#333' }}
-              ></textarea>
-            </div>
 
             <div className={styles.formGroup}>
               <label style={{ color: '#555' }}>Upload Images (First image will be cover) {!editingId && '*'}</label>
@@ -244,7 +204,7 @@ export default function GalleryPage() {
               </button>
               {editingId && (
                 <button type="button" className={styles.btnSecondary} onClick={() => { 
-                  setEditingId(null); setTitle(''); setCategoryId(''); setClientName(''); setLocation(''); setYear(''); setDescription(''); setFiles([]); if(fileInputRef.current) fileInputRef.current.value=''; 
+                  setEditingId(null); setTitle(''); setCategoryId(''); setFiles([]); if(fileInputRef.current) fileInputRef.current.value=''; 
                 }}>
                   Cancel
                 </button>
