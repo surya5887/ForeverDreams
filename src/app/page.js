@@ -49,10 +49,10 @@ export default function Home() {
         // If empty, use fallbacks temporarily until seeded
         if (projects.length === 0) {
           setRecentProjects([
-            { id: 1, title: 'Modern Living Room', loc: 'Meerut', imageUrl: 'https://res.cloudinary.com/waqkndtu/image/upload/v1783264123/forever_dreams/recent/living_room_new.jpg' },
-            { id: 2, title: 'Luxury Bedroom', loc: 'Noida', imageUrl: 'https://res.cloudinary.com/waqkndtu/image/upload/v1783264124/forever_dreams/recent/bedroom_new.jpg' },
-            { id: 3, title: 'Elegant Kitchen', loc: 'Delhi', imageUrl: 'https://res.cloudinary.com/waqkndtu/image/upload/v1783264125/forever_dreams/recent/kitchen_new.jpg' },
-            { id: 4, title: 'Contemporary Office', loc: 'Gurugram', imageUrl: 'https://res.cloudinary.com/waqkndtu/image/upload/v1783264126/forever_dreams/recent/office_new.jpg' }
+            { id: 1, title: 'Design & Execution: AWHO 4BHK Apartment | Client – Col. Jabar Chaudhary', category: 'Residential', imageUrl: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80' },
+            { id: 2, title: 'Design & Execution: Purvanchal Height, ETA-2 – 4BHK Apartment | Client – Anil Chaudhary', category: 'Residential', imageUrl: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1200&q=80' },
+            { id: 3, title: 'Design Consultant: Rise Resort Residences – Sports Villa | Client – Adv. Rahul Singh', category: 'Residential', imageUrl: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=80' },
+            { id: 4, title: 'Design Consultant: Windsor Society, Sector-50 | Client – Mr. Rajeev Chadha', category: 'Residential', imageUrl: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=80' }
           ]);
         } else {
           setRecentProjects(projects);
