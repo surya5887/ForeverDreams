@@ -19,16 +19,16 @@ export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const heroImages = [
-    "https://res.cloudinary.com/waqkndtu/image/upload/v1783272136/forever_dreams/gallery_unique/dmspxwpjas9rnoavx7wg.jpg", // Modular Kitchen
-    "https://res.cloudinary.com/waqkndtu/image/upload/v1783272175/forever_dreams/gallery_unique/bbshzjpjfsna77syd3k8.jpg", // Living Room
-    "https://res.cloudinary.com/waqkndtu/image/upload/v1783272117/forever_dreams/gallery_unique/mmagugaiq8rxdflib9bs.jpg", // Bedroom
-    "https://res.cloudinary.com/waqkndtu/image/upload/v1783272123/forever_dreams/gallery_unique/rtd2dffp5e92y7u9zxtu.jpg", // Kids Bedroom
-    "https://res.cloudinary.com/waqkndtu/image/upload/v1783272144/forever_dreams/gallery_unique/sjrkcvf94k37w8fbygln.jpg", // Wardrobe
-    "https://res.cloudinary.com/waqkndtu/image/upload/v1783272150/forever_dreams/gallery_unique/znqeesfsgawbirx6pcbb.jpg", // Dining Room
-    "https://res.cloudinary.com/waqkndtu/image/upload/v1783272128/forever_dreams/gallery_unique/tllwdb8yryd6s1ym2y0u.jpg", // Pooja Room
-    "https://res.cloudinary.com/waqkndtu/image/upload/v1783272132/forever_dreams/gallery_unique/yelbmbgdsalrfqmdmnlj.jpg", // Space Saving
-    "https://res.cloudinary.com/waqkndtu/image/upload/v1783272201/forever_dreams/gallery_unique/v7ksxu0of1iuy17wzepz.jpg", // Home Office
-    "https://res.cloudinary.com/waqkndtu/image/upload/v1783272166/forever_dreams/gallery_unique/ubzo9fpidxkvuqh7f1kl.jpg"  // Bathroom
+    "https://res.cloudinary.com/waqkndtu/image/upload/v1784094024/forever_dreams/unghmtwrs2mc6pekqz2a.jpg", // Modular Kitchen
+    "https://res.cloudinary.com/waqkndtu/image/upload/v1784093572/forever_dreams/vxgt9t7pf8xylphmryql.jpg", // Living Room
+    "https://res.cloudinary.com/waqkndtu/image/upload/v1784094178/forever_dreams/mc9taquzl0dfv9z68mhs.jpg", // Bedroom
+    "https://res.cloudinary.com/waqkndtu/image/upload/v1783680754/forever_dreams/zba8diur3ijvzfrypsda.jpg", // Kids Bedroom
+    "https://res.cloudinary.com/waqkndtu/image/upload/v1783681093/forever_dreams/ripud116jfhqsla0zbqp.jpg", // Wardrobe
+    "https://res.cloudinary.com/waqkndtu/image/upload/v1784013067/forever_dreams/qvmum0px2n7ffzzlzyyx.jpg", // Dining Room
+    "https://res.cloudinary.com/waqkndtu/image/upload/v1784013706/forever_dreams/hj95dukrrj9n5foallsc.jpg", // Pooja Room
+    "https://res.cloudinary.com/waqkndtu/image/upload/v1784012655/forever_dreams/fxtfxvme2my0dhnhsdkn.jpg", // Space Saving
+    "https://res.cloudinary.com/waqkndtu/image/upload/v1784549552/forever_dreams/utblxnen8gvipec1ojo1.jpg", // Home Office
+    "https://res.cloudinary.com/waqkndtu/image/upload/v1784011344/forever_dreams/jjfpjis2wfdk0vdsf6yy.jpg"  // Bathroom
   ];
 
   useEffect(() => {
@@ -91,7 +91,7 @@ export default function Home() {
 
       <section className={styles.hero}>
         {heroImages.map((img, index) => (
-          <div 
+          <div
             key={index}
             className={`${styles.heroImageSlide} ${index === currentImageIndex ? styles.activeSlide : ''}`}
             style={{ backgroundImage: `url(${img})` }}
