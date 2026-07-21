@@ -16,6 +16,27 @@ import styles from './page.module.css';
 export default function Home() {
   const { openQuote } = useQuoteContext();
   const [recentProjects, setRecentProjects] = useState([]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const heroImages = [
+    "https://res.cloudinary.com/waqkndtu/image/upload/v1783272136/forever_dreams/gallery_unique/dmspxwpjas9rnoavx7wg.jpg", // Modular Kitchen
+    "https://res.cloudinary.com/waqkndtu/image/upload/v1783272175/forever_dreams/gallery_unique/bbshzjpjfsna77syd3k8.jpg", // Living Room
+    "https://res.cloudinary.com/waqkndtu/image/upload/v1783272117/forever_dreams/gallery_unique/mmagugaiq8rxdflib9bs.jpg", // Bedroom
+    "https://res.cloudinary.com/waqkndtu/image/upload/v1783272123/forever_dreams/gallery_unique/rtd2dffp5e92y7u9zxtu.jpg", // Kids Bedroom
+    "https://res.cloudinary.com/waqkndtu/image/upload/v1783272144/forever_dreams/gallery_unique/sjrkcvf94k37w8fbygln.jpg", // Wardrobe
+    "https://res.cloudinary.com/waqkndtu/image/upload/v1783272150/forever_dreams/gallery_unique/znqeesfsgawbirx6pcbb.jpg", // Dining Room
+    "https://res.cloudinary.com/waqkndtu/image/upload/v1783272128/forever_dreams/gallery_unique/tllwdb8yryd6s1ym2y0u.jpg", // Pooja Room
+    "https://res.cloudinary.com/waqkndtu/image/upload/v1783272132/forever_dreams/gallery_unique/yelbmbgdsalrfqmdmnlj.jpg", // Space Saving
+    "https://res.cloudinary.com/waqkndtu/image/upload/v1783272201/forever_dreams/gallery_unique/v7ksxu0of1iuy17wzepz.jpg", // Home Office
+    "https://res.cloudinary.com/waqkndtu/image/upload/v1783272166/forever_dreams/gallery_unique/ubzo9fpidxkvuqh7f1kl.jpg"  // Bathroom
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+    }, 4000); // 2s image + 2s transition, or 4s total interval. 2s image + 1s transition = 3s interval. Let's use 3000ms. Wait, user said "2 seconds image ruk ke fir transition start ho". So interval 3000ms is good (2s wait + 1s crossfade).
+    return () => clearInterval(interval);
+  }, [heroImages.length]);
 
   useEffect(() => {
     const hasTriggered = sessionStorage.getItem('homePopupTriggered');
@@ -68,18 +89,17 @@ export default function Home() {
   return (
     <div className={styles.page}>
 
-      {/* ── HERO SECTION ── */}
       <section className={styles.hero}>
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className={styles.heroVideo}
-        >
-          <source src="/hero-bg.mp4" type="video/mp4" />
-        </video>
+        {heroImages.map((img, index) => (
+          <div 
+            key={index}
+            className={styles.heroImageSlide}
+            style={{ 
+              backgroundImage: `url(${img})`,
+              opacity: index === currentImageIndex ? 1 : 0
+            }}
+          ></div>
+        ))}
         <div className={styles.heroOverlay}></div>
 
         <div className={styles.heroContent}>
