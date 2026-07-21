@@ -19,8 +19,8 @@ export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const heroImages = [
-    "https://res.cloudinary.com/waqkndtu/image/upload/v1784094024/forever_dreams/unghmtwrs2mc6pekqz2a.jpg", // Modular Kitchen
     "https://res.cloudinary.com/waqkndtu/image/upload/v1784093572/forever_dreams/vxgt9t7pf8xylphmryql.jpg", // Living Room
+    "https://res.cloudinary.com/waqkndtu/image/upload/v1784094024/forever_dreams/unghmtwrs2mc6pekqz2a.jpg", // Modular Kitchen
     "https://res.cloudinary.com/waqkndtu/image/upload/v1784094178/forever_dreams/mc9taquzl0dfv9z68mhs.jpg", // Bedroom
     "https://res.cloudinary.com/waqkndtu/image/upload/v1783680754/forever_dreams/zba8diur3ijvzfrypsda.jpg", // Kids Bedroom
     "https://res.cloudinary.com/waqkndtu/image/upload/v1783681093/forever_dreams/ripud116jfhqsla0zbqp.jpg", // Wardrobe
