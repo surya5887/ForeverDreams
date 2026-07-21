@@ -34,7 +34,7 @@ export default function Home() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
-    }, 4000); // 2s image + 2s transition, or 4s total interval. 2s image + 1s transition = 3s interval. Let's use 3000ms. Wait, user said "2 seconds image ruk ke fir transition start ho". So interval 3000ms is good (2s wait + 1s crossfade).
+    }, 3500); // 3.5s total: 2s hold + 1.5s crossfade
     return () => clearInterval(interval);
   }, [heroImages.length]);
 
@@ -93,11 +93,8 @@ export default function Home() {
         {heroImages.map((img, index) => (
           <div 
             key={index}
-            className={styles.heroImageSlide}
-            style={{ 
-              backgroundImage: `url(${img})`,
-              opacity: index === currentImageIndex ? 1 : 0
-            }}
+            className={`${styles.heroImageSlide} ${index === currentImageIndex ? styles.activeSlide : ''}`}
+            style={{ backgroundImage: `url(${img})` }}
           ></div>
         ))}
         <div className={styles.heroOverlay}></div>
