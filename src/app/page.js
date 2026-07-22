@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { db } from '../lib/firebase';
-import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore';
+import { collection, getDocs, query, orderBy, limit, doc, getDoc } from 'firebase/firestore';
 import { FiArrowRight, FiPlay, FiPhone, FiMail, FiArrowLeft } from 'react-icons/fi';
 import {
   FaWhatsapp, FaHome, FaCity, FaUtensils, FaCouch, FaKey, FaCubes,
@@ -18,7 +18,7 @@ export default function Home() {
   const [recentProjects, setRecentProjects] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const heroImages = [
+  const [heroImages, setHeroImages] = useState([
     "https://res.cloudinary.com/waqkndtu/image/upload/v1784093572/forever_dreams/vxgt9t7pf8xylphmryql.jpg", // Living Room
     "https://res.cloudinary.com/waqkndtu/image/upload/v1784094024/forever_dreams/unghmtwrs2mc6pekqz2a.jpg", // Modular Kitchen
     "https://res.cloudinary.com/waqkndtu/image/upload/v1784094178/forever_dreams/mc9taquzl0dfv9z68mhs.jpg", // Bedroom
@@ -28,8 +28,23 @@ export default function Home() {
     "https://res.cloudinary.com/waqkndtu/image/upload/v1784013706/forever_dreams/hj95dukrrj9n5foallsc.jpg", // Pooja Room
     "https://res.cloudinary.com/waqkndtu/image/upload/v1784012655/forever_dreams/fxtfxvme2my0dhnhsdkn.jpg", // Space Saving
     "https://res.cloudinary.com/waqkndtu/image/upload/v1784549552/forever_dreams/utblxnen8gvipec1ojo1.jpg", // Home Office
-    "https://res.cloudinary.com/waqkndtu/image/upload/v1784011344/forever_dreams/jjfpjis2wfdk0vdsf6yy.jpg"  // Bathroom
-  ];
+    "https://res.cloudinary.com/waqkndtu/image/upload/v1784013580/forever_dreams/sod6iuec4rttivd74z44.jpg"  // Bathroom
+  ]);
+
+  useEffect(() => {
+    const fetchHeroImages = async () => {
+      try {
+        const docRef = doc(db, 'settings', 'heroImages');
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists() && docSnap.data().images && docSnap.data().images.length > 0) {
+          setHeroImages(docSnap.data().images);
+        }
+      } catch (error) {
+        console.error("Error fetching hero images:", error);
+      }
+    };
+    fetchHeroImages();
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {

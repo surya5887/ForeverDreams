@@ -57,6 +57,9 @@ export default function AdminLayout({ children }) {
           <Link href="/admin/recent" className={`${styles.navLink} ${pathname === '/admin/recent' ? styles.active : ''}`} onClick={closeSidebar}>
             <FiStar /> Recent Projects
           </Link>
+          <Link href="/admin/hero" className={`${styles.navLink} ${pathname === '/admin/hero' ? styles.active : ''}`} onClick={closeSidebar}>
+            <FiImage /> Hero Slider
+          </Link>
         </nav>
 
         <div className={styles.sidebarFooter}>
