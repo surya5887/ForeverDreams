@@ -14,7 +14,8 @@ export default function RecentProjectsPage() {
   // Form State
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState('Residential');
-  const [file, setFile] = useState(null);
+  const [files, setFiles] = useState([]);
+  const [existingImages, setExistingImages] = useState([]);
   const [editingId, setEditingId] = useState(null);
   const [isSaving, setIsSaving] = useState(false);
   const fileInputRef = useRef(null);
@@ -41,9 +42,22 @@ export default function RecentProjectsPage() {
   };
 
   const handleFileChange = (e) => {
-    if (e.target.files && e.target.files[0]) {
-      setFile(e.target.files[0]);
+    if (e.target.files) {
+      const selectedFiles = Array.from(e.target.files);
+      if (selectedFiles.length + existingImages.length > 3) {
+        alert("You can only have up to 3 images per project.");
+        return;
+      }
+      setFiles(prev => [...prev, ...selectedFiles]);
     }
+  };
+
+  const handleRemoveFile = (index) => {
+    setFiles(files.filter((_, i) => i !== index));
+  };
+
+  const handleRemoveExisting = (index) => {
+    setExistingImages(existingImages.filter((_, i) => i !== index));
   };
 
   const handleSubmit = async (e) => {
@@ -53,32 +67,45 @@ export default function RecentProjectsPage() {
       return;
     }
 
-    if (!editingId && !file) {
-      alert("Image is required for new projects.");
+    if (!editingId && files.length === 0) {
+      alert("At least one image is required for new projects.");
+      return;
+    }
+
+    if (files.length + existingImages.length > 3) {
+      alert("You cannot exceed 3 images.");
       return;
     }
 
     setIsSaving(true);
 
     try {
-      let uploadedUrl = null;
-      if (file) {
-        const formData = new FormData();
-        formData.append("file", file);
-        const result = await uploadToCloudinary(formData);
-        uploadedUrl = result.secure_url;
+      const uploadedUrls = [];
+      if (files.length > 0) {
+        for (const file of files) {
+          const formData = new FormData();
+          formData.append("file", file);
+          const result = await uploadToCloudinary(formData);
+          uploadedUrls.push(result.secure_url);
+        }
       }
       
+      const allImages = [...existingImages, ...uploadedUrls];
+
       if (editingId) {
-        const updateData = { title, category };
-        if (uploadedUrl) updateData.imageUrl = uploadedUrl;
+        const updateData = { title, category, images: allImages };
+        // For backwards compatibility on front-end where it checks imageUrl if images doesn't exist
+        if (allImages.length > 0) {
+          updateData.imageUrl = allImages[0];
+        }
         await updateDoc(doc(db, 'recentProjects', editingId), updateData);
         alert("Project updated successfully!");
       } else {
         const newItem = {
           title,
           category,
-          imageUrl: uploadedUrl,
+          images: allImages,
+          imageUrl: allImages[0] || null,
           createdAt: new Date()
         };
         await addDoc(collection(db, 'recentProjects'), newItem);
@@ -88,7 +115,8 @@ export default function RecentProjectsPage() {
       // Reset
       setTitle('');
       setCategory('Residential');
-      setFile(null);
+      setFiles([]);
+      setExistingImages([]);
       setEditingId(null);
       if (fileInputRef.current) fileInputRef.current.value = "";
       
@@ -105,7 +133,16 @@ export default function RecentProjectsPage() {
     setTitle(item.title);
     setCategory(item.category || 'Residential');
     setEditingId(item.id);
-    setFile(null);
+    setFiles([]);
+    
+    let imgs = [];
+    if (item.images && item.images.length > 0) {
+      imgs = item.images;
+    } else if (item.imageUrl) {
+      imgs = [item.imageUrl];
+    }
+    setExistingImages(imgs);
+    
     if (fileInputRef.current) fileInputRef.current.value = "";
   };
 
@@ -150,25 +187,44 @@ export default function RecentProjectsPage() {
                 </select>
               </div>
 
-            <div className={styles.formGroup}>
-              <label style={{ color: '#555' }}>Cover Image *</label>
-              <input 
-                type="file" 
-                accept="image/*" 
-                onChange={handleFileChange} 
-                ref={fileInputRef}
-                required={!editingId}
-                style={{ color: '#333' }}
-              />
-              {editingId && <small style={{ color: '#666', marginTop: '0.5rem', display: 'block' }}>Leave blank to keep existing image</small>}
-            </div>
-
-            <div style={{ display: 'flex', gap: '1rem' }}>
-              <button type="submit" className={styles.btnPrimary} disabled={isSaving}>
-                {isSaving ? 'Saving...' : editingId ? 'Update Project' : 'Add Project'}
+              <div className={styles.formGroup}>
+                <label style={{ color: '#555' }}>Images (Max 3) *</label>
+                <input type="file" accept="image/*" multiple onChange={handleFileChange} ref={fileInputRef} style={{ color: '#333' }} disabled={files.length + existingImages.length >= 3} />
+                
+                {existingImages.length > 0 && (
+                  <div style={{ marginTop: '1rem' }}>
+                    <p style={{ color: '#555', fontSize: '0.9rem' }}>Current Images:</p>
+                    <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginTop: '0.5rem' }}>
+                      {existingImages.map((img, i) => (
+                        <div key={i} style={{ position: 'relative', width: '80px', height: '80px' }}>
+                          <img src={img} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '4px' }} />
+                          <button type="button" onClick={() => handleRemoveExisting(i)} style={{ position: 'absolute', top: '-5px', right: '-5px', background: 'red', color: 'white', borderRadius: '50%', border: 'none', width: '20px', height: '20px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px' }}>&times;</button>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                
+                {files.length > 0 && (
+                  <div style={{ marginTop: '1rem' }}>
+                    <p style={{ color: '#555', fontSize: '0.9rem' }}>New Files:</p>
+                    <ul style={{ paddingLeft: '20px', margin: '0.5rem 0 0 0', color: '#333' }}>
+                      {files.map((f, i) => (
+                        <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                          <span>{f.name}</span>
+                          <button type="button" onClick={() => handleRemoveFile(i)} style={{ color: 'red', background: 'none', border: 'none', cursor: 'pointer' }}><FiTrash2 size={14} /></button>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+              
+              <button type="submit" className={styles.btnPrimary} disabled={isSaving} style={{ width: '100%' }}>
+                {isSaving ? 'Saving...' : (editingId ? 'Update Project' : 'Add Project')}
               </button>
               {editingId && (
-                <button type="button" className={styles.btnSecondary} onClick={() => { setEditingId(null); setTitle(''); setCategory('Residential'); setFile(null); if(fileInputRef.current) fileInputRef.current.value=''; }}>
+                <button type="button" className={styles.btnSecondary} onClick={() => { setEditingId(null); setTitle(''); setCategory('Residential'); setFiles([]); setExistingImages([]); if(fileInputRef.current) fileInputRef.current.value=''; }}>
                   Cancel
                 </button>
               )}

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { db } from '../lib/firebase';
 import { collection, getDocs, query, orderBy, limit, doc, getDoc } from 'firebase/firestore';
-import { FiArrowRight, FiPlay, FiPhone, FiMail, FiArrowLeft } from 'react-icons/fi';
+import { FiArrowRight, FiPlay, FiPhone, FiMail, FiArrowLeft, FiX, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import {
   FaWhatsapp, FaHome, FaCity, FaUtensils, FaCouch, FaKey, FaCubes,
   FaLightbulb, FaAward, FaClock, FaHeart, FaStar, FaQuoteLeft,
@@ -17,6 +17,8 @@ export default function Home() {
   const { openQuote } = useQuoteContext();
   const [recentProjects, setRecentProjects] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [sliderIndex, setSliderIndex] = useState(0);
 
   const [heroImages, setHeroImages] = useState([
     "https://res.cloudinary.com/waqkndtu/image/upload/v1784093572/forever_dreams/vxgt9t7pf8xylphmryql.jpg", // Living Room
@@ -85,13 +87,16 @@ export default function Home() {
         // If empty, use fallbacks temporarily until seeded
         if (projects.length === 0) {
           setRecentProjects([
-            { id: 1, title: 'Design & Execution: AWHO 4BHK Apartment | Client – Col. Jabar Chaudhary', category: 'Residential', imageUrl: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80' },
-            { id: 2, title: 'Design & Execution: Purvanchal Height, ETA-2 – 4BHK Apartment | Client – Anil Chaudhary', category: 'Residential', imageUrl: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1200&q=80' },
-            { id: 3, title: 'Design Consultant: Rise Resort Residences – Sports Villa | Client – Adv. Rahul Singh', category: 'Residential', imageUrl: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=80' },
-            { id: 4, title: 'Design Consultant: Windsor Society, Sector-50 | Client – Mr. Rajeev Chadha', category: 'Residential', imageUrl: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=80' }
+            { id: 1, title: 'Design & Execution: AWHO 4BHK Apartment | Client – Col. Jabar Chaudhary', category: 'Residential', images: ['https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80', 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=80', 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1200&q=80'] },
+            { id: 2, title: 'Design & Execution: Purvanchal Height, ETA-2 – 4BHK Apartment | Client – Anil Chaudhary', category: 'Residential', images: ['https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1200&q=80', 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80', 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=80'] },
+            { id: 3, title: 'Design Consultant: Rise Resort Residences – Sports Villa | Client – Adv. Rahul Singh', category: 'Residential', images: ['https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=80', 'https://images.unsplash.com/photo-1531835551805-16d864c8d311?w=1200&q=80', 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1200&q=80'] },
+            { id: 4, title: 'Design Consultant: Windsor Society, Sector-50 | Client – Mr. Rajeev Chadha', category: 'Residential', images: ['https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=80', 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=80', 'https://images.unsplash.com/photo-1531835551805-16d864c8d311?w=1200&q=80'] }
           ]);
         } else {
-          setRecentProjects(projects);
+          setRecentProjects(projects.map(p => ({
+            ...p,
+            images: p.images && p.images.length > 0 ? p.images : (p.imageUrl ? [p.imageUrl] : [])
+          })));
         }
       } catch (error) {
         console.error("Error fetching projects: ", error);
@@ -100,6 +105,20 @@ export default function Home() {
 
     fetchRecentProjects();
   }, []);
+
+  const nextImage = (e) => {
+    e.stopPropagation();
+    if (selectedProject && selectedProject.images) {
+      setSliderIndex((prev) => (prev === selectedProject.images.length - 1 ? 0 : prev + 1));
+    }
+  };
+
+  const prevImage = (e) => {
+    e.stopPropagation();
+    if (selectedProject && selectedProject.images) {
+      setSliderIndex((prev) => (prev === 0 ? selectedProject.images.length - 1 : prev - 1));
+    }
+  };
 
   return (
     <div className={styles.page}>
@@ -227,10 +246,13 @@ export default function Home() {
             <div className={styles.recentCarousel}>
               {recentProjects.map((proj, idx) => (
                 <div key={proj.id || idx} className={styles.recentCard}>
-                  <img src={proj.imageUrl || proj.img} alt={proj.title} className={styles.recentCardImg} />
+                  <img src={proj.images && proj.images[0] ? proj.images[0] : (proj.imageUrl || proj.img)} alt={proj.title} className={styles.recentCardImg} />
                   <div className={styles.recentCardOverlay}>
                     <h4 className={styles.recentCardTitle}>{proj.title}</h4>
                     <p className={styles.recentCardLoc}>{proj.location || proj.loc}</p>
+                    <button onClick={(e) => { e.preventDefault(); setSelectedProject(proj); setSliderIndex(0); }} style={{display: 'inline-block', marginTop: '10px', textAlign: 'center', border: 'none', cursor: 'pointer', padding: '0.6rem 1rem', borderRadius: '4px', backgroundColor: '#b98e46', color: '#fff', fontWeight: 'bold', fontSize: '0.85rem'}}>
+                      More Details
+                    </button>
                   </div>
                 </div>
               ))}
