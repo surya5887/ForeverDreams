@@ -151,8 +151,6 @@ export default function RecentProjectsPage() {
       </section>
 
 
-    </div>
-
       {/* ── Modal for Project Images Slider ── */}
       {selectedProject && (
         <div 
@@ -214,5 +212,6 @@ export default function RecentProjectsPage() {
         </div>
       )}
 
+    </div>
   );
 }

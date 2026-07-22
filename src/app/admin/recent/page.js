@@ -228,7 +228,6 @@ export default function RecentProjectsPage() {
                   Cancel
                 </button>
               )}
-            </div>
           </form>
         </div>
 
