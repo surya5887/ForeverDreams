@@ -22,8 +22,8 @@ export const metadata = {
     'lifestyle', 'luxury living', 'modern home appliances', 'wall painting ideas', 'false ceiling design',
     'wooden flooring', 'home styling tips', 'budget interior design', 'aesthetic room decor', 'trending home designs 2024'
   ],
-  authors: [{ name: 'Forever Dreams Home' }, { name: 'Anees Chaudhary' }],
-  creator: 'Anees Chaudhary',
+  authors: [{ name: 'Forever Dreams Home' }],
+  creator: 'Forever Dreams Home',
   publisher: 'Forever Dreams Home',
   robots: {
     index: true,
@@ -79,11 +79,11 @@ export default function RootLayout({ children }) {
       "@type": "Organization",
       "name": "Forever Dreams Home"
     },
-    "creator": {
-      "@type": "Person",
-      "name": "Anees Chaudhary"
-    },
     "author": {
+      "@type": "Organization",
+      "name": "Forever Dreams Home"
+    },
+    "maintainer": {
       "@type": "Person",
       "name": "Anees Chaudhary"
     }
