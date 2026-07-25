@@ -88,7 +88,13 @@ export default function Footer() {
       </div>
 
       <div className={styles.footerBottom}>
-        <p>© 2026 Forever Dreams Home Interior Design. All Rights Reserved.</p>
+        <p>
+          © {new Date().getFullYear()} Forever Dreams Home Interior Design. All Rights Reserved.
+          <br/>
+          <span style={{ fontSize: '0.85rem', color: '#b98e46', marginTop: '4px', display: 'inline-block' }}>
+            Designed and Developed by Anees Chaudhary
+          </span>
+        </p>
         <div className={styles.footerLegal}>
           <Link href="/privacy">Privacy Policy</Link>
           <span>|</span>

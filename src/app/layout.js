@@ -22,8 +22,8 @@ export const metadata = {
     'lifestyle', 'luxury living', 'modern home appliances', 'wall painting ideas', 'false ceiling design',
     'wooden flooring', 'home styling tips', 'budget interior design', 'aesthetic room decor', 'trending home designs 2024'
   ],
-  authors: [{ name: 'Forever Dreams Home' }],
-  creator: 'Forever Dreams Home',
+  authors: [{ name: 'Forever Dreams Home' }, { name: 'Anees Chaudhary' }],
+  creator: 'Anees Chaudhary',
   publisher: 'Forever Dreams Home',
   robots: {
     index: true,
@@ -69,8 +69,34 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Forever Dreams Home",
+    "url": "https://www.foreverdreams.in",
+    "description": "Premium Interior Design & Architecture",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Forever Dreams Home"
+    },
+    "creator": {
+      "@type": "Person",
+      "name": "Anees Chaudhary"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Anees Chaudhary"
+    }
+  };
+
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body>
         <LayoutWrapper>{children}</LayoutWrapper>
       </body>
