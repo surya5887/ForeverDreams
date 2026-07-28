@@ -44,8 +44,8 @@ export default function RecentProjectsPage() {
   const handleFileChange = (e) => {
     if (e.target.files) {
       const selectedFiles = Array.from(e.target.files);
-      if (selectedFiles.length + existingImages.length > 3) {
-        alert("You can only have up to 3 images per project.");
+      if (selectedFiles.length + existingImages.length > 5) {
+        alert("You can only have up to 5 images per project.");
         return;
       }
       setFiles(prev => [...prev, ...selectedFiles]);
@@ -72,8 +72,8 @@ export default function RecentProjectsPage() {
       return;
     }
 
-    if (files.length + existingImages.length > 3) {
-      alert("You cannot exceed 3 images.");
+    if (files.length + existingImages.length > 5) {
+      alert("You cannot exceed 5 images.");
       return;
     }
 
@@ -188,8 +188,8 @@ export default function RecentProjectsPage() {
               </div>
 
               <div className={styles.formGroup}>
-                <label style={{ color: '#555' }}>Images (Max 3) *</label>
-                <input type="file" accept="image/*" multiple onChange={handleFileChange} ref={fileInputRef} style={{ color: '#333' }} disabled={files.length + existingImages.length >= 3} />
+                <label style={{ color: '#555' }}>Images (Max 5) *</label>
+                <input type="file" accept="image/*" multiple onChange={handleFileChange} ref={fileInputRef} style={{ color: '#333' }} disabled={files.length + existingImages.length >= 5} />
                 
                 {existingImages.length > 0 && (
                   <div style={{ marginTop: '1rem' }}>
