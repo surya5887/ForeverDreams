@@ -97,20 +97,26 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>
+      <body style={{ backgroundColor: '#000', margin: 0, padding: 0 }}>
         <div style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100vw',
           height: '100vh',
-          pointerEvents: 'none',
-          zIndex: 999999,
-          opacity: 0.8,
-          backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='180px' width='300px'><text transform='translate(10, 150) rotate(-35)' fill='rgba(255,0,0,0.4)' font-size='22' font-family='sans-serif' font-weight='bold'>PAYMENT PENDING</text></svg>")`,
-          backgroundRepeat: 'repeat'
-        }} />
-        <LayoutWrapper>{children}</LayoutWrapper>
+          width: '100vw',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: '#fff',
+          fontFamily: 'sans-serif',
+          textAlign: 'center',
+          padding: '20px'
+        }}>
+          <h1 style={{ color: '#ff3333', fontSize: '3rem', marginBottom: '1rem' }}>Website Suspended</h1>
+          <p style={{ fontSize: '1.2rem', maxWidth: '600px', lineHeight: '1.5' }}>
+            This website has been taken down due to non-payment of development and service dues. 
+            <br/><br/>
+            Please clear your outstanding balance to restore access to this website.
+          </p>
+        </div>
       </body>
     </html>
   );
