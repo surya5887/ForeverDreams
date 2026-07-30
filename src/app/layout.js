@@ -98,6 +98,33 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          pointerEvents: 'none',
+          zIndex: 999999,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          opacity: 0.15,
+          overflow: 'hidden'
+        }}>
+          <div style={{
+            transform: 'rotate(-45deg)',
+            fontSize: '12vw',
+            color: 'red',
+            whiteSpace: 'nowrap',
+            fontWeight: 'bold',
+            textTransform: 'uppercase',
+            userSelect: 'none',
+            letterSpacing: '10px'
+          }}>
+            Payment Pending
+          </div>
+        </div>
         <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
