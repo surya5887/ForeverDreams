@@ -106,25 +106,10 @@ export default function RootLayout({ children }) {
           height: '100vh',
           pointerEvents: 'none',
           zIndex: 999999,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          opacity: 0.15,
-          overflow: 'hidden'
-        }}>
-          <div style={{
-            transform: 'rotate(-45deg)',
-            fontSize: '12vw',
-            color: 'red',
-            whiteSpace: 'nowrap',
-            fontWeight: 'bold',
-            textTransform: 'uppercase',
-            userSelect: 'none',
-            letterSpacing: '10px'
-          }}>
-            Payment Pending
-          </div>
-        </div>
+          opacity: 0.8,
+          backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='150px' width='250px'><text transform='translate(10, 120) rotate(-35)' fill='rgba(255,0,0,0.4)' font-size='22' font-family='sans-serif' font-weight='bold'>PAYMENT PENDING</text></svg>")`,
+          backgroundRepeat: 'repeat'
+        }} />
         <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
