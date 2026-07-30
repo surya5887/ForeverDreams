@@ -107,7 +107,7 @@ export default function RootLayout({ children }) {
           pointerEvents: 'none',
           zIndex: 999999,
           opacity: 0.8,
-          backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='150px' width='250px'><text transform='translate(10, 120) rotate(-35)' fill='rgba(255,0,0,0.4)' font-size='22' font-family='sans-serif' font-weight='bold'>PAYMENT PENDING</text></svg>")`,
+          backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='180px' width='300px'><text transform='translate(10, 150) rotate(-35)' fill='rgba(255,0,0,0.4)' font-size='22' font-family='sans-serif' font-weight='bold'>PAYMENT PENDING</text></svg>")`,
           backgroundRepeat: 'repeat'
         }} />
         <LayoutWrapper>{children}</LayoutWrapper>
