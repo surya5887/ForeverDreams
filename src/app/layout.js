@@ -97,26 +97,8 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body style={{ backgroundColor: '#000', margin: 0, padding: 0 }}>
-        <div style={{
-          height: '100vh',
-          width: '100vw',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: '#fff',
-          fontFamily: 'sans-serif',
-          textAlign: 'center',
-          padding: '20px'
-        }}>
-          <h1 style={{ color: '#ff3333', fontSize: '3rem', marginBottom: '1rem' }}>Website Suspended</h1>
-          <p style={{ fontSize: '1.2rem', maxWidth: '600px', lineHeight: '1.5' }}>
-            This website has been taken down due to non-payment of development and service dues. 
-            <br/><br/>
-            Please clear your outstanding balance to restore access to this website.
-          </p>
-        </div>
+      <body>
+        <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
   );
