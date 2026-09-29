@@ -19,7 +19,7 @@ export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [selectedProject, setSelectedProject] = useState(null);
   const [sliderIndex, setSliderIndex] = useState(0);
-  const [sitePhone, setSitePhone] = useState('+91 XXXXX XXXXX');
+  const [sitePhone, setSitePhone] = useState('+91 9540005981');
 
   const [heroImages, setHeroImages] = useState([
     "https://res.cloudinary.com/waqkndtu/image/upload/v1784093572/forever_dreams/vxgt9t7pf8xylphmryql.jpg", // Living Room
