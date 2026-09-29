@@ -1362,6 +1362,3 @@
 .callBtnAnimated { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 14px 28px; border-radius: 50px; font-weight: 600; font-size: 0.8rem; letter-spacing: 1px; border: 2px solid #25D366; color: #fff; background: linear-gradient(to right, rgba(37, 211, 102, 0.1) 0%, rgba(37, 211, 102, 0.1) 40%, #25D366 40%, #25D366 60%, rgba(37, 211, 102, 0.1) 60%, rgba(37, 211, 102, 0.1) 100%); background-size: 300% 100%; animation: slideFill 3s linear infinite; text-decoration: none; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2); }
 
 @keyframes slideFill { 0% { background-position: 100% 0; } 100% { background-position: 0% 0; } }
-  70% { background-position: 0% 0; }
-  100% { background-position: 0% 0; }
-}
