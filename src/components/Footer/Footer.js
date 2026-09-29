@@ -32,7 +32,7 @@ export default function Footer() {
       <div className={styles.footerContainer}>
         <div className={styles.footerCol}>
           <div className={styles.footerLogo}>
-            <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}><rect x="50" y="15" width="30" height="30" transform="rotate(45 50 15)" stroke="url(#goldGradFooter)" strokeWidth="6"/><rect x="50" y="35" width="40" height="40" transform="rotate(45 50 35)" stroke="url(#goldGradFooter)" strokeWidth="3"/><circle cx="50" cy="63" r="5" fill="url(#goldGradFooter)"/><defs><linearGradient id="goldGradFooter" x1="0" y1="0" x2="100" y2="100"><stop stopColor="#bf953f" /><stop offset="0.5" stopColor="#fcf6ba" /><stop offset="1" stopColor="#b38728" /></linearGradient></defs></svg>
+            <div className={styles.fLogoCircle}><img src="/cropped_logo.jpg" alt="Logo" className={styles.fLogoIconImage} /></div>
             <div className={styles.brandNameTextFooter}>
               {siteSettings?.siteName || 'Glossix Design'}
             </div>

@@ -26,7 +26,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  background: #011728;
+  background: #fff;
 }
 
 .fLogoIconImage {
@@ -64,7 +64,7 @@
 .footerContact li { display: flex; align-items: center; gap: 0.8rem; color: #a0aec0; font-size: 0.85rem; }
 
 .newsDesc { color: #a0aec0; font-size: 0.85rem; margin-bottom: 1rem; }
-.newsForm { display: flex; align-items: center; background: #011728; border-radius: 4px; overflow: hidden; }
+.newsForm { display: flex; align-items: center; background: #fff; border-radius: 4px; overflow: hidden; }
 .newsInput { flex: 1; border: none; padding: 10px 15px; outline: none; color: #111; font-size: 0.85rem; }
 .newsBtn { background: #e91e63; border: none; color: #fff; padding: 0 15px; height: 36px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; }
 .newsBtn:hover { background: #c2185b; }
