@@ -65,7 +65,7 @@ export default function Navbar() {
           {/* Logo Area */}
           <Link href="/" className={styles.logoWrap}>
             <div className={styles.logoCircle}>
-              <img src="/main_logo.jpeg" alt="FD Logo" className={styles.logoIconImage} />
+              <span className={styles.cssLogoLetter}>{siteName ? siteName.charAt(0).toUpperCase() : 'G'}</span>
             </div>
             <div className={styles.brandNameText}>
               {siteName}

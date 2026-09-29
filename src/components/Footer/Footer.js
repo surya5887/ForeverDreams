@@ -33,7 +33,7 @@ export default function Footer() {
         <div className={styles.footerCol}>
           <div className={styles.footerLogo}>
             <div className={styles.fLogoCircle}>
-              <img src="/main_logo.jpeg" alt="Logo" className={styles.fLogoIconImage} />
+              <span className={styles.cssLogoLetterFooter}>{siteSettings?.siteName ? siteSettings.siteName.charAt(0).toUpperCase() : 'G'}</span>
             </div>
             <div className={styles.brandNameTextFooter}>
               {siteSettings?.siteName || 'Glossix Design'}
