@@ -8,9 +8,10 @@ import { FiChevronRight, FiSend } from 'react-icons/fi';
 import {
   FaBullseye, FaEye, FaLightbulb, FaGem, FaHandshake, FaHeart,
   FaMapMarkerAlt, FaPhone, FaWhatsapp, FaEnvelope, FaClock,
-  FaFacebookF, FaInstagram, FaPinterestP, FaYoutube, FaTwitter,
+  FaFacebookF, FaInstagram, FaPinterestP, FaYoutube,
   FaCheckCircle
 } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 import styles from './page.module.css';
 
 const values = [
@@ -295,9 +296,9 @@ ${message}`;
               <div className={styles.socialIcon}><FaYoutube /></div>
               <span>YouTube</span>
             </a>
-            <a href={siteSettings?.twitter || "#"} className={styles.socialCard} style={{ '--social-color': '#1DA1F2' }} target="_blank" rel="noreferrer">
-              <div className={styles.socialIcon}><FaTwitter /></div>
-              <span>Twitter / X</span>
+            <a href={siteSettings?.twitter || "#"} className={styles.socialCard} style={{ '--social-color': '#000000' }} target="_blank" rel="noreferrer">
+              <div className={styles.socialIcon}><FaXTwitter /></div>
+              <span>X</span>
             </a>
           </div>
         </div>

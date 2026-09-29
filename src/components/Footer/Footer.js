@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { db } from '../../lib/firebase';
 import { doc, getDoc } from 'firebase/firestore';
-import { FaFacebookF, FaInstagram, FaPinterestP, FaYoutube, FaTwitter, FaHome } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaPinterestP, FaYoutube, FaHome } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 import { FiArrowRight, FiPhone, FiMail } from 'react-icons/fi';
 import styles from './Footer.module.css';
 
@@ -46,7 +47,7 @@ export default function Footer() {
             <a href={siteSettings?.instagram || "#"} target="_blank" rel="noreferrer"><FaInstagram/></a>
             <a href={siteSettings?.pinterest || "#"} target="_blank" rel="noreferrer"><FaPinterestP/></a>
             <a href={siteSettings?.youtube || "#"} target="_blank" rel="noreferrer"><FaYoutube/></a>
-            <a href={siteSettings?.twitter || "#"} target="_blank" rel="noreferrer"><FaTwitter/></a>
+            <a href={siteSettings?.twitter || "#"} target="_blank" rel="noreferrer"><FaXTwitter/></a>
           </div>
         </div>
 
