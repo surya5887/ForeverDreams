@@ -32,7 +32,7 @@ export default function Footer() {
       <div className={styles.footerContainer}>
         <div className={styles.footerCol}>
           <div className={styles.footerLogo}>
-            <div className={styles.fLogoCircle}><img src="/cropped_logo.jpg" alt="Logo" className={styles.fLogoIconImage} /></div>
+            <div className={styles.fLogoCircle}><img src="/logo.png" alt="Logo" className={styles.fLogoIconImage} /></div>
             <div className={styles.brandNameTextFooter}>
               {siteSettings?.siteName || 'Glossix Design'}
             </div>

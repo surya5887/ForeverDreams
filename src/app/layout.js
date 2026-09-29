@@ -40,8 +40,8 @@ export const metadata = {
     google: 'iIZddNWnvrjEKW1OT1Xs3TjW8ATAlr9opXAjW191qGw',
   },
   icons: {
-    icon: '/logo.jpeg',
-    apple: '/logo.jpeg',
+    icon: '/logo.png',
+    apple: '/logo.png',
   },
   openGraph: {
     title: 'Forever Dreams Home | Premium Interior Design & Luxury Makeovers',
@@ -51,7 +51,7 @@ export const metadata = {
     siteName: 'Forever Dreams Home',
     images: [
       {
-        url: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783333182/forever_dreams/home/iicu6f0ktc53dkqjzftz.jpg', // The logo
+        url: '/logo.png', // The logo
         width: 800,
         height: 600,
         alt: 'Forever Dreams Home Interior Design',
@@ -64,7 +64,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Forever Dreams Home | Premium Interior Design',
     description: 'Expert interior design, modular kitchens, and luxury home decor services.',
-    images: ['https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783333182/forever_dreams/home/iicu6f0ktc53dkqjzftz.jpg'],
+    images: ['/logo.png'],
   },
 };
 
