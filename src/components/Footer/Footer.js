@@ -32,9 +32,11 @@ export default function Footer() {
         <div className={styles.footerCol}>
           <div className={styles.footerLogo}>
             <div className={styles.fLogoCircle}>
-              <img src="/main_logo.jpeg" alt="FD Logo" className={styles.fLogoIconImage} />
+              <img src="/main_logo.jpeg" alt="Logo" className={styles.fLogoIconImage} />
             </div>
-            <img src="/forever_dream_spaces.png" alt="Forever Dreams Home" className={styles.nameImgFooter} />
+            <div className={styles.brandNameTextFooter}>
+              {siteSettings?.siteName || 'Glossix Design'}
+            </div>
           </div>
           <p className={styles.footerDesc}>
             Designing beautiful spaces that reflect your style and personality.
@@ -88,7 +90,7 @@ export default function Footer() {
       </div>
 
       <div className={styles.footerBottom}>
-        <p>© {new Date().getFullYear()} Forever Dreams Home Interior Design. All Rights Reserved.</p>
+        <p>&copy; {new Date().getFullYear()} {siteSettings?.siteName || 'Glossix Design'}. All Rights Reserved.</p>
         <div className={styles.footerLegal}>
           <Link href="/privacy">Privacy Policy</Link>
           <span>|</span>

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&display=swap');
 .header {
   position: absolute;
   top: 0;
@@ -57,21 +58,20 @@
   transform: scale(0.85);
 }
 
-.nameImg {
-  height: 55px;
-  width: auto;
-  object-fit: contain;
-  transition: filter 0.3s ease;
+.brandNameText { font-size: 1.8rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; white-space: nowrap; color: #000000; font-family: 'Cinzel', serif; margin-left: 0.5rem; transition: color 0.3s ease; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); }
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-.header.scrolled .nameImg {
-  filter: brightness(0) invert(1);
-}
+.header.scrolled .brandNameText { color: #ffffff; text-shadow: none; }
 
 @media (max-width: 768px) {
-  .nameImg {
-    height: 42px;
-    margin-left: 12px;
+  .brandNameText {
+    font-size: 1.2rem;
+    margin-left: 0.2rem;
   }
 }
 

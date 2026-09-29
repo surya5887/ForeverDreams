@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&display=swap');
 .footer {
   background: #0f1626;
   padding: 0 0 2rem; 
@@ -38,13 +39,7 @@
 .fLogoTop { font-family: var(--font-heading); font-size: 0.9rem; letter-spacing: 2px; }
 .fLogoMid { font-family: var(--font-script); color: #b98e46; font-size: 1.2rem; line-height: 0.8; margin-top: -2px; }
 
-.nameImgFooter {
-  height: 55px;
-  width: auto;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
-  margin-left: 10px;
-}
+.brandNameTextFooter { font-size: 2.2rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; white-space: nowrap; color: #ffffff; font-family: 'Cinzel', serif; margin-left: 0.5rem; }
 
 .footerDesc { color: #a0aec0; font-size: 0.85rem; line-height: 1.6; margin-bottom: 2rem; max-width: 250px; }
 

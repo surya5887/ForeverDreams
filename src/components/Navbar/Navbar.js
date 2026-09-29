@@ -6,6 +6,8 @@ import { usePathname } from 'next/navigation';
 import { FiMenu, FiX, FiChevronDown, FiArrowRight } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
 import { useQuoteContext } from '@/context/QuoteContext';
+import { db } from '@/lib/firebase';
+import { doc, getDoc } from 'firebase/firestore';
 import styles from './Navbar.module.css';
 
 const CATEGORIES = [
@@ -18,8 +20,24 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isGalleryHovered, setIsGalleryHovered] = useState(false);
+  const [siteName, setSiteName] = useState('Glossix Design');
   const pathname = usePathname();
   const { openQuote } = useQuoteContext();
+
+  useEffect(() => {
+    const fetchSettings = async () => {
+      try {
+        const docRef = doc(db, 'settings', 'general');
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists() && docSnap.data().siteName) {
+          setSiteName(docSnap.data().siteName);
+        }
+      } catch (error) {
+        console.error("Error fetching site name:", error);
+      }
+    };
+    fetchSettings();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,7 +67,9 @@ export default function Navbar() {
             <div className={styles.logoCircle}>
               <img src="/main_logo.jpeg" alt="FD Logo" className={styles.logoIconImage} />
             </div>
-            <img src="/forever_dream_spaces.png" alt="Forever Dreams Home" className={styles.nameImg} />
+            <div className={styles.brandNameText}>
+              {siteName}
+            </div>
           </Link>
 
           {/* Desktop Nav */}
