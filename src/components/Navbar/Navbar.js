@@ -64,9 +64,18 @@ export default function Navbar() {
           
           {/* Logo Area */}
           <Link href="/" className={styles.logoWrap}>
-            <div className={styles.logoCircle}>
-              <span className={styles.cssLogoLetter}>{siteName ? siteName.charAt(0).toUpperCase() : 'G'}</span>
-            </div>
+            <svg width="50" height="50" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
+              <rect x="50" y="15" width="30" height="30" transform="rotate(45 50 15)" stroke="url(#goldGrad)" strokeWidth="6"/>
+              <rect x="50" y="35" width="40" height="40" transform="rotate(45 50 35)" stroke="url(#goldGrad)" strokeWidth="3"/>
+              <circle cx="50" cy="63" r="5" fill="url(#goldGrad)"/>
+              <defs>
+                <linearGradient id="goldGrad" x1="0" y1="0" x2="100" y2="100">
+                  <stop stopColor="#bf953f" />
+                  <stop offset="0.5" stopColor="#fcf6ba" />
+                  <stop offset="1" stopColor="#b38728" />
+                </linearGradient>
+              </defs>
+            </svg>
             <div className={styles.brandNameText}>
               {siteName}
             </div>
