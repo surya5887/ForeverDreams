@@ -150,7 +150,7 @@ export default function Home() {
             <Link href="/design-gallery" className={styles.primaryBtn}>
               EXPLORE OUR WORK <FiArrowRight style={{ color: '#e60000' }} />
             </Link>
-            <a href={`tel:${sitePhone.replace(/\\D/g, '')}`} className={styles.primaryBtn} style={{ background: 'transparent', border: '2px solid #fff', color: '#fff' }}>
+            <a href={`tel:${sitePhone.replace(/\\D/g, '')}`} className={styles.callBtnAnimated}>
               <FiPhone style={{ marginRight: '0.5rem' }} /> CALL {sitePhone}
             </a>
           </div>
