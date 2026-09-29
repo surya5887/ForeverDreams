@@ -19,6 +19,7 @@ export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [selectedProject, setSelectedProject] = useState(null);
   const [sliderIndex, setSliderIndex] = useState(0);
+  const [sitePhone, setSitePhone] = useState('+91 XXXXX XXXXX');
 
   const [heroImages, setHeroImages] = useState([
     "https://res.cloudinary.com/waqkndtu/image/upload/v1784093572/forever_dreams/vxgt9t7pf8xylphmryql.jpg", // Living Room
@@ -41,8 +42,14 @@ export default function Home() {
         if (docSnap.exists() && docSnap.data().images && docSnap.data().images.length > 0) {
           setHeroImages(docSnap.data().images);
         }
+        // Also fetch general settings for phone number
+        const generalRef = doc(db, 'settings', 'general');
+        const generalSnap = await getDoc(generalRef);
+        if (generalSnap.exists() && generalSnap.data().phone) {
+          setSitePhone(generalSnap.data().phone);
+        }
       } catch (error) {
-        console.error("Error fetching hero images:", error);
+        console.error("Error fetching settings:", error);
       }
     };
     fetchHeroImages();
@@ -139,10 +146,13 @@ export default function Home() {
             Breathes <span className={styles.heroTitleScript}>Beauty</span>
           </h1>
 
-          <div className={styles.heroActions}>
+          <div className={styles.heroActions} style={{ flexDirection: 'column', gap: '1rem' }}>
             <Link href="/design-gallery" className={styles.primaryBtn}>
               EXPLORE OUR WORK <FiArrowRight style={{ color: '#e60000' }} />
             </Link>
+            <a href={`tel:${sitePhone.replace(/\\D/g, '')}`} className={styles.primaryBtn} style={{ background: 'transparent', border: '2px solid #fff', color: '#fff' }}>
+              <FiPhone style={{ marginRight: '0.5rem' }} /> CALL {sitePhone}
+            </a>
           </div>
         </div>
       </section>
