@@ -1359,6 +1359,8 @@
 }
 
 
-.callBtnAnimated { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 14px 28px; border-radius: 50px; font-weight: 600; font-size: 0.8rem; letter-spacing: 1px; border: 2px solid #25D366; color: #fff; background: linear-gradient(to right, rgba(37, 211, 102, 0.1) 0%, rgba(37, 211, 102, 0.1) 40%, #25D366 40%, #25D366 60%, rgba(37, 211, 102, 0.1) 60%, rgba(37, 211, 102, 0.1) 100%); background-size: 300% 100%; animation: slideFill 3s linear infinite; text-decoration: none; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2); }
+.callBtnAnimated { position: relative; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 14px 28px; border-radius: 50px; font-weight: 600; font-size: 0.8rem; letter-spacing: 1px; border: 2px solid #25D366; color: #fff; background: rgba(37, 211, 102, 0.1); text-decoration: none; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2); z-index: 1; }
 
-@keyframes slideFill { 0% { background-position: 100% 0; } 100% { background-position: 0% 0; } }
+.callBtnAnimated::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #25D366; z-index: -1; animation: fillAndEmpty 4s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+
+@keyframes fillAndEmpty { 0% { transform: scaleX(0); transform-origin: left; } 45% { transform: scaleX(1); transform-origin: left; } 50% { transform: scaleX(1); transform-origin: right; } 95% { transform: scaleX(0); transform-origin: right; } 100% { transform: scaleX(0); transform-origin: left; } }
