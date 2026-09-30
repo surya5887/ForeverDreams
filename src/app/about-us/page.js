@@ -109,11 +109,11 @@ ${message}`;
           <div className={styles.aboutGrid}>
             <div className={styles.aboutText}>
               <span className={styles.sectionLabel}>WHO WE ARE</span>
-              <h2 className={styles.sectionTitle}>Crafting Dream Interiors Since 2014</h2>
+              <h2 className={styles.sectionTitle}>Best Interior Designers in Delhi NCR & UP West</h2>
               <p>
-                Glossix Design is a premier interior design firm based in Meerut, Uttar Pradesh.
-                Founded with a passion for creating beautiful living spaces, we have grown into a trusted name in
-                residential and commercial interior design.
+                Glossix Design is a premier luxury interior design firm specializing in turnkey projects across <strong>Noida, Delhi NCR, and UP West</strong>. 
+                Founded with a passion for creating beautiful living spaces, we have grown into the most trusted name in 
+                residential (2BHK/3BHK) and commercial interior design.
               </p>
               <p>
                 Our team of <strong>25+ expert designers</strong> brings creativity, functionality, and elegance to every project.

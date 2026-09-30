@@ -145,6 +145,10 @@ export default function Home() {
             Where Home<br />
             Breathes <span className={styles.heroTitleScript}>Beauty</span>
           </h1>
+          
+          <h2 style={{ fontSize: '1.2rem', color: '#fff', fontWeight: '400', maxWidth: '600px', margin: '0 auto 2rem auto', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
+            The Best Interior Designer in Noida, Delhi NCR & UP West. We deliver premium 2BHK/3BHK makeovers and luxury modular kitchens.
+          </h2>
 
           <div className={styles.heroActions} style={{ flexDirection: 'column', gap: '1rem' }}>
             <Link href="/design-gallery" className={styles.primaryBtn}>
