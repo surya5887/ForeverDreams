@@ -30,7 +30,7 @@ export default function AdminLayout({ children }) {
         <div className={styles.sidebarHeader}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <div>
-              <h2>Forever Dreams</h2>
+              <h2>Glossix Design</h2>
               <p>Admin Dashboard</p>
             </div>
             {isSidebarOpen && (

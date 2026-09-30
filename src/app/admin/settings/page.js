@@ -85,7 +85,7 @@ export default function SettingsPage() {
             
             <div className={styles.formGroup}>
               <label>Site Name</label>
-              <input type="text" name="siteName" value={settings.siteName || ''} onChange={handleChange} placeholder="Forever Dreams Home" />
+              <input type="text" name="siteName" value={settings.siteName || ''} onChange={handleChange} placeholder="Glossix Design" />
             </div>
 
             <div className={styles.formGroup}>

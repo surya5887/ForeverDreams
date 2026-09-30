@@ -22,15 +22,15 @@ export default function Home() {
   const [sitePhone, setSitePhone] = useState('+91 9540005981');
 
   const [heroImages, setHeroImages] = useState([
-    "https://res.cloudinary.com/waqkndtu/image/upload/v1784093572/forever_dreams/vxgt9t7pf8xylphmryql.jpg", // Living Room
-    "https://res.cloudinary.com/waqkndtu/image/upload/v1784094024/forever_dreams/unghmtwrs2mc6pekqz2a.jpg", // Modular Kitchen
-    "https://res.cloudinary.com/waqkndtu/image/upload/v1784094178/forever_dreams/mc9taquzl0dfv9z68mhs.jpg", // Bedroom
-    "https://res.cloudinary.com/waqkndtu/image/upload/v1783680754/forever_dreams/zba8diur3ijvzfrypsda.jpg", // Kids Bedroom
-    "https://res.cloudinary.com/waqkndtu/image/upload/v1783681093/forever_dreams/ripud116jfhqsla0zbqp.jpg", // Wardrobe
-    "https://res.cloudinary.com/waqkndtu/image/upload/v1784013067/forever_dreams/qvmum0px2n7ffzzlzyyx.jpg", // Dining Room
-    "https://res.cloudinary.com/waqkndtu/image/upload/v1784013706/forever_dreams/hj95dukrrj9n5foallsc.jpg", // Pooja Room
-    "https://res.cloudinary.com/waqkndtu/image/upload/v1784012655/forever_dreams/fxtfxvme2my0dhnhsdkn.jpg", // Space Saving
-    "https://res.cloudinary.com/waqkndtu/image/upload/v1784549552/forever_dreams/utblxnen8gvipec1ojo1.jpg", // Home Office
+    "https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750257/forever_dreams/sijrevxyb3vfuoivdefr.jpg", // Living Room
+    "https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750258/forever_dreams/ulnfnjhhoe1y29givcqe.jpg", // Modular Kitchen
+    "https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750259/forever_dreams/lkcjgrskfalpfxlasdza.jpg", // Bedroom
+    "https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750260/forever_dreams/acxkdjen0hjnd3cb6dkg.jpg", // Kids Bedroom
+    "https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750261/forever_dreams/uooub09ut76eeqvoe1iy.jpg", // Wardrobe
+    "https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750262/forever_dreams/aabv1jnbwy0n8k3dtacu.jpg", // Dining Room
+    "https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750263/forever_dreams/aftvkqpzur1hvmnzmrrz.jpg", // Pooja Room
+    "https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750264/forever_dreams/dvizjbmofrotnqyylulf.jpg", // Space Saving
+    "https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750265/forever_dreams/owkdkcxncs0w1smf6esm.jpg", // Home Office
     "https://res.cloudinary.com/waqkndtu/image/upload/v1784013580/forever_dreams/sod6iuec4rttivd74z44.jpg"  // Bathroom
   ]);
 
@@ -211,12 +211,12 @@ export default function Home() {
 
           <div className={styles.servicesGrid}>
             {[
-              { icon: <FaCouch style={{ color: '#e91e63' }} />, title: 'Residential Interior', desc: 'Comfortable, stylish and personalized home interiors.', color: '#e91e63', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258284/forever_dreams/home/h3fbmblp6akbvje1jgse.jpg' },
-              { icon: <FaCity style={{ color: '#00bcd4' }} />, title: 'Commercial Interior', desc: 'Functional and productive spaces for your business.', color: '#00bcd4', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258285/forever_dreams/home/hrspiz7a0pamdukou77c.jpg' },
-              { icon: <FaUtensils style={{ color: '#ff9800' }} />, title: 'Modular Kitchen', desc: 'Smart, stylish & space-saving kitchen designs.', color: '#ff9800', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258292/forever_dreams/home/ekqyrpv1zjvze8wiff2p.jpg' },
-              { icon: <FaLightbulb style={{ color: '#8b5cf6' }} />, title: 'Furniture & Decor', desc: 'Handpicked furniture & decor to complete your space.', color: '#8b5cf6', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258287/forever_dreams/home/u0ksx3rcw5cicmmgg6hi.jpg' },
-              { icon: <FaKey style={{ color: '#3b82f6' }} />, title: 'Turnkey Projects', desc: 'End-to-end solutions with hassle-free execution.', color: '#3b82f6', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258288/forever_dreams/home/p0dwuoqs1psbgzacpkjn.jpg' },
-              { icon: <FaCubes style={{ color: '#4caf50' }} />, title: '3D Design & Visual', desc: 'Realistic 3D renders to visualize your dream space.', color: '#4caf50', img: 'https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258289/forever_dreams/home/e5i4tdncsmwixg2s934p.jpg' }
+              { icon: <FaCouch style={{ color: '#e91e63' }} />, title: 'Residential Interior', desc: 'Comfortable, stylish and personalized home interiors.', color: '#e91e63', img: 'https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750267/forever_dreams/qtfg2zckye75uggwnwf1.jpg' },
+              { icon: <FaCity style={{ color: '#00bcd4' }} />, title: 'Commercial Interior', desc: 'Functional and productive spaces for your business.', color: '#00bcd4', img: 'https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750269/forever_dreams/dkllkmcgbttozt5zfrcj.jpg' },
+              { icon: <FaUtensils style={{ color: '#ff9800' }} />, title: 'Modular Kitchen', desc: 'Smart, stylish & space-saving kitchen designs.', color: '#ff9800', img: 'https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750269/forever_dreams/ocrmulfb3m4pv1aythgx.jpg' },
+              { icon: <FaLightbulb style={{ color: '#8b5cf6' }} />, title: 'Furniture & Decor', desc: 'Handpicked furniture & decor to complete your space.', color: '#8b5cf6', img: 'https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750271/forever_dreams/zeghr4goophlzwuzm8cv.jpg' },
+              { icon: <FaKey style={{ color: '#3b82f6' }} />, title: 'Turnkey Projects', desc: 'End-to-end solutions with hassle-free execution.', color: '#3b82f6', img: 'https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750271/forever_dreams/ostzzbdzni37s4eaidlj.jpg' },
+              { icon: <FaCubes style={{ color: '#4caf50' }} />, title: '3D Design & Visual', desc: 'Realistic 3D renders to visualize your dream space.', color: '#4caf50', img: 'https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750272/forever_dreams/aftbvlqyl0oj4amvbce4.jpg' }
             ].map((service, idx) => (
               <div key={idx} className={styles.serviceCard}>
                 <div className={styles.serviceImgWrap}>
@@ -282,28 +282,28 @@ export default function Home() {
 
           <div className={styles.bentoGrid}>
             <div className={`${styles.bentoItem} ${styles.bentoLarge}`}>
-              <img src="https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258294/forever_dreams/home/z7kt6zfn17iqsq5vitiq.jpg" alt="Luxury Living" className={styles.bentoImg} />
+              <img src="https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750273/forever_dreams/k1eppouctxyfzn50dhch.jpg" alt="Luxury Living" className={styles.bentoImg} />
               <div className={styles.bentoOverlay}>
                 <h4>The Minimalist Villa</h4>
                 <p>Living Room</p>
               </div>
             </div>
             <div className={styles.bentoItem}>
-              <img src="https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258295/forever_dreams/home/jnkbabjs9ofhznox9dr3.jpg" alt="Modern Kitchen" className={styles.bentoImg} />
+              <img src="https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750274/forever_dreams/grvrxfyoi88nbrzr3cb3.jpg" alt="Modern Kitchen" className={styles.bentoImg} />
               <div className={styles.bentoOverlay}>
                 <h4>Urban Loft</h4>
                 <p>Kitchen</p>
               </div>
             </div>
             <div className={styles.bentoItem}>
-              <img src="https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258297/forever_dreams/home/pi202ukiqeffnahthaiy.jpg" alt="Elegant Bedroom" className={styles.bentoImg} />
+              <img src="https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750275/forever_dreams/y1va7tzuvlx6wmo6gbmx.jpg" alt="Elegant Bedroom" className={styles.bentoImg} />
               <div className={styles.bentoOverlay}>
                 <h4>Serene Suite</h4>
                 <p>Bedroom</p>
               </div>
             </div>
             <div className={`${styles.bentoItem} ${styles.bentoWide}`}>
-              <img src="https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258291/forever_dreams/home/xi7mmmxwd4gf5njvi6bq.jpg" alt="Cozy Dining" className={styles.bentoImg} />
+              <img src="https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750276/forever_dreams/j4xjiqm6q77hmtcg3oso.jpg" alt="Cozy Dining" className={styles.bentoImg} />
               <div className={styles.bentoOverlay}>
                 <h4>The Grand Estate</h4>
                 <p>Dining Area</p>
@@ -316,7 +316,7 @@ export default function Home() {
       {/* ── DESIGN PHILOSOPHY (SPLIT LAYOUT) ── */}
       <section className={styles.philosophySection}>
         <div className={styles.philosophyLeft}>
-          <img src="https://res.cloudinary.com/waqkndtu/image/upload/f_auto,q_auto/v1783258800/forever_dreams/home/eatgcon5zzuop3yuzir4.jpg" alt="Design Philosophy" className={styles.philosophyImg} />
+          <img src="https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750278/forever_dreams/pjd34a1khyk6vmrccwlk.jpg" alt="Design Philosophy" className={styles.philosophyImg} />
         </div>
         <div className={styles.philosophyRight}>
           <span className={styles.sectionLabelColored}>OUR PHILOSOPHY</span>
@@ -383,25 +383,25 @@ export default function Home() {
           <div className={styles.testGridWrapper}>
             <div className={styles.testGridTrack}>
               {[
-                { name: 'Pooja Sharma', loc: 'Noida', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096559/women_4_mzuxua.jpg', text: 'Forever Dreams Home transformed our house into a dream home. Their creativity and attention to detail is simply amazing!' },
-                { name: 'Rahul Verma', loc: 'Delhi', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096561/man_2_dtwxrn.png', text: 'Professional team, on-time delivery and excellent execution. Highly recommended for interior design!' },
-                { name: 'Anjali Mehta', loc: 'Meerut', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096558/women_5_nk0ey2.jpg', text: 'They understood our needs perfectly and designed a space that feels just right. Thank you FDH!' },
-                { name: 'Sameer Desai', loc: 'Mumbai', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096560/man_1_tbotms.jpg', text: 'The 3D visualizations were spot on. What we saw is exactly what we got. Brilliant work!' },
-                { name: 'Kavita Singh', loc: 'Gurugram', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784097483/women_6_e48uyp.jpg', text: 'Our modular kitchen is not only beautiful but incredibly functional. FDH truly knows their craft.' },
-                { name: 'Rohan Kapoor', loc: 'Pune', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096559/man_4_igtrmq.jpg', text: 'From concept to execution, the process was seamless. The turnkey solution saved us so much time.' },
-                { name: 'Neha Gupta', loc: 'Bangalore', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096558/women_3_zb91tl.jpg', text: 'I loved the furniture selection! They curated pieces that perfectly matched our vibrant personality.' },
-                { name: 'Vikram Sing', loc: 'Hyderabad', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096558/man_3_kwlvwk.jpg', text: 'Amazing commercial interior design for our new office. It completely transformed our workspace vibe.' },
-                { name: 'Sneha Reddy', loc: 'Chennai', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096557/women_1_dijget.avif', text: 'Exceptional service and extremely polite staff. They listened to every small detail we asked for.' },
+                { name: 'Pooja Sharma', loc: 'Noida', img: 'https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750280/forever_dreams/r1cyx1d0v4l0truhwxy5.jpg', text: 'Glossix Design transformed our house into a dream home. Their creativity and attention to detail is simply amazing!' },
+                { name: 'Rahul Verma', loc: 'Delhi', img: 'https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750281/forever_dreams/ejiuhe9ubhjfutap3fqo.png', text: 'Professional team, on-time delivery and excellent execution. Highly recommended for interior design!' },
+                { name: 'Anjali Mehta', loc: 'Meerut', img: 'https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750282/forever_dreams/lcfnjoclfpzb6cydrqr6.jpg', text: 'They understood our needs perfectly and designed a space that feels just right. Thank you Glossix!' },
+                { name: 'Sameer Desai', loc: 'Mumbai', img: 'https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750283/forever_dreams/v1vxolsyl51huvvkcce2.jpg', text: 'The 3D visualizations were spot on. What we saw is exactly what we got. Brilliant work!' },
+                { name: 'Kavita Singh', loc: 'Gurugram', img: 'https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750284/forever_dreams/nzhpn6xfmrollx8cvube.jpg', text: 'Our modular kitchen is not only beautiful but incredibly functional. Glossix truly knows their craft.' },
+                { name: 'Rohan Kapoor', loc: 'Pune', img: 'https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750285/forever_dreams/iof9kib7kemgfxrazk73.jpg', text: 'From concept to execution, the process was seamless. The turnkey solution saved us so much time.' },
+                { name: 'Neha Gupta', loc: 'Bangalore', img: 'https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750286/forever_dreams/dix8mby4h2qlmc0s0wys.jpg', text: 'I loved the furniture selection! They curated pieces that perfectly matched our vibrant personality.' },
+                { name: 'Vikram Sing', loc: 'Hyderabad', img: 'https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750286/forever_dreams/hb1012jb15lfv0rdg2am.jpg', text: 'Amazing commercial interior design for our new office. It completely transformed our workspace vibe.' },
+                { name: 'Sneha Reddy', loc: 'Chennai', img: 'https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750287/forever_dreams/tcyzkmfof3wcemstj02c.avif', text: 'Exceptional service and extremely polite staff. They listened to every small detail we asked for.' },
                 // Duplicate for infinite scroll
-                { name: 'Pooja Sharma', loc: 'Noida', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096559/women_4_mzuxua.jpg', text: 'Forever Dreams Home transformed our house into a dream home. Their creativity and attention to detail is simply amazing!' },
-                { name: 'Rahul Verma', loc: 'Delhi', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096561/man_2_dtwxrn.png', text: 'Professional team, on-time delivery and excellent execution. Highly recommended for interior design!' },
-                { name: 'Anjali Mehta', loc: 'Meerut', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096558/women_5_nk0ey2.jpg', text: 'They understood our needs perfectly and designed a space that feels just right. Thank you FDH!' },
-                { name: 'Sameer Desai', loc: 'Mumbai', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096560/man_1_tbotms.jpg', text: 'The 3D visualizations were spot on. What we saw is exactly what we got. Brilliant work!' },
-                { name: 'Kavita Singh', loc: 'Gurugram', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784097483/women_6_e48uyp.jpg', text: 'Our modular kitchen is not only beautiful but incredibly functional. FDH truly knows their craft.' },
-                { name: 'Rohan Kapoor', loc: 'Pune', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096559/man_4_igtrmq.jpg', text: 'From concept to execution, the process was seamless. The turnkey solution saved us so much time.' },
-                { name: 'Neha Gupta', loc: 'Bangalore', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096558/women_3_zb91tl.jpg', text: 'I loved the furniture selection! They curated pieces that perfectly matched our vibrant personality.' },
-                { name: 'Vikram Rathore', loc: 'Hyderabad', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096558/man_3_kwlvwk.jpg', text: 'Amazing commercial interior design for our new office. It completely transformed our workspace vibe.' },
-                { name: 'Sneha Reddy', loc: 'Chennai', img: 'https://res.cloudinary.com/waqkndtu/image/upload/v1784096557/women_1_dijget.avif', text: 'Exceptional service and extremely polite staff. They listened to every small detail we asked for.' }
+                { name: 'Pooja Sharma', loc: 'Noida', img: 'https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750280/forever_dreams/r1cyx1d0v4l0truhwxy5.jpg', text: 'Glossix Design transformed our house into a dream home. Their creativity and attention to detail is simply amazing!' },
+                { name: 'Rahul Verma', loc: 'Delhi', img: 'https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750281/forever_dreams/ejiuhe9ubhjfutap3fqo.png', text: 'Professional team, on-time delivery and excellent execution. Highly recommended for interior design!' },
+                { name: 'Anjali Mehta', loc: 'Meerut', img: 'https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750282/forever_dreams/lcfnjoclfpzb6cydrqr6.jpg', text: 'They understood our needs perfectly and designed a space that feels just right. Thank you Glossix!' },
+                { name: 'Sameer Desai', loc: 'Mumbai', img: 'https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750283/forever_dreams/v1vxolsyl51huvvkcce2.jpg', text: 'The 3D visualizations were spot on. What we saw is exactly what we got. Brilliant work!' },
+                { name: 'Kavita Singh', loc: 'Gurugram', img: 'https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750284/forever_dreams/nzhpn6xfmrollx8cvube.jpg', text: 'Our modular kitchen is not only beautiful but incredibly functional. Glossix truly knows their craft.' },
+                { name: 'Rohan Kapoor', loc: 'Pune', img: 'https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750285/forever_dreams/iof9kib7kemgfxrazk73.jpg', text: 'From concept to execution, the process was seamless. The turnkey solution saved us so much time.' },
+                { name: 'Neha Gupta', loc: 'Bangalore', img: 'https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750286/forever_dreams/dix8mby4h2qlmc0s0wys.jpg', text: 'I loved the furniture selection! They curated pieces that perfectly matched our vibrant personality.' },
+                { name: 'Vikram Rathore', loc: 'Hyderabad', img: 'https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750286/forever_dreams/hb1012jb15lfv0rdg2am.jpg', text: 'Amazing commercial interior design for our new office. It completely transformed our workspace vibe.' },
+                { name: 'Sneha Reddy', loc: 'Chennai', img: 'https://res.cloudinary.com/fnrtbqfx/image/upload/v1790750287/forever_dreams/tcyzkmfof3wcemstj02c.avif', text: 'Exceptional service and extremely polite staff. They listened to every small detail we asked for.' }
               ].map((test, idx) => (
                 <div key={idx} className={styles.testCard}>
                   <div className={styles.testCardContent}>

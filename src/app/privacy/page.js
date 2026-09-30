@@ -3,8 +3,8 @@ import Link from 'next/link';
 import LegalContactInfo from '../../components/LegalContactInfo/LegalContactInfo';
 
 export const metadata = {
-  title: 'Privacy Policy | Forever Dreams Home',
-  description: 'Privacy Policy of Forever Dreams Home Interior Design.',
+  title: 'Privacy Policy | Glossix Design',
+  description: 'Privacy Policy of Glossix Design.',
 };
 
 export default function PrivacyPolicy() {
@@ -19,7 +19,7 @@ export default function PrivacyPolicy() {
         <div className={styles.content}>
           <h2>1. Introduction</h2>
           <p>
-            Welcome to Forever Dreams Home. We respect your privacy and are committed to protecting your personal data. 
+            Welcome to Glossix Design. We respect your privacy and are committed to protecting your personal data. 
             This privacy policy will inform you as to how we look after your personal data when you visit our website 
             and tell you about your privacy rights and how the law protects you.
           </p>

@@ -10,7 +10,7 @@ export default function AdminDashboard() {
       </div>
       
       <div className={styles.card}>
-        <h2>Welcome to Forever Dreams Admin Panel</h2>
+        <h2>Welcome to Glossix Design Admin Panel</h2>
         <p style={{ color: '#666', marginTop: '1rem', lineHeight: '1.6' }}>
           From this dashboard, you can manage all the dynamic content on your website without touching a single line of code.
           Use the sidebar on the left to navigate through different sections:

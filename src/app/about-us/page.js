@@ -55,7 +55,7 @@ export default function AboutUsPage() {
     const { name, email, phone, subject, message } = formData;
     const adminWhatsApp = siteSettings?.whatsapp ? siteSettings.whatsapp.replace(/[^0-9]/g, '') : '911234567890';
     
-    const text = `Hello Forever Dreams Home, I have an inquiry:
+    const text = `Hello Glossix Design, I have an inquiry:
 
 *Name:* ${name}
 *Email:* ${email}
@@ -111,7 +111,7 @@ ${message}`;
               <span className={styles.sectionLabel}>WHO WE ARE</span>
               <h2 className={styles.sectionTitle}>Crafting Dream Interiors Since 2014</h2>
               <p>
-                Forever Dreams Home Interior Design is a premier interior design firm based in Meerut, Uttar Pradesh.
+                Glossix Design is a premier interior design firm based in Meerut, Uttar Pradesh.
                 Founded with a passion for creating beautiful living spaces, we have grown into a trusted name in
                 residential and commercial interior design.
               </p>
@@ -212,7 +212,7 @@ ${message}`;
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Forever Dreams Home Location"
+                title="Glossix Design Location"
               ></iframe>
             </div>
           </div>

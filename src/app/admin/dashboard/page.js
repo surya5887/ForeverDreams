@@ -39,7 +39,7 @@ export default function AdminDashboard() {
 
   // Settings State
   const [settings, setSettings] = useState({
-    name: 'Forever Dreams Home',
+    name: 'Glossix Design',
     email: 'info@foreverdreamshome.com',
     phone: '+91 12345 67890',
     whatsapp: '+91 12345 67890',

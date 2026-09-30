@@ -25,7 +25,7 @@ export default function LegalContactInfo() {
 
   return (
     <div className={styles.contactInfo}>
-      <p>Forever Dreams Home Interior Design</p>
+      <p>Glossix Design</p>
       <p>{siteSettings?.address || 'Meerut, Uttar Pradesh, India 250001'}</p>
       <p>Email: <a href={`mailto:${siteSettings?.email || 'info@foreverdreamshome.com'}`} style={{color: 'var(--color-accent)'}}>{siteSettings?.email || 'info@foreverdreamshome.com'}</a></p>
       <p>Phone: {siteSettings?.phone || '+91 12345 67890'}</p>

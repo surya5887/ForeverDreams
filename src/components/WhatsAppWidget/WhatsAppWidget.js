@@ -29,7 +29,7 @@ export default function WhatsAppWidget() {
 
   // Default fallback if not set in DB
   const waNumber = whatsappNumber || '911234567890';
-  const defaultMessage = 'Hello Forever Dreams Home, I am interested in your interior design services.';
+  const defaultMessage = 'Hello Glossix Design, I am interested in your interior design services.';
 
   return (
     <a

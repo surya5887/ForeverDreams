@@ -2,8 +2,8 @@ import styles from '../legal.module.css';
 import LegalContactInfo from '../../components/LegalContactInfo/LegalContactInfo';
 
 export const metadata = {
-  title: 'Terms of Service | Forever Dreams Home',
-  description: 'Terms and Conditions of Forever Dreams Home Interior Design.',
+  title: 'Terms of Service | Glossix Design',
+  description: 'Terms and Conditions of Glossix Design.',
 };
 
 export default function TermsOfService() {
@@ -19,7 +19,7 @@ export default function TermsOfService() {
           <h2>1. Agreement to Terms</h2>
           <p>
             These Terms of Service constitute a legally binding agreement made between you, whether personally or on behalf of an entity (&quot;you&quot;) 
-            and Forever Dreams Home Interior Design (&quot;we,&quot; &quot;us&quot; or &quot;our&quot;), concerning your access to and use of the website 
+            and Glossix Design (&quot;we,&quot; &quot;us&quot; or &quot;our&quot;), concerning your access to and use of the website 
             as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto.
           </p>
           <p>
@@ -29,8 +29,8 @@ export default function TermsOfService() {
 
           <h2>2. Services and Consultations</h2>
           <p>
-            Forever Dreams Home provides professional interior design, consultation, and execution services. 
-            All preliminary consultations, floor plans, and 3D designs provided before a formal contract is signed remain the intellectual property of Forever Dreams Home. 
+            Glossix Design provides professional interior design, consultation, and execution services. 
+            All preliminary consultations, floor plans, and 3D designs provided before a formal contract is signed remain the intellectual property of Glossix Design. 
             They may not be used, copied, or distributed without our explicit written consent.
           </p>
           <p>
@@ -68,7 +68,7 @@ export default function TermsOfService() {
 
           <h2>7. Governing Law</h2>
           <p>
-            These Terms shall be governed by and defined following the laws of India. Forever Dreams Home and yourself irrevocably consent that the courts of 
+            These Terms shall be governed by and defined following the laws of India. Glossix Design and yourself irrevocably consent that the courts of 
             Meerut, Uttar Pradesh, India shall have exclusive jurisdiction to resolve any dispute which may arise in connection with these terms.
           </p>
 

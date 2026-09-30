@@ -3,13 +3,13 @@ import LayoutWrapper from '@/components/LayoutWrapper/LayoutWrapper';
 
 export const metadata = {
   metadataBase: new URL('https://www.foreverdreams.in'),
-  title: 'Forever Dreams Home | Premium Interior Design & Architecture',
+  title: 'Glossix Design | Premium Interior Design & Architecture',
   description:
-    'Transform your living spaces with Forever Dreams Home. Expert interior design services, modular kitchens, living rooms, bedrooms, 2BHK/3BHK complete home makeovers, luxury home decor, and architectural planning in Noida, Delhi NCR, and across India.',
+    'Transform your living spaces with Glossix Design. Expert interior design services, modular kitchens, living rooms, bedrooms, 2BHK/3BHK complete home makeovers, luxury home decor, and architectural planning in Noida, Delhi NCR, and across India.',
   keywords: [
     // Direct interior design keywords
     'interior design', 'interior designer near me', 'best interior designer in Noida', 'modular kitchen design',
-    'living room interior', 'bedroom interior', 'home decor', 'Forever Dreams Home', 'luxury interior design',
+    'living room interior', 'bedroom interior', 'home decor', 'Glossix Design', 'luxury interior design',
     'modern interior design', 'home renovation', 'office interior design', 'commercial interior design',
     'turnkey interior contractors', 'space planning', 'custom furniture design', 'wardrobe design',
     
@@ -22,9 +22,9 @@ export const metadata = {
     'lifestyle', 'luxury living', 'modern home appliances', 'wall painting ideas', 'false ceiling design',
     'wooden flooring', 'home styling tips', 'budget interior design', 'aesthetic room decor', 'trending home designs 2024'
   ],
-  authors: [{ name: 'Forever Dreams Home' }],
-  creator: 'Forever Dreams Home',
-  publisher: 'Forever Dreams Home',
+  authors: [{ name: 'Glossix Design' }],
+  creator: 'Glossix Design',
+  publisher: 'Glossix Design',
   robots: {
     index: true,
     follow: true,
@@ -44,17 +44,17 @@ export const metadata = {
     apple: '/logo.png',
   },
   openGraph: {
-    title: 'Forever Dreams Home | Premium Interior Design & Luxury Makeovers',
+    title: 'Glossix Design | Premium Interior Design & Luxury Makeovers',
     description:
       'Crafting timeless interiors that reflect your personality and elevate your lifestyle. Discover bespoke design solutions for your dream home.',
     url: 'https://www.foreverdreams.in',
-    siteName: 'Forever Dreams Home',
+    siteName: 'Glossix Design',
     images: [
       {
         url: '/logo.png', // The logo
         width: 800,
         height: 600,
-        alt: 'Forever Dreams Home Interior Design',
+        alt: 'Glossix Design',
       },
     ],
     locale: 'en_IN',
@@ -62,7 +62,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Forever Dreams Home | Premium Interior Design',
+    title: 'Glossix Design | Premium Interior Design',
     description: 'Expert interior design, modular kitchens, and luxury home decor services.',
     images: ['/logo.png'],
   },
@@ -72,16 +72,16 @@ export default function RootLayout({ children }) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Forever Dreams Home",
+    "name": "Glossix Design",
     "url": "https://www.foreverdreams.in",
     "description": "Premium Interior Design & Architecture",
     "publisher": {
       "@type": "Organization",
-      "name": "Forever Dreams Home"
+      "name": "Glossix Design"
     },
     "author": {
       "@type": "Organization",
-      "name": "Forever Dreams Home"
+      "name": "Glossix Design"
     },
     "maintainer": {
       "@type": "Person",
