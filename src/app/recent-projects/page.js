@@ -22,6 +22,7 @@ export default function RecentProjectsPage() {
   // For Glossix Gallery specifically
   const [selectedMedia, setSelectedMedia] = useState(null);
   const [mediaIndex, setMediaIndex] = useState(0);
+  const [isVideoLoading, setIsVideoLoading] = useState(true);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -79,13 +80,19 @@ export default function RecentProjectsPage() {
   };
 
   const nextMedia = (e) => {
-    e.stopPropagation();
-    setMediaIndex((prev) => (prev === glossixMedia.length - 1 ? 0 : prev + 1));
+    e?.stopPropagation();
+    const newIndex = mediaIndex === glossixMedia.length - 1 ? 0 : mediaIndex + 1;
+    setMediaIndex(newIndex);
+    setSelectedMedia(glossixMedia[newIndex]);
+    setIsVideoLoading(true);
   };
 
   const prevMedia = (e) => {
-    e.stopPropagation();
-    setMediaIndex((prev) => (prev === 0 ? glossixMedia.length - 1 : prev - 1));
+    e?.stopPropagation();
+    const newIndex = mediaIndex === 0 ? glossixMedia.length - 1 : mediaIndex - 1;
+    setMediaIndex(newIndex);
+    setSelectedMedia(glossixMedia[newIndex]);
+    setIsVideoLoading(true);
   };
 
   return (
@@ -238,23 +245,29 @@ export default function RecentProjectsPage() {
           
           <div style={{ position: 'relative', width: '90%', maxWidth: '1000px', height: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }} onClick={(e) => e.stopPropagation()}>
             <button 
-              onClick={(e) => { e.stopPropagation(); prevMedia(); setSelectedMedia(glossixMedia[mediaIndex === 0 ? glossixMedia.length - 1 : mediaIndex - 1]); }} 
+              onClick={prevMedia} 
               style={{ position: 'absolute', left: '0px', background: 'rgba(255,255,255,0.2)', border: 'none', borderRadius: '50%', color: 'white', padding: '15px', cursor: 'pointer', zIndex: 10 }}
             >
               <FiChevronLeft size={30} />
             </button>
 
             {selectedMedia.type === 'video' ? (
-              <video 
-                src={selectedMedia.url} 
-                autoPlay 
-                muted
-                loop
-                playsInline
-                onContextMenu={(e) => e.preventDefault()}
-                onClick={(e) => { e.stopPropagation(); e.target.paused ? e.target.play() : e.target.pause(); }}
-                style={{ maxHeight: '100%', maxWidth: '100%', outline: 'none', borderRadius: '8px', boxShadow: '0 10px 40px rgba(185, 142, 70, 0.3)', cursor: 'pointer' }} 
-              />
+              <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', maxHeight: '100%', maxWidth: '100%' }}>
+                {isVideoLoading && <div className={styles.videoSpinner}></div>}
+                <video 
+                  src={selectedMedia.url} 
+                  autoPlay 
+                  muted
+                  loop
+                  playsInline
+                  onWaiting={() => setIsVideoLoading(true)}
+                  onPlaying={() => setIsVideoLoading(false)}
+                  onCanPlay={() => setIsVideoLoading(false)}
+                  onContextMenu={(e) => e.preventDefault()}
+                  onClick={(e) => { e.stopPropagation(); e.target.paused ? e.target.play() : e.target.pause(); }}
+                  style={{ maxHeight: '100%', maxWidth: '100%', outline: 'none', borderRadius: '8px', boxShadow: '0 10px 40px rgba(185, 142, 70, 0.3)', cursor: 'pointer' }} 
+                />
+              </div>
             ) : (
               <img 
                 src={selectedMedia.url} 
@@ -264,7 +277,7 @@ export default function RecentProjectsPage() {
             )}
 
             <button 
-              onClick={(e) => { e.stopPropagation(); nextMedia(); setSelectedMedia(glossixMedia[mediaIndex === glossixMedia.length - 1 ? 0 : mediaIndex + 1]); }} 
+              onClick={nextMedia} 
               style={{ position: 'absolute', right: '0px', background: 'rgba(255,255,255,0.2)', border: 'none', borderRadius: '50%', color: 'white', padding: '15px', cursor: 'pointer', zIndex: 10 }}
             >
               <FiChevronRight size={30} />
