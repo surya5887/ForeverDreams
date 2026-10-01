@@ -250,6 +250,7 @@ export default function RecentProjectsPage() {
                 src={selectedMedia.url} 
                 controls 
                 autoPlay 
+                muted
                 style={{ maxHeight: '100%', maxWidth: '100%', outline: 'none', borderRadius: '8px', boxShadow: '0 10px 40px rgba(185, 142, 70, 0.3)' }} 
               />
             ) : (
