@@ -131,8 +131,7 @@ export default function RecentProjectsPage() {
                   <div key={i} className={styles.glossixMediaItem} onClick={() => { setMediaIndex(i); setSelectedMedia(media); }}>
                     {media.type === 'video' ? (
                       <>
-                        <video src={media.url.replace('/upload/', '/upload/f_auto,q_auto,ac_none/')} className={styles.glossixThumb} muted playsInline />
-                        <div className={styles.glossixPlayBtn}><FaPlayCircle /></div>
+                        <video src={media.url} className={styles.glossixThumb} muted playsInline autoPlay loop />
                       </>
                     ) : (
                       <img src={media.url} alt="Glossix Gallery" className={styles.glossixThumb} />
@@ -247,11 +246,14 @@ export default function RecentProjectsPage() {
 
             {selectedMedia.type === 'video' ? (
               <video 
-                src={selectedMedia.url.replace('/upload/', '/upload/f_auto,q_auto,ac_none/')} 
-                controls 
+                src={selectedMedia.url} 
                 autoPlay 
                 muted
-                style={{ maxHeight: '100%', maxWidth: '100%', outline: 'none', borderRadius: '8px', boxShadow: '0 10px 40px rgba(185, 142, 70, 0.3)' }} 
+                loop
+                playsInline
+                onContextMenu={(e) => e.preventDefault()}
+                onClick={(e) => { e.stopPropagation(); e.target.paused ? e.target.play() : e.target.pause(); }}
+                style={{ maxHeight: '100%', maxWidth: '100%', outline: 'none', borderRadius: '8px', boxShadow: '0 10px 40px rgba(185, 142, 70, 0.3)', cursor: 'pointer' }} 
               />
             ) : (
               <img 
