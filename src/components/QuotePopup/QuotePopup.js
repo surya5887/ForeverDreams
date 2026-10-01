@@ -97,6 +97,10 @@ export default function QuotePopup() {
         <div className={styles.leftSide}>
           <img src="/form_bg_img.jpeg" alt="Luxury Interior Design" className={styles.bgImage} />
         </div>
+        
+        <div className={styles.mobileImageWrap}>
+          <img src="/mobile_form_bg.jpg" alt="Interior Design Mobile" className={styles.mobileImage} />
+        </div>
 
         <div className={styles.rightSide}>
           <h2 className={styles.formTitle}>Get a <span>free design consultation</span></h2>
