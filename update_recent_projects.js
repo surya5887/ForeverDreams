@@ -1,4 +1,6 @@
-'use client';
+const fs = require('fs');
+
+const code = \'use client';
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -277,3 +279,7 @@ export default function RecentProjectsPage() {
     </div>
   );
 }
+\;
+
+fs.writeFileSync('src/app/recent-projects/page.js', code, 'utf8');
+console.log('Done rewriting page.js');
