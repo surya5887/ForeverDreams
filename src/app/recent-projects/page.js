@@ -112,7 +112,7 @@ export default function RecentProjectsPage() {
             {FILTERS.map(filter => (
               <button
                 key={filter}
-                className={\\ \\}
+                className={`${styles.filterTab} ${activeFilter === filter ? styles.filterActive : ''}`}
                 onClick={() => setActiveFilter(filter)}
               >
                 {filter}
@@ -146,7 +146,7 @@ export default function RecentProjectsPage() {
             ) : (
               <div className={styles.projectsGrid}>
                 {filteredProjects.map((project, i) => (
-                  <div key={project.id} className={styles.projectCard} style={{ animationDelay: \\s\ }}>
+                  <div key={project.id} className={styles.projectCard} style={{ animationDelay: `${i * 0.1}s` }}>
                     <div className={styles.projectImageWrap}>
                       <img src={project.images && project.images[0] ? project.images[0] : project.image} alt={project.title} className={styles.projectImage} />
                       {project.category && (
