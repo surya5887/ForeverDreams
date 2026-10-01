@@ -131,7 +131,7 @@ export default function RecentProjectsPage() {
                   <div key={i} className={styles.glossixMediaItem} onClick={() => { setMediaIndex(i); setSelectedMedia(media); }}>
                     {media.type === 'video' ? (
                       <>
-                        <video src={media.url.replace('/upload/', '/upload/ac_none/')} className={styles.glossixThumb} muted playsInline />
+                        <video src={media.url.replace('/upload/', '/upload/f_auto,q_auto,ac_none/')} className={styles.glossixThumb} muted playsInline />
                         <div className={styles.glossixPlayBtn}><FaPlayCircle /></div>
                       </>
                     ) : (
@@ -247,7 +247,7 @@ export default function RecentProjectsPage() {
 
             {selectedMedia.type === 'video' ? (
               <video 
-                src={selectedMedia.url.replace('/upload/', '/upload/ac_none/')} 
+                src={selectedMedia.url.replace('/upload/', '/upload/f_auto,q_auto,ac_none/')} 
                 controls 
                 autoPlay 
                 muted
