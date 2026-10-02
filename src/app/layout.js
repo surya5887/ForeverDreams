@@ -79,7 +79,7 @@ export default function RootLayout({ children }) {
         "@id": "https://www.glossixdesign.in",
         "url": "https://www.glossixdesign.in",
         "telephone": "+919540005981",
-        "email": "info@glossixdesigns.in",
+        "email": "Saifikhusmuddin77@gmail.com",
         "priceRange": "INR",
         "address": {
           "@type": "PostalAddress",
@@ -122,10 +122,10 @@ export default function RootLayout({ children }) {
           { "@type": "State", "name": "Delhi NCR" }
         ],
         "sameAs": [
-          "https://www.instagram.com/glossixdesign",
+          "https://www.instagram.com/glossixdesignpvtltd",
           "https://www.facebook.com/glossixdesign",
-          "https://www.youtube.com/@glossixdesign",
-          "https://in.pinterest.com/glossixdesign/",
+          "https://youtube.com/@happypradhan2996",
+          "https://pin.it/150kBVljT",
           "https://twitter.com/glossixdesign"
         ],
         "description": "Glossix Design is the top-rated interior design firm serving residential and commercial clients across Noida, Delhi NCR, and Western Uttar Pradesh."

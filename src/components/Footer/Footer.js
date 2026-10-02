@@ -42,9 +42,9 @@ export default function Footer() {
           </p>
           <div className={styles.socialLinks}>
             <a href={siteSettings?.facebook || "#"} target="_blank" rel="noreferrer"><FaFacebookF/></a>
-            <a href={siteSettings?.instagram || "#"} target="_blank" rel="noreferrer"><FaInstagram/></a>
-            <a href={siteSettings?.pinterest || "#"} target="_blank" rel="noreferrer"><FaPinterestP/></a>
-            <a href={siteSettings?.youtube || "#"} target="_blank" rel="noreferrer"><FaYoutube/></a>
+            <a href="https://www.instagram.com/glossixdesignpvtltd" target="_blank" rel="noreferrer"><FaInstagram/></a>
+            <a href="https://pin.it/150kBVljT" target="_blank" rel="noreferrer"><FaPinterestP/></a>
+            <a href="https://youtube.com/@happypradhan2996" target="_blank" rel="noreferrer"><FaYoutube/></a>
             <a href={siteSettings?.twitter || "#"} target="_blank" rel="noreferrer"><FaXTwitter/></a>
           </div>
         </div>
@@ -74,9 +74,9 @@ export default function Footer() {
         <div className={styles.footerCol}>
           <h4 className={styles.footerTitle}>Contact Us</h4>
           <ul className={styles.footerContact}>
-            <li><FiPhone color="#b98e46" /> {siteSettings?.phone || '+91 12345 67890'}</li>
-            <li><FiMail color="#b98e46" /> {siteSettings?.email || 'info@foreverdreamshome.com'}</li>
-            <li><FaHome color="#b98e46" /> {siteSettings?.address || 'Meerut, Uttar Pradesh, India'}</li>
+            <li><FiPhone color="#b98e46" /> {siteSettings?.phone || '+91 9540005981'}</li>
+            <li><FiMail color="#b98e46" /> Saifikhusmuddin77@gmail.com</li>
+            <li><FaHome color="#b98e46" /> {siteSettings?.address || 'Greater Noida, Uttar Pradesh'}</li>
           </ul>
           
           <h4 className={styles.footerTitle} style={{marginTop: '2rem'}}>Newsletter</h4>
