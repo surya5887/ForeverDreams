@@ -10,10 +10,10 @@ import { useQuoteContext } from '@/context/QuoteContext';
 import styles from './page.module.css';
 import glossixMedia from './glossix_media.json';
 
-const FILTERS = ['All', 'Residential', 'Commercial', 'Glossix Gallery'];
+const FILTERS = ['Glossix Gallery', 'Residential', 'Commercial'];
 
 export default function RecentProjectsPage() {
-  const [activeFilter, setActiveFilter] = useState('All');
+  const [activeFilter, setActiveFilter] = useState('Glossix Gallery');
   const [projects, setProjects] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedProject, setSelectedProject] = useState(null);
