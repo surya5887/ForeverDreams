@@ -146,8 +146,8 @@ export default function Home() {
             Breathes <span className={styles.heroTitleScript}>Beauty</span>
           </h1>
           
-          <h2 style={{ fontSize: '1.2rem', color: '#fff', fontWeight: '400', maxWidth: '600px', margin: '0 auto 2rem auto', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
-            The Best Interior Designer in Noida, Delhi NCR & UP West. We deliver premium 2BHK/3BHK makeovers and luxury modular kitchens.
+          <h2 style={{ fontSize: '1.1rem', color: '#fff', fontWeight: '400', maxWidth: '900px', margin: '0 auto 2rem auto', textShadow: '0 2px 4px rgba(0,0,0,0.5)', lineHeight: '1.6' }}>
+            Top Rated Interior Designer in Noida, Greater Noida, Delhi NCR, Gurugram, Ghaziabad, Faridabad, Meerut, Agra, Mathura, Aligarh, Muzaffarnagar & Western UP. We specialize in luxury residential interiors, turnkey commercial spaces, modular kitchens, and bespoke home decor.
           </h2>
 
           <div className={styles.heroActions} style={{ flexDirection: 'column', gap: '1rem' }}>

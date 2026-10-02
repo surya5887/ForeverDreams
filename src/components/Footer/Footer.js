@@ -89,8 +89,8 @@ export default function Footer() {
       </div>
 
       <div className={styles.footerBottom} style={{ flexWrap: 'wrap' }}>
-        <div style={{ width: '100%', textAlign: 'center', marginBottom: '1rem', color: '#999', fontSize: '0.85rem' }}>
-          <strong>Top Rated Interior Designer Serving:</strong> Noida • Greater Noida • Delhi • Gurugram • Ghaziabad • Faridabad • Meerut • UP West
+        <div style={{ width: '100%', textAlign: 'center', marginBottom: '1rem', color: '#888', fontSize: '0.8rem', lineHeight: '1.5' }}>
+          <strong>Top Rated Interior Designer Serving:</strong> Noida � Greater Noida � Noida Extension � Delhi NCR � New Delhi � Gurugram (Gurgaon) � Ghaziabad � Faridabad � Meerut � Hapur � Bulandshahr � Aligarh � Mathura � Agra � Muzaffarnagar � Saharanpur � Roorkee � Dehradun � Western UP
         </div>
         <p>&copy; {new Date().getFullYear()} {siteSettings?.siteName || 'Glossix Design'}. All Rights Reserved.</p>
         <div className={styles.footerLegal}>
