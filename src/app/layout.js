@@ -80,7 +80,7 @@ export default function RootLayout({ children }) {
         "url": "https://www.glossixdesign.in",
         "telephone": "+919540005981",
         "email": "info@glossixdesigns.in",
-        "priceRange": "???",
+        "priceRange": "INR",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Greater Noida",
