@@ -17,8 +17,8 @@
 
 .footerLogo { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.5rem; }
 .fLogoCircle {
-  width: 115px;
-  height: 115px;
+  width: 95px;
+  height: 95px;
   border-radius: 50%;
   overflow: hidden;
   display: flex;
@@ -97,8 +97,8 @@
     margin-bottom: 1rem;
   }
   .fLogoCircle {
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
   }
   .brandNameTextFooter {
     font-size: 1.6rem;
