@@ -141,14 +141,14 @@ export default function Home() {
         <div className={styles.heroOverlay}></div>
 
         <div className={styles.heroContent}>
-          <h1 className={styles.heroTitle}>
+          <div className={styles.heroTitle}>
             Where Home<br />
             Breathes <span className={styles.heroTitleScript}>Beauty</span>
-          </h1>
+          </div>
           
-          <h2 style={{ fontSize: '1.1rem', color: '#fff', fontWeight: '400', maxWidth: '900px', margin: '0 auto 2rem auto', textShadow: '0 2px 4px rgba(0,0,0,0.5)', lineHeight: '1.6' }}>
+          <h1 style={{ fontSize: '1.1rem', color: '#fff', fontWeight: '400', maxWidth: '900px', margin: '0 auto 2rem auto', textShadow: '0 2px 4px rgba(0,0,0,0.5)', lineHeight: '1.6' }}>
             Top Rated Interior Designer in Noida, Greater Noida, Delhi NCR, Gurugram, Ghaziabad, Faridabad, Meerut, Agra, Mathura, Aligarh, Muzaffarnagar & Western UP. We specialize in luxury residential interiors, turnkey commercial spaces, modular kitchens, and bespoke home decor.
-          </h2>
+          </h1>
 
           <div className={styles.heroActions} style={{ flexDirection: 'column', gap: '1rem' }}>
             <Link href="/design-gallery" className={styles.primaryBtn}>

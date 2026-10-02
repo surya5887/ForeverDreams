@@ -64,7 +64,7 @@ export default function Navbar() {
           
           {/* Logo Area */}
           <Link href="/" className={styles.logoWrap}>
-            <div className={styles.logoCircle}><img src="/logo.png" alt="Brand Logo" className={styles.logoIconImage} /></div>
+            <div className={styles.logoCircle}><img src="/logo.png" alt="Glossix Design - Top Interior Designer" className={styles.logoIconImage} /></div>
             <div className={styles.brandNameText}>
               {siteName}
             </div>
