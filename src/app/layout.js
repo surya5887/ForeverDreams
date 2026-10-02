@@ -38,7 +38,7 @@ export const metadata = {
     },
   },
   verification: {
-    google: 'iIZddNWnvrjEKW1OT1Xs3TjW8ATAlr9opXAjW191qGw',
+    google: 'VU6crj8fLj_95kAVYrn4tWX8GEr06qZHGAOlzSr7SrE',
   },
   icons: {
     icon: '/logo.png',
