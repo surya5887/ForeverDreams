@@ -78,6 +78,21 @@ export default function Footer() {
             <li><FiMail color="#b98e46" /> Saifikhusmuddin77@gmail.com</li>
             <li><FaHome color="#b98e46" /> {siteSettings?.address || 'Greater Noida, Uttar Pradesh'}</li>
           </ul>
+
+          {siteSettings?.mapLat && siteSettings?.mapLng && (
+            <div style={{ marginTop: '1.2rem', borderRadius: '6px', overflow: 'hidden', border: '1px solid rgba(185, 142, 70, 0.4)', width: '100%', height: '140px', boxShadow: '0 4px 10px rgba(0,0,0,0.5)' }}>
+              <iframe
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                scrolling="no"
+                marginHeight="0"
+                marginWidth="0"
+                src={`https://maps.google.com/maps?q=${siteSettings.mapLat},${siteSettings.mapLng}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
+                style={{ filter: 'contrast(1.1) opacity(0.9) grayscale(0.2)' }}
+              ></iframe>
+            </div>
+          )}
           
           <h4 className={styles.footerTitle} style={{marginTop: '2rem'}}>Newsletter</h4>
           <p className={styles.newsDesc}>Subscribe to get latest updates and interior design tips.</p>
