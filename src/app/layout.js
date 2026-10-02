@@ -53,7 +53,7 @@ export const metadata = {
       {
         url: '/logo.png',
         width: 800,
-        height: 600,
+        height: 800,
         alt: 'Glossix Design - Best Interior Decorator in NCR & UP West',
       },
     ],
@@ -123,7 +123,10 @@ export default function RootLayout({ children }) {
         ],
         "sameAs": [
           "https://www.instagram.com/glossixdesign",
-          "https://www.facebook.com/glossixdesign"
+          "https://www.facebook.com/glossixdesign",
+          "https://www.youtube.com/@glossixdesign",
+          "https://in.pinterest.com/glossixdesign/",
+          "https://twitter.com/glossixdesign"
         ],
         "description": "Glossix Design is the top-rated interior design firm serving residential and commercial clients across Noida, Delhi NCR, and Western Uttar Pradesh."
       },
