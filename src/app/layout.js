@@ -2,7 +2,7 @@ import './globals.css';
 import LayoutWrapper from '@/components/LayoutWrapper/LayoutWrapper';
 
 export const metadata = {
-  metadataBase: new URL('https://glossixdesigns.vercel.app'),
+  metadataBase: new URL('https://www.glossixdesign.in'),
   alternates: {
     canonical: '/',
   },
@@ -47,7 +47,7 @@ export const metadata = {
   openGraph: {
     title: 'Top Interior Designer in Delhi NCR, Noida & UP West | Glossix Design',
     description: 'Transform your home with Glossix Design. We specialize in bespoke residential and commercial interiors across Delhi, Noida, Gurgaon, Ghaziabad, Meerut, Agra, Aligarh & all of UP West.',
-    url: 'https://glossixdesigns.vercel.app',
+    url: 'https://www.glossixdesign.in',
     siteName: 'Glossix Design',
     images: [
       {
@@ -75,9 +75,9 @@ export default function RootLayout({ children }) {
       {
         "@type": "HomeAndConstructionBusiness",
         "name": "Glossix Design",
-        "image": "https://glossixdesigns.vercel.app/logo.png",
-        "@id": "https://glossixdesigns.vercel.app",
-        "url": "https://glossixdesigns.vercel.app",
+        "image": "https://www.glossixdesign.in/logo.png",
+        "@id": "https://www.glossixdesign.in",
+        "url": "https://www.glossixdesign.in",
         "telephone": "+919540005981",
         "email": "info@glossixdesigns.in",
         "priceRange": "???",
@@ -130,10 +130,10 @@ export default function RootLayout({ children }) {
       {
         "@type": "WebSite",
         "name": "Glossix Design",
-        "url": "https://glossixdesigns.vercel.app",
+        "url": "https://www.glossixdesign.in",
         "potentialAction": {
           "@type": "SearchAction",
-          "target": "https://glossixdesigns.vercel.app/?s={search_term_string}",
+          "target": "https://www.glossixdesign.in/?s={search_term_string}",
           "query-input": "required name=search_term_string"
         }
       }

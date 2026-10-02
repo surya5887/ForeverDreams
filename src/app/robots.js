@@ -5,6 +5,6 @@ export default function robots() {
       allow: '/',
       disallow: ['/admin/'],
     },
-    sitemap: 'https://glossixdesigns.vercel.app/sitemap.xml',
+    sitemap: 'https://www.glossixdesign.in/sitemap.xml',
   }
 }

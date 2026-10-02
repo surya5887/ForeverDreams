@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const baseUrl = 'https://glossixdesigns.vercel.app';
+  const baseUrl = 'https://www.glossixdesign.in';
   
   return [
     {
