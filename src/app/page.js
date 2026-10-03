@@ -146,7 +146,7 @@ export default function Home() {
             Breathes <span className={styles.heroTitleScript}>Beauty</span>
           </div>
           
-          <h1 style={{ fontSize: '1.1rem', color: '#fff', fontWeight: '400', maxWidth: '900px', margin: '0 auto 2rem auto', textShadow: '0 2px 4px rgba(0,0,0,0.5)', lineHeight: '1.6' }}>
+          <h1 className={styles.heroSubtitle}>
             Top Rated Interior Designer in Noida, Greater Noida, Delhi NCR, Gurugram, Ghaziabad, Faridabad, Meerut, Agra, Mathura, Aligarh, Muzaffarnagar & Western UP. We specialize in luxury residential interiors, turnkey commercial spaces, modular kitchens, and bespoke home decor.
           </h1>
 
