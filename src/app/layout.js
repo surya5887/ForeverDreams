@@ -132,13 +132,30 @@ export default function RootLayout({ children }) {
       },
       {
         "@type": "WebSite",
+        "@id": "https://www.glossixdesign.in/#website",
+        "url": "https://www.glossixdesign.in/",
         "name": "Glossix Design",
-        "url": "https://www.glossixdesign.in",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://www.glossixdesign.in/?s={search_term_string}",
-          "query-input": "required name=search_term_string"
+        "alternateName": "Glossix"
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://www.glossixdesign.in/#organization",
+        "name": "Glossix Design",
+        "url": "https://www.glossixdesign.in/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.glossixdesign.in/logo.png",
+          "width": "800",
+          "height": "800"
         }
+      },
+      {
+        "@type": "ItemList",
+        "itemListElement": [
+          { "@type": "SiteNavigationElement", "position": 1, "name": "Design Gallery", "url": "https://www.glossixdesign.in/design-gallery" },
+          { "@type": "SiteNavigationElement", "position": 2, "name": "Recent Projects", "url": "https://www.glossixdesign.in/recent-projects" },
+          { "@type": "SiteNavigationElement", "position": 3, "name": "About Us", "url": "https://www.glossixdesign.in/about-us" }
+        ]
       }
     ]
   };
