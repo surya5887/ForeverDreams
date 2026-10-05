@@ -1,5 +1,6 @@
 import './globals.css';
 import LayoutWrapper from '@/components/LayoutWrapper/LayoutWrapper';
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
   metadataBase: new URL('https://www.glossixdesign.in'),
@@ -170,6 +171,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <LayoutWrapper>{children}</LayoutWrapper>
+        <Analytics />
       </body>
     </html>
   );
