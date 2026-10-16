@@ -6,7 +6,7 @@ import { db } from '../../lib/firebase';
 import { doc, getDoc } from 'firebase/firestore';
 import { FaFacebookF, FaInstagram, FaPinterestP, FaYoutube, FaHome } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
-import { FiArrowRight, FiPhone, FiMail } from 'react-icons/fi';
+import { FiPhone, FiMail } from 'react-icons/fi';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -79,12 +79,28 @@ export default function Footer() {
             <li><FaHome color="#b98e46" /> {siteSettings?.address || 'Greater Noida, Uttar Pradesh'}</li>
           </ul>
 
-          <h4 className={styles.footerTitle} style={{marginTop: '2rem'}}>Newsletter</h4>
-          <p className={styles.newsDesc}>Subscribe to get latest updates and interior design tips.</p>
-          <form className={styles.newsForm}>
-            <input type="email" placeholder="Enter your email" className={styles.newsInput} required />
-            <button type="submit" className={styles.newsBtn}><FiArrowRight/></button>
-          </form>
+          <h4 className={styles.footerTitle} style={{marginTop: '2rem'}}>GST Details</h4>
+          <div style={{
+            background: 'rgba(185, 142, 70, 0.08)',
+            border: '1px solid rgba(185, 142, 70, 0.3)',
+            borderRadius: '8px',
+            padding: '12px 14px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '6px'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+              <span style={{ color: '#b98e46', fontSize: '0.85rem', fontWeight: '700' }}>GSTIN:</span>
+              <span style={{ color: '#ffffff', fontSize: '0.9rem', fontWeight: '600', letterSpacing: '0.5px' }}>09CCAPA4733J2ZR</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{ color: '#b98e46', fontSize: '0.82rem', fontWeight: '600' }}>State:</span>
+              <span style={{ color: '#a0aec0', fontSize: '0.82rem' }}>09 – Uttar Pradesh</span>
+            </div>
+            <div style={{ color: '#22c55e', fontSize: '0.75rem', fontWeight: '500', display: 'flex', alignItems: 'center', gap: '5px', marginTop: '2px' }}>
+              ✓ Registered Taxpayer
+            </div>
+          </div>
         </div>
       </div>
 
@@ -112,7 +128,6 @@ export default function Footer() {
             Noida <span style={{color:'#b98e46'}}>|</span> Greater Noida <span style={{color:'#b98e46'}}>|</span> Noida Extension <span style={{color:'#b98e46'}}>|</span> Delhi NCR <span style={{color:'#b98e46'}}>|</span> New Delhi <span style={{color:'#b98e46'}}>|</span> Gurugram <span style={{color:'#b98e46'}}>|</span> Ghaziabad <span style={{color:'#b98e46'}}>|</span> Faridabad <span style={{color:'#b98e46'}}>|</span> Meerut <span style={{color:'#b98e46'}}>|</span> Hapur <span style={{color:'#b98e46'}}>|</span> Bulandshahr <span style={{color:'#b98e46'}}>|</span> Aligarh <span style={{color:'#b98e46'}}>|</span> Mathura <span style={{color:'#b98e46'}}>|</span> Agra <span style={{color:'#b98e46'}}>|</span> Muzaffarnagar <span style={{color:'#b98e46'}}>|</span> Saharanpur <span style={{color:'#b98e46'}}>|</span> Roorkee <span style={{color:'#b98e46'}}>|</span> Dehradun <span style={{color:'#b98e46'}}>|</span> Western UP
           </p>
         </div>
-        <p style={{ color: '#b98e46', fontSize: '0.85rem', fontWeight: '500', letterSpacing: '0.5px', marginBottom: '0.5rem' }}>GSTIN: 09CCAPA4733J2ZR | State: 09 – Uttar Pradesh</p>
         <p>&copy; {new Date().getFullYear()} {siteSettings?.siteName || 'Glossix Design'}. All Rights Reserved.</p>
         <div className={styles.footerLegal}>
           <Link href="/privacy">Privacy Policy</Link>
