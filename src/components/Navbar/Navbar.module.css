@@ -41,20 +41,22 @@
 .logoCircle {
   width: 60px;
   height: 60px;
-  border-radius: 50%;
+  border-radius: 12px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  background: transparent;
+  background: #ffffff;
+  border: 1px solid rgba(185, 142, 70, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
 }
 
 .logoIconImage {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transform: scale(1.05);
+  object-fit: contain;
 }
 
 .brandNameText { font-size: 1.8rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; white-space: nowrap; color: #000000; font-family: 'Cinzel', serif; margin-left: 0.5rem; transition: color 0.3s ease; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); }
@@ -69,7 +71,7 @@
 
 @media (max-width: 768px) {
   .container { padding: 0 1.5rem; }
-  .logoCircle { width: 50px; height: 50px; }
+  .logoCircle { width: 50px; height: 50px; border-radius: 10px; }
   .brandNameText {
     font-size: 1.2rem;
     margin-left: 0.2rem;
@@ -332,7 +334,7 @@
 
 @media (max-width: 480px) {
   .container { padding: 0 1rem; }
-  .logoCircle { width: 45px; height: 45px; }
+  .logoCircle { width: 45px; height: 45px; border-radius: 9px; }
   .brandNameText { font-size: 1rem; }
   .mobileToggle { right: 1rem; }
 }

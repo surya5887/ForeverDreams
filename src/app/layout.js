@@ -42,8 +42,16 @@ export const metadata = {
     google: 'VU6crj8fLj_95kAVYrn4tWX8GEr06qZHGAOlzSr7SrE',
   },
   icons: {
-    icon: '/logo.png',
-    apple: '/logo.png',
+    icon: [
+      { url: '/icon.png' },
+      { url: '/logo.png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/icon.png' },
+      { url: '/logo.png' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+    ],
   },
   openGraph: {
     title: 'Top Interior Designer in Delhi NCR, Noida & UP West | Glossix Design',
@@ -53,8 +61,8 @@ export const metadata = {
     images: [
       {
         url: '/logo.png',
-        width: 800,
-        height: 800,
+        width: 1254,
+        height: 1254,
         alt: 'Glossix Design - Best Interior Decorator in NCR & UP West',
       },
     ],
@@ -157,8 +165,8 @@ export default function RootLayout({ children }) {
         "logo": {
           "@type": "ImageObject",
           "url": "https://www.glossixdesign.in/logo.png",
-          "width": "800",
-          "height": "800"
+          "width": "1254",
+          "height": "1254"
         },
         "taxID": "09CCAPA4733J2ZR"
       },

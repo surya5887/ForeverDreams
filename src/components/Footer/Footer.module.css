@@ -19,20 +19,22 @@
 .fLogoCircle {
   width: 95px;
   height: 95px;
-  border-radius: 50%;
+  border-radius: 16px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  background: transparent;
+  background: #ffffff;
+  border: 1px solid rgba(185, 142, 70, 0.4);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
 }
 
 .fLogoIconImage {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transform: scale(1.05);
+  object-fit: contain;
 }
 .fLogoText { display: flex; flex-direction: column; }
 .fLogoTop { font-family: var(--font-heading); font-size: 0.9rem; letter-spacing: 2px; }
@@ -99,6 +101,7 @@
   .fLogoCircle {
     width: 80px;
     height: 80px;
+    border-radius: 14px;
   }
   .brandNameTextFooter {
     font-size: 1.6rem;
