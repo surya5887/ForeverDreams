@@ -76,6 +76,8 @@ export default function RootLayout({ children }) {
       {
         "@type": "HomeAndConstructionBusiness",
         "name": "Glossix Design",
+        "legalName": "Glossix Design Private Limited",
+        "taxID": "09CCAPA4733J2ZR",
         "image": "https://www.glossixdesign.in/logo.png",
         "@id": "https://www.glossixdesign.in",
         "url": "https://www.glossixdesign.in",
@@ -136,19 +138,29 @@ export default function RootLayout({ children }) {
         "@id": "https://www.glossixdesign.in/#website",
         "url": "https://www.glossixdesign.in/",
         "name": "Glossix Design",
-        "alternateName": "Glossix"
+        "alternateName": [
+          "Glossix",
+          "Glossix Design Pvt Ltd",
+          "Glossix Design Private Limited",
+          "glossixdesign.in"
+        ],
+        "publisher": {
+          "@id": "https://www.glossixdesign.in/#organization"
+        }
       },
       {
         "@type": "Organization",
         "@id": "https://www.glossixdesign.in/#organization",
         "name": "Glossix Design",
+        "legalName": "Glossix Design Private Limited",
         "url": "https://www.glossixdesign.in/",
         "logo": {
           "@type": "ImageObject",
           "url": "https://www.glossixdesign.in/logo.png",
           "width": "800",
           "height": "800"
-        }
+        },
+        "taxID": "09CCAPA4733J2ZR"
       },
       {
         "@type": "ItemList",
