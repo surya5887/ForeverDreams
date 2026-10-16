@@ -82,14 +82,14 @@ export default function RootLayout({ children }) {
         "@id": "https://www.glossixdesign.in",
         "url": "https://www.glossixdesign.in",
         "telephone": "+919540005981",
-        "email": "Saifikhusmuddin77@gmail.com",
+        "email": "Glossixdesign981@gmail.com",
         "priceRange": "INR",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Greater Noida",
-          "addressLocality": "Noida",
+          "streetAddress": "Village-Jalpura, Nearby SD International School, Greater Noida",
+          "addressLocality": "Greater Noida",
           "addressRegion": "Uttar Pradesh",
-          "postalCode": "201308",
+          "postalCode": "201318",
           "addressCountry": "IN"
         },
         "geo": {

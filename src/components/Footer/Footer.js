@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { db } from '../../lib/firebase';
 import { doc, getDoc } from 'firebase/firestore';
-import { FaFacebookF, FaInstagram, FaPinterestP, FaYoutube, FaHome } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaPinterestP, FaYoutube, FaHome, FaWhatsapp, FaShieldAlt, FaMapMarkerAlt } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { FiPhone, FiMail } from 'react-icons/fi';
 import styles from './Footer.module.css';
@@ -74,31 +74,85 @@ export default function Footer() {
         <div className={styles.footerCol}>
           <h4 className={styles.footerTitle}>Contact Us</h4>
           <ul className={styles.footerContact}>
-            <li><FiPhone color="#b98e46" /> {siteSettings?.phone || '+91 9540005981'}</li>
-            <li><FiMail color="#b98e46" /> Saifikhusmuddin77@gmail.com</li>
-            <li><FaHome color="#b98e46" /> {siteSettings?.address || 'Greater Noida, Uttar Pradesh'}</li>
+            <li><FiPhone color="#b98e46" /> <a href="tel:+919540005981" style={{ color: '#a0aec0', textDecoration: 'none' }}>+91 9540005981</a></li>
+            <li><FiMail color="#b98e46" /> <a href="mailto:Glossixdesign981@gmail.com" style={{ color: '#a0aec0', textDecoration: 'none' }}>Glossixdesign981@gmail.com</a></li>
+            <li><FaHome color="#b98e46" /> Village-Jalpura, Greater Noida, UP</li>
           </ul>
 
-          <h4 className={styles.footerTitle} style={{marginTop: '2rem'}}>GST Details</h4>
-          <div style={{
-            background: 'rgba(185, 142, 70, 0.08)',
-            border: '1px solid rgba(185, 142, 70, 0.3)',
-            borderRadius: '8px',
-            padding: '12px 14px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '6px'
-          }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
-              <span style={{ color: '#b98e46', fontSize: '0.85rem', fontWeight: '700' }}>GSTIN:</span>
-              <span style={{ color: '#ffffff', fontSize: '0.9rem', fontWeight: '600', letterSpacing: '0.5px' }}>09CCAPA4733J2ZR</span>
+          <div style={{ marginTop: '1.5rem' }}>
+            <a 
+              href="https://wa.me/919540005981" 
+              target="_blank" 
+              rel="noreferrer"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
+                color: '#fff',
+                padding: '9px 18px',
+                borderRadius: '6px',
+                fontSize: '0.85rem',
+                fontWeight: '600',
+                textDecoration: 'none',
+                boxShadow: '0 4px 12px rgba(37, 211, 102, 0.25)'
+              }}
+            >
+              <FaWhatsapp size={16} /> Chat on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Full Width Registered Business & Official Details Box Above Map */}
+      <div className={styles.officialInfoCard}>
+        <div className={styles.officialInfoBox}>
+          <div className={styles.officialInfoHeader}>
+            <div className={styles.officialInfoTitle}>
+              <FaShieldAlt color="#b98e46" /> Registered Office & Official Details
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span style={{ color: '#b98e46', fontSize: '0.82rem', fontWeight: '600' }}>State:</span>
-              <span style={{ color: '#a0aec0', fontSize: '0.82rem' }}>09 – Uttar Pradesh</span>
+            <div className={styles.officialBadge}>
+              ✓ Govt. Registered & GST Compliant
             </div>
-            <div style={{ color: '#22c55e', fontSize: '0.75rem', fontWeight: '500', display: 'flex', alignItems: 'center', gap: '5px', marginTop: '2px' }}>
-              ✓ Registered Taxpayer
+          </div>
+          <div className={styles.officialGrid}>
+            <div className={styles.officialItem}>
+              <div className={styles.officialItemHeader}>
+                <FaMapMarkerAlt color="#b98e46" /> Registered Address
+              </div>
+              <div className={styles.officialItemValue}>
+                Village-Jalpura, Greater Noida, Nearby SD International School, Gautam Budh Nagar, Uttar Pradesh - 201318
+              </div>
+            </div>
+
+            <div className={styles.officialItem}>
+              <div className={styles.officialItemHeader}>
+                <FiPhone color="#b98e46" /> Phone No.
+              </div>
+              <div className={styles.officialItemValue}>
+                <a href="tel:+919540005981" style={{ fontWeight: '600', color: '#fff' }}>+91 9540005981</a>
+                <div style={{ fontSize: '0.78rem', color: '#a0aec0', marginTop: '2px' }}>Call & WhatsApp Consultation</div>
+              </div>
+            </div>
+
+            <div className={styles.officialItem}>
+              <div className={styles.officialItemHeader}>
+                <FiMail color="#b98e46" /> Official Email
+              </div>
+              <div className={styles.officialItemValue}>
+                <a href="mailto:Glossixdesign981@gmail.com" style={{ color: '#fff' }}>Glossixdesign981@gmail.com</a>
+                <div style={{ fontSize: '0.78rem', color: '#a0aec0', marginTop: '2px' }}>Direct Client & Project Inquiries</div>
+              </div>
+            </div>
+
+            <div className={styles.officialItem}>
+              <div className={styles.officialItemHeader}>
+                <FaShieldAlt color="#b98e46" /> GSTIN & State
+              </div>
+              <div className={styles.officialItemValue}>
+                <strong style={{ color: '#fff', letterSpacing: '0.5px' }}>09CCAPA4733J2ZR</strong>
+                <div style={{ fontSize: '0.8rem', color: '#a0aec0', marginTop: '2px' }}>State: 09 – Uttar Pradesh</div>
+              </div>
             </div>
           </div>
         </div>

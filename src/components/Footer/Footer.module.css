@@ -121,3 +121,118 @@
   color: transparent;
   text-shadow: 0px 2px 4px rgba(0,0,0,0.3);
 }
+
+.officialInfoCard {
+  max-width: 1300px;
+  margin: 0 auto 2rem auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.officialInfoBox {
+  background: linear-gradient(135deg, rgba(17, 24, 39, 0.95) 0%, rgba(10, 15, 29, 0.95) 100%);
+  border: 1px solid rgba(185, 142, 70, 0.35);
+  border-radius: 12px;
+  padding: 1.8rem 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.officialInfoHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(185, 142, 70, 0.2);
+  margin-bottom: 1.5rem;
+}
+
+.officialInfoTitle {
+  font-family: 'Cinzel', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.officialBadge {
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  color: #22c55e;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.officialGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.officialItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.officialItemHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #b98e46;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.officialItemValue {
+  color: #e2e8f0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.officialItemValue a {
+  color: #e2e8f0;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.officialItemValue a:hover {
+  color: #b98e46;
+}
+
+@media (max-width: 1024px) {
+  .officialGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .officialInfoCard {
+    padding: 0 1.2rem;
+  }
+  .officialInfoBox {
+    padding: 1.2rem;
+  }
+  .officialGrid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .officialInfoHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
