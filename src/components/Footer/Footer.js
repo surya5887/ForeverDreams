@@ -112,6 +112,7 @@ export default function Footer() {
             Noida <span style={{color:'#b98e46'}}>|</span> Greater Noida <span style={{color:'#b98e46'}}>|</span> Noida Extension <span style={{color:'#b98e46'}}>|</span> Delhi NCR <span style={{color:'#b98e46'}}>|</span> New Delhi <span style={{color:'#b98e46'}}>|</span> Gurugram <span style={{color:'#b98e46'}}>|</span> Ghaziabad <span style={{color:'#b98e46'}}>|</span> Faridabad <span style={{color:'#b98e46'}}>|</span> Meerut <span style={{color:'#b98e46'}}>|</span> Hapur <span style={{color:'#b98e46'}}>|</span> Bulandshahr <span style={{color:'#b98e46'}}>|</span> Aligarh <span style={{color:'#b98e46'}}>|</span> Mathura <span style={{color:'#b98e46'}}>|</span> Agra <span style={{color:'#b98e46'}}>|</span> Muzaffarnagar <span style={{color:'#b98e46'}}>|</span> Saharanpur <span style={{color:'#b98e46'}}>|</span> Roorkee <span style={{color:'#b98e46'}}>|</span> Dehradun <span style={{color:'#b98e46'}}>|</span> Western UP
           </p>
         </div>
+        <p style={{ color: '#b98e46', fontSize: '0.85rem', fontWeight: '500', letterSpacing: '0.5px', marginBottom: '0.5rem' }}>GSTIN: 09CCAPA4733J2ZR | State: 09 – Uttar Pradesh</p>
         <p>&copy; {new Date().getFullYear()} {siteSettings?.siteName || 'Glossix Design'}. All Rights Reserved.</p>
         <div className={styles.footerLegal}>
           <Link href="/privacy">Privacy Policy</Link>
